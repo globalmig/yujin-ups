@@ -58,91 +58,68 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero imageSrc="/image/contact/bg-hero.jpg" imageAlt="문의 배경" eyebrow="COMPANY CONTACT" title="견적서 의뢰하기" breadcrumbs={[{ label: "견적서 의뢰하기" }]} />
+      <PageHero imageSrc="/image/contact/bg-hero.jpg" imageAlt="문의 배경" eyebrow="QUOTE REQUEST" title="견적문의" breadcrumbs={[{ label: "견적문의" }]} />
 
       {/* form section */}
       <section className="py-20 bg-white">
         <div className="max-w-275 mx-auto px-6">
-          <p className="text-sm text-gray-500 text-left mb-2"><span className="text-red-500">*</span> 표시는 필수 입력 항목입니다.</p>
-          <form className="w-full border border-gray-400 text-sm">
+          <p className="text-sm text-muted text-left mb-2"><span className="text-red-500">*</span> 표시는 필수 입력 항목입니다.</p>
+          <form className="w-full text-sm">
+          <div className="w-full border border-line rounded-md overflow-hidden">
             {/* 상호 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 상호 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <input type="text" name="company" value={form.company} onChange={handleChange} className="w-full border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0]" />
+                <input type="text" name="company" value={form.company} onChange={handleChange} className="w-full border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
             {/* 직책/담당자 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 직책/담당자 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center gap-3">
-                <input type="text" name="position" value={form.position} onChange={handleChange} className="flex-1 md:flex-none md:w-45 border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0]" />
-                <input type="text" name="manager" value={form.manager} onChange={handleChange} className="flex-1 md:flex-none md:w-45 border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0]" />
+                <input type="text" name="position" value={form.position} onChange={handleChange} className="flex-1 md:flex-none md:w-45 border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" name="manager" value={form.manager} onChange={handleChange} className="flex-1 md:flex-none md:w-45 border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
             {/* 전화번호 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 전화번호 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="tel1" maxLength={4} value={form.tel1} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="tel2" maxLength={4} value={form.tel2} onChange={handleChange} className="w-20 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="tel3" maxLength={4} value={form.tel3} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-              </div>
-            </div>
-
-            {/* 휴대폰 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">휴대폰</span>
-              <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="mobile1" maxLength={4} value={form.mobile1} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="mobile2" maxLength={4} value={form.mobile2} onChange={handleChange} className="w-20 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="mobile3" maxLength={4} value={form.mobile3} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-              </div>
-            </div>
-
-            {/* 팩스번호 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">팩스번호</span>
-              <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="fax1" maxLength={4} value={form.fax1} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="fax2" maxLength={4} value={form.fax2} onChange={handleChange} className="w-20 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">-</span>
-                <input type="text" name="fax3" maxLength={4} value={form.fax3} onChange={handleChange} className="w-15 border border-gray-400 px-2 py-1 text-center outline-none focus:border-[#1a4fa0]" />
+                <input type="text" name="tel1" maxLength={4} value={form.tel1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="tel2" maxLength={4} value={form.tel2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="tel3" maxLength={4} value={form.tel3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
             {/* 이메일 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 이메일 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="email1" value={form.email1} onChange={handleChange} className="flex-1 md:flex-none md:w-35 border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0]" />
-                <span className="text-gray-400">@</span>
-                <input type="text" name="email2" value={form.email2} onChange={handleChange} className="flex-1 md:flex-none md:w-40 border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0]" />
+                <input type="text" name="email1" value={form.email1} onChange={handleChange} className="flex-1 md:flex-none md:w-35 border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">@</span>
+                <input type="text" name="email2" value={form.email2} onChange={handleChange} className="flex-1 md:flex-none md:w-40 border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
             {/* 제품선택 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">
+            <div className="flex flex-col md:flex-row">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 제품선택 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <select name="product" value={form.product} onChange={handleChange} className="w-full md:w-auto border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] bg-white">
+                <select name="product" value={form.product} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
                   <option value="">제품을 선택하세요.</option>
                   <option value="ups">UPS</option>
                   <option value="avr">AVR</option>
@@ -152,12 +129,42 @@ export default function ContactPage() {
                 </select>
               </div>
             </div>
+          </div>
+
+          <p className="text-sm text-muted leading-relaxed my-6">
+            위 필수 항목만 입력하셔도 문의가 가능합니다. 아래 선택 항목을 추가로 입력해 주시면 더 상세한 견적서를 전달드리겠습니다.
+          </p>
+
+          <div className="w-full border border-line rounded-md overflow-hidden">
+            {/* 휴대폰 */}
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">휴대폰</span>
+              <div className="flex-1 px-4 py-2 flex items-center gap-1">
+                <input type="text" name="mobile1" maxLength={4} value={form.mobile1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="mobile2" maxLength={4} value={form.mobile2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="mobile3" maxLength={4} value={form.mobile3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+              </div>
+            </div>
+
+            {/* 팩스번호 */}
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">팩스번호</span>
+              <div className="flex-1 px-4 py-2 flex items-center gap-1">
+                <input type="text" name="fax1" maxLength={4} value={form.fax1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="fax2" maxLength={4} value={form.fax2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <span className="text-muted">-</span>
+                <input type="text" name="fax3" maxLength={4} value={form.fax3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+              </div>
+            </div>
 
             {/* 입력전압 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">입력전압</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">입력전압</span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <select name="inputVoltage" value={form.inputVoltage} onChange={handleChange} className="w-full md:w-auto border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] bg-white">
+                <select name="inputVoltage" value={form.inputVoltage} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
                   <option value="">입력전압을 선택하세요.</option>
                   <option value="1p110">단상(1φ 110V)</option>
                   <option value="1p220">단상(1φ 220V)</option>
@@ -170,10 +177,10 @@ export default function ContactPage() {
             </div>
 
             {/* 출력전압 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">출력전압</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">출력전압</span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <select name="outputVoltage" value={form.outputVoltage} onChange={handleChange} className="w-full md:w-auto border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] bg-white">
+                <select name="outputVoltage" value={form.outputVoltage} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
                   <option value="">출력전압을 선택하세요.</option>
                   <option value="1p110">단상(1φ 110V)</option>
                   <option value="1p220">단상(1φ 220V)</option>
@@ -186,35 +193,35 @@ export default function ContactPage() {
             </div>
 
             {/* 입력주파수 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">입력주파수</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">입력주파수</span>
               <div className="flex-1 px-4 py-2 flex items-center gap-5">
                 <label className="flex items-center gap-1.5 cursor-pointer">
-                  <input type="radio" name="inputHz" value="50" checked={form.inputHz === "50"} onChange={handleChange} className="accent-[#1a4fa0]" /> 50Hz
+                  <input type="radio" name="inputHz" value="50" checked={form.inputHz === "50"} onChange={handleChange} className="accent-blue" /> 50Hz
                 </label>
                 <label className="flex items-center gap-1.5 cursor-pointer">
-                  <input type="radio" name="inputHz" value="60" checked={form.inputHz === "60"} onChange={handleChange} className="accent-[#1a4fa0]" /> 60Hz
+                  <input type="radio" name="inputHz" value="60" checked={form.inputHz === "60"} onChange={handleChange} className="accent-blue" /> 60Hz
                 </label>
               </div>
             </div>
 
             {/* 출력주파수 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">출력주파수</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">출력주파수</span>
               <div className="flex-1 px-4 py-2 flex items-center gap-5 flex-wrap">
                 {["50Hz", "60Hz", "45~65Hz", "40~999Hz", "기타"].map((v) => (
                   <label key={v} className="flex items-center gap-1.5 cursor-pointer">
-                    <input type="radio" name="outputHz" value={v} checked={form.outputHz === v} onChange={handleChange} className="accent-[#1a4fa0]" /> {v}
+                    <input type="radio" name="outputHz" value={v} checked={form.outputHz === v} onChange={handleChange} className="accent-blue" /> {v}
                   </label>
                 ))}
               </div>
             </div>
 
             {/* 전격용량 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">전격용량</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">전격용량</span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <select name="capacity" value={form.capacity} onChange={handleChange} className="w-full md:w-auto border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] bg-white">
+                <select name="capacity" value={form.capacity} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
                   <option value="">전격용량을 선택하세요.</option>
                   <option value="1kva">1KVA</option>
                   <option value="2kva">2KVA</option>
@@ -240,10 +247,10 @@ export default function ContactPage() {
             </div>
 
             {/* 백업시간 */}
-            <div className="flex flex-col md:flex-row border-b border-gray-400">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-center">백업시간</span>
+            <div className="flex flex-col md:flex-row border-b border-line">
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">백업시간</span>
               <div className="flex-1 px-4 py-2 flex items-center">
-                <select name="backup" value={form.backup} onChange={handleChange} className="w-full md:w-auto border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] bg-white">
+                <select name="backup" value={form.backup} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
                   <option value="">백업시간을 선택하세요.</option>
                   <option value="5">5분</option>
                   <option value="10">10분</option>
@@ -260,21 +267,22 @@ export default function ContactPage() {
 
             {/* 기타내용 */}
             <div className="flex flex-col md:flex-row">
-              <span className="w-full md:w-35 shrink-0 bg-[#f5f7fa] px-4 py-3 font-medium text-gray-700 border-b border-gray-400 md:border-b-0 md:border-r flex items-start pt-3">기타내용</span>
+              <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-start pt-3">기타내용</span>
               <div className="flex-1 px-4 py-2">
-                <textarea name="message" rows={8} value={form.message} onChange={handleChange} className="w-full border border-gray-400 px-2 py-1 outline-none focus:border-[#1a4fa0] resize-none" />
+                <textarea name="message" rows={8} value={form.message} onChange={handleChange} className="w-full border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 resize-none" />
               </div>
             </div>
+          </div>
           </form>
 
           {/* 개인정보취급방침 */}
           <div className="py-10 bg-white w-full">
             <div className="max-w-360 mx-auto">
-              <div className="border border-gray-400">
-                <div className="bg-[#f5f7fa] px-4 py-3 border-b border-gray-400 font-medium text-gray-700 text-sm">
+              <div className="border border-line rounded-md overflow-hidden">
+                <div className="bg-surface px-4 py-3 border-b border-line font-medium text-ink text-sm">
                   개인정보취급방침 <span className="text-red-500">*</span>
                 </div>
-                <div className="h-55 overflow-y-auto px-4 py-4 text-sm text-gray-700 leading-relaxed space-y-4">
+                <div className="h-55 overflow-y-auto px-4 py-4 text-sm text-ink leading-relaxed space-y-4">
                   <div>
                     <p>
                       1. 회원의 개인정보 수집목적 및 이용 당사는 고객님께서 당사에서 물품 및 서비스 상품에 대한 주문 및 접수, 대금 결제를 이용하고 주문 상품 배송 및 회원에게 제공되는 각종 편의
@@ -310,8 +318,8 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              <label className="mt-3 flex items-center gap-2 cursor-pointer text-sm text-gray-700 select-none">
-                <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="w-4 h-4 accent-[#1a4fa0] cursor-pointer" />
+              <label className="mt-3 flex items-center gap-2 cursor-pointer text-sm text-ink select-none">
+                <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="w-4 h-4 accent-blue cursor-pointer" />
                 개인정보취급방침에 동의합니다.
               </label>
             </div>
@@ -322,7 +330,7 @@ export default function ContactPage() {
               type="button"
               onClick={handleSubmit}
               disabled={submitting}
-              className="bg-[#1a4fa0] text-white px-12 py-3 text-sm font-medium transition-colors hover:bg-[#0d3070] disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center min-h-12 bg-blue text-white px-12 rounded text-sm font-bold transition-colors hover:bg-blue-dark disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? "접수 중..." : "문의하기"}
             </button>

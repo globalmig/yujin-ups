@@ -36,7 +36,7 @@ export default function ProductSidebar() {
     <>
       {/* PC: 세로 사이드바 */}
       <aside className="hidden md:block w-50 shrink-0">
-        <ul className="border border-gray-200">
+        <ul className="border border-line">
           {categories.map((category) => {
             const isActive = activeTopLevel?.id === category.id;
             const firstChildId = category.children?.[0]?.id;
@@ -50,10 +50,10 @@ export default function ProductSidebar() {
               <li key={category.id}>
                 <Link
                   href={href}
-                  className={`flex items-center justify-between px-4 py-3 text-base font-semibold transition-colors border-b border-gray-200 ${
+                  className={`flex items-center justify-between px-4 py-3 text-base font-semibold transition-colors border-b border-line ${
                     isActive
-                      ? "bg-[#009fe8] text-white"
-                      : "bg-white text-gray-700 hover:bg-gray-50"
+                      ? "bg-blue text-white"
+                      : "bg-white text-ink hover:bg-surface"
                   }`}
                 >
                   {category.label}
@@ -68,7 +68,7 @@ export default function ProductSidebar() {
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`transition-transform duration-200 ${isActive ? "rotate-180 text-white" : "text-gray-400"}`}
+                      className={`transition-transform duration-200 ${isActive ? "rotate-180 text-white" : "text-muted"}`}
                     >
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
@@ -76,7 +76,7 @@ export default function ProductSidebar() {
                 </Link>
 
                 {isActive && category.children && (
-                  <ul className="bg-[#f0f4fb] border-b border-gray-200">
+                  <ul className="bg-surface border-b border-line">
                     {category.children.map((child) => {
                       const isChildActive = child.href
                         ? pathname === child.href
@@ -85,15 +85,15 @@ export default function ProductSidebar() {
                         <li key={child.id}>
                           <Link
                             href={child.href ?? `/products/${child.id}`}
-                            className={`flex items-center gap-2 px-6 py-2.5 text-sm border-b border-gray-200 last:border-b-0 transition-colors ${
+                            className={`flex items-center gap-2 px-6 py-2.5 text-sm border-b border-line last:border-b-0 transition-colors ${
                               isChildActive
-                                ? "text-[#009fe8] font-semibold"
-                                : "text-gray-500 hover:text-[#009fe8]"
+                                ? "text-blue font-semibold"
+                                : "text-muted hover:text-blue"
                             }`}
                           >
                             <span
                               className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                                isChildActive ? "bg-[#009fe8]" : "bg-gray-400"
+                                isChildActive ? "bg-blue" : "bg-muted"
                               }`}
                             />
                             {child.label}
@@ -107,18 +107,18 @@ export default function ProductSidebar() {
             );
           })}
         </ul>
-        <div className="border border-t-0 border-gray-200 px-4 py-4 bg-white flex flex-col gap-2.5">
+        <div className="border border-t-0 border-line px-4 py-4 bg-white flex flex-col gap-2.5">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-gray-500 w-10 shrink-0">Tel</span>
-            <span className="text-sm text-gray-800">02-894-8057</span>
+            <span className="text-xs font-semibold text-muted w-10 shrink-0">Tel</span>
+            <span className="text-sm text-ink">02-894-8057</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-gray-500 w-10 shrink-0">Fax</span>
-            <span className="text-sm text-gray-800">02-894-8058</span>
+            <span className="text-xs font-semibold text-muted w-10 shrink-0">Fax</span>
+            <span className="text-sm text-ink">02-894-8058</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-gray-500 w-10 shrink-0">E-mail</span>
-            <a href="mailto:ups8057@naver.com" className="text-xs text-[#009fe8] hover:underline break-all">ups8057@naver.com</a>
+            <span className="text-xs font-semibold text-muted w-10 shrink-0">E-mail</span>
+            <a href="mailto:ups8057@naver.com" className="text-xs text-blue hover:underline break-all">ups8057@naver.com</a>
           </div>
         </div>
       </aside>
@@ -127,7 +127,7 @@ export default function ProductSidebar() {
       <div className="md:hidden w-full relative">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="w-full flex items-center justify-between px-5 py-4 bg-[#009fe8] text-white text-base font-semibold"
+          className="w-full flex items-center justify-between px-5 py-4 bg-blue text-white text-base font-semibold"
         >
           <span>{activeFlat?.label}</span>
           <svg
@@ -147,7 +147,7 @@ export default function ProductSidebar() {
         </button>
 
         {dropdownOpen && (
-          <ul className="absolute top-full left-0 right-0 z-20 border border-t-0 border-gray-200 bg-white shadow-lg">
+          <ul className="absolute top-full left-0 right-0 z-20 border border-t-0 border-line bg-white shadow-lg">
             {categories.map((category) => {
               if (category.children) {
                 return (
@@ -158,14 +158,14 @@ export default function ProductSidebar() {
                           router.push(`/products/${category.id}`);
                           setDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-5 py-2 text-xs font-semibold uppercase tracking-wide border-b border-gray-100 bg-gray-50 transition-colors ${
-                          activeCategoryId === category.id ? "text-[#009fe8]" : "text-gray-400 hover:text-[#009fe8]"
+                        className={`w-full text-left px-5 py-2 text-xs font-semibold uppercase tracking-wide border-b border-line bg-surface transition-colors ${
+                          activeCategoryId === category.id ? "text-blue" : "text-muted hover:text-blue"
                         }`}
                       >
                         {category.label}
                       </button>
                     ) : (
-                      <div className="px-5 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide border-b border-gray-100 bg-gray-50">
+                      <div className="px-5 py-2 text-xs font-semibold text-muted uppercase tracking-wide border-b border-line bg-surface">
                         {category.label}
                       </div>
                     )}
@@ -180,10 +180,10 @@ export default function ProductSidebar() {
                             router.push(child.href ?? `/products/${child.id}`);
                             setDropdownOpen(false);
                           }}
-                          className={`w-full text-left pl-8 pr-5 py-3 text-sm border-b border-gray-100 last:border-b-0 transition-colors ${
+                          className={`w-full text-left pl-8 pr-5 py-3 text-sm border-b border-line last:border-b-0 transition-colors ${
                             isActive
-                              ? "bg-gray-50 text-[#009fe8] font-semibold"
-                              : "text-gray-600 hover:bg-gray-50"
+                              ? "bg-surface text-blue font-semibold"
+                              : "text-muted hover:bg-surface"
                           }`}
                         >
                           · {child.label}
@@ -202,10 +202,10 @@ export default function ProductSidebar() {
                       router.push(`/products/${category.id}`);
                       setDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-5 py-4 text-base font-medium border-b border-gray-100 last:border-b-0 transition-colors ${
+                    className={`w-full text-left px-5 py-4 text-base font-medium border-b border-line last:border-b-0 transition-colors ${
                       isActive
-                        ? "bg-gray-50 text-[#009fe8] font-semibold"
-                        : "text-gray-700 hover:bg-gray-50"
+                        ? "bg-surface text-blue font-semibold"
+                        : "text-ink hover:bg-surface"
                     }`}
                   >
                     {category.label}

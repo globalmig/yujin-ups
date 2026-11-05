@@ -1,15 +1,19 @@
 import HeroSection from "@/components/HeroSection";
-import ProductsSection from "@/components/ProductsSection";
-import PromiseSection from "@/components/PromiseSection";
-import ContactSection from "@/components/ContactSection";
+import StatsBar from "@/components/StatsBar";
+import WhyUsSection from "@/components/WhyUsSection";
+import SolutionsSection from "@/components/SolutionsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import StrengthContactSection from "@/components/StrengthContactSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ProductsSection />
-      <PromiseSection />
-      <ContactSection />
+      <StatsBar />
+      <WhyUsSection />
+      <SolutionsSection />
+      <ProjectsSection />
+      <StrengthContactSection />
     </>
   );
 }

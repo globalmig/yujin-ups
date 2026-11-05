@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import PageHero from "@/components/PageHero";
-import ProductSidebar from "../_components/ProductSidebar";
-import { categories, findCategory, getParentCategory, productImageMap, getImageSrc } from "@/lib/products";
+import ProductDetailHero from "@/components/ProductDetailHero";
+import ProductFeatureBar from "@/components/ProductFeatureBar";
+import ProductWhyUsSection from "@/components/ProductWhyUsSection";
+import ProductFieldsSection from "@/components/ProductFieldsSection";
+import ProductLineupSection from "@/components/ProductLineupSection";
+import { categories, findCategory } from "@/lib/products";
 
 interface Props {
   params: Promise<{ categoryId: string }>;
@@ -49,66 +50,13 @@ export default async function CategoryPage({ params }: Props) {
   const category = findCategory(categoryId);
   if (!category) notFound();
 
-  const parentCategory = getParentCategory(categoryId);
-  const imageData = productImageMap[categoryId];
-
   return (
     <>
-      <PageHero
-        imageSrc="/image/products/bg-hero.jpg"
-        imageAlt="제품 배경"
-        eyebrow="PRODUCTS"
-        title="제품 소개"
-        breadcrumbs={[
-          { label: "제품소개", href: "/products" },
-          ...(parentCategory ? [{ label: parentCategory.label, href: `/products/${parentCategory.children![0].id}` }] : []),
-          { label: category.label },
-        ]}
-      />
-
-      {/* Content */}
-      <section className="max-w-6xl mx-auto px-4 py-8 md:py-12 flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-        <ProductSidebar />
-
-        <div className="flex-1">
-          {imageData ? (
-            <div className="flex flex-col">
-              {imageData.images.map((filename, idx) => (
-                <div key={filename}>
-                  <Image
-                    src={getImageSrc(imageData.folder, filename)}
-                    alt={`${category.label} ${filename.replace(/^\d+_/, "").replace(".png", "")}`}
-                    width={1100}
-                    height={800}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
-                    style={{ width: "100%", height: "auto" }}
-                    className="block"
-                    priority={idx === 0}
-                  />
-                  {categoryId === "three-three-ups" && filename === "7_display2.png" && (
-                    <div className="flex justify-end py-3 bg-[#ECF1F4] px-6">
-                      <Link
-                        href="/products/three-three-ups/display"
-                        className="inline-flex items-center text w-full rounded-4xl justify-center border border-[#3d7bd4] text-[#3d7bd4] px-5 py-4 text-sm font-medium hover:bg-[#3d7bd4] hover:text-white transition-colors bg-white "
-                      >
-                        자세히 보기 →
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              ))}
-              <Link href="/contact" className="w-full py-5 bg-[#3d7bd4] text-white text-center font-semibold text-base hover:bg-[#2f6bbf] transition-colors block">
-                견적서 의뢰하기
-              </Link>
-            </div>
-          ) : (
-            <div className="min-h-125 border border-gray-200 flex flex-col items-center justify-center bg-white p-10">
-              <p className="text-gray-400 text-sm mb-4">{category.label}</p>
-              <p className="text-gray-400 text-sm">준비 중입니다.</p>
-            </div>
-          )}
-        </div>
-      </section>
+      <ProductDetailHero />
+      <ProductFeatureBar />
+      <ProductWhyUsSection />
+      <ProductFieldsSection />
+      <ProductLineupSection />
     </>
   );
 }

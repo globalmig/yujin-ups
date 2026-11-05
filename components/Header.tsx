@@ -9,14 +9,18 @@ import { categories } from "@/lib/products";
 const navItems = [
   { name: "회사소개", href: "/company" },
   { name: "제품소개", href: "/products" },
-  { name: "견적서 의뢰하기", href: "/contact" },
+  { name: "납품실적", href: "/projects" },
+  { name: "유지보수", href: "/maintenance" },
+  { name: "기술정보", href: "/tech-info" },
+  { name: "고객지원", href: "/support" },
 ];
+
+const ctaItem = { name: "견적문의", href: "/contact" };
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const pathname = usePathname();
-  const productsHoverRef = useRef(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -41,16 +45,16 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-        <div className="max-w-300 mx-auto px-6 flex items-center justify-between py-4">
+        <div className="max-w-360 mx-auto px-6 flex items-center justify-between py-4">
           {/* 로고 */}
-          <Link className="flex items-center" href="/">
-            <div className="relative w-48 h-12">
+          <Link className="flex items-center shrink-0" href="/">
+            <div className="relative w-40 h-11 lg:w-48 lg:h-12">
               <Image src="/image/common/logo.png" alt="유진전원시스템 로고" fill sizes="192px" priority className="object-contain object-left" />
             </div>
           </Link>
 
           {/* PC 네비게이션 */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => {
               if (item.href === "/products") {
                 return (
@@ -62,7 +66,7 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      className={`text-xl font-medium transition-colors hover:text-[#4d8ef0] ${pathname.startsWith(item.href) ? "text-[#1a4fa0] font-semibold" : "text-[#333]"}`}
+                      className={`text-[15px] font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
                     >
                       {item.name}
                     </Link>
@@ -71,13 +75,13 @@ export default function Header() {
                     <div
                       className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${productsDropdownOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}
                     >
-                      <ul className="bg-white shadow-lg rounded-lg overflow-hidden min-w-max border border-gray-100">
+                      <ul className="bg-white shadow-lg rounded-lg overflow-hidden min-w-max border border-line">
                         {categories.map((cat) => (
                           <li key={cat.id}>
                             <Link
                               href={`/products/${cat.id}`}
                               onClick={() => setProductsDropdownOpen(false)}
-                              className={`block px-6 py-3 text-base transition-colors hover:bg-[#eef3fb] hover:text-[#1a4fa0] ${pathname === `/products/${cat.id}` ? "bg-[#eef3fb] text-[#1a4fa0] font-semibold" : "text-[#333]"}`}
+                              className={`block px-6 py-3 text-base transition-colors hover:bg-surface hover:text-blue ${pathname === `/products/${cat.id}` ? "bg-surface text-blue font-semibold" : "text-ink"}`}
                             >
                               {cat.label}
                             </Link>
@@ -92,38 +96,45 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-xl font-medium transition-colors hover:text-[#4d8ef0] ${pathname.startsWith(item.href) ? "text-[#1a4fa0] font-semibold" : "text-[#333]"}`}
+                  className={`text-[15px] font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
                 >
                   {item.name}
                 </Link>
               );
             })}
+
+            <Link
+              href={ctaItem.href}
+              className="shrink-0 inline-flex items-center justify-center bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors hover:bg-blue-dark"
+            >
+              {ctaItem.name}
+            </Link>
           </nav>
 
           {/* 모바일 햄버거 버튼 */}
-          <button className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" onClick={() => setMenuOpen(!menuOpen)} aria-label="메뉴 열기">
-            <span className={`block w-6 h-0.5 bg-[#1a4fa0] transition-all duration-300 origin-center ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-[#1a4fa0] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-[#1a4fa0] transition-all duration-300 origin-center ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          <button className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" onClick={() => setMenuOpen(!menuOpen)} aria-label="메뉴 열기">
+            <span className={`block w-6 h-0.5 bg-blue transition-all duration-300 origin-center ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-blue transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-blue transition-all duration-300 origin-center ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
           </button>
         </div>
       </header>
 
       {/* 모바일 풀스크린 메뉴 오버레이 */}
-      <div className={`fixed inset-0 z-40 bg-white flex flex-col md:hidden transition-all duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+      <div className={`fixed inset-0 z-40 bg-white flex flex-col lg:hidden transition-all duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
         {/* 상단 여백 (헤더 높이만큼) */}
         <div className="h-17 shrink-0" />
 
         {/* 메뉴 링크 */}
-        <nav className="flex flex-col flex-1 overflow-y-auto justify-center items-center gap-2 px-8">
+        <nav className="flex flex-col flex-1 overflow-y-auto justify-center items-center gap-1 px-8 py-6">
           {navItems.map((item, i) => {
             if (item.href === "/products") {
               return (
-                <div key={item.href} className="w-full border-b border-gray-100">
+                <div key={item.href} className="w-full border-b border-line">
                   <button
                     onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                    className={`w-full text-center py-5 text-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} ${pathname.startsWith(item.href) ? "text-[#1a4fa0] font-bold" : "text-[#333]"}`}
-                    style={{ transitionDelay: menuOpen ? `${i * 60}ms` : "0ms" }}
+                    className={`w-full text-center py-4 text-lg font-medium flex items-center justify-center gap-2 transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} ${pathname.startsWith(item.href) ? "text-blue font-bold" : "text-ink"}`}
+                    style={{ transitionDelay: menuOpen ? `${i * 50}ms` : "0ms" }}
                   >
                     {item.name}
                     <span className={`text-sm transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`}>▼</span>
@@ -134,7 +145,7 @@ export default function Header() {
                         key={cat.id}
                         href={`/products/${cat.id}`}
                         onClick={() => { setMenuOpen(false); setMobileProductsOpen(false); }}
-                        className={`block text-center py-3 text-base transition-colors hover:text-[#1a4fa0] ${pathname === `/products/${cat.id}` ? "text-[#1a4fa0] font-semibold" : "text-[#555]"}`}
+                        className={`block text-center py-3 text-base transition-colors hover:text-blue ${pathname === `/products/${cat.id}` ? "text-blue font-semibold" : "text-muted"}`}
                       >
                         {cat.label}
                       </Link>
@@ -149,10 +160,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`w-full text-center py-5 text-xl font-medium border-b border-gray-100 transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} ${
-                  pathname.startsWith(item.href) ? "text-[#1a4fa0] font-bold" : "text-[#333]"
+                className={`w-full text-center py-4 text-lg font-medium border-b border-line transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} ${
+                  pathname.startsWith(item.href) ? "text-blue font-bold" : "text-ink"
                 }`}
-                style={{ transitionDelay: menuOpen ? `${i * 60}ms` : "0ms" }}
+                style={{ transitionDelay: menuOpen ? `${i * 50}ms` : "0ms" }}
               >
                 {item.name}
               </Link>
@@ -160,14 +171,14 @@ export default function Header() {
           })}
 
           <Link
-            href="/contact"
+            href={ctaItem.href}
             onClick={() => setMenuOpen(false)}
-            className={`mt-8 w-full py-4 bg-[#1a4fa0] text-white text-center text-base font-semibold rounded transition-all duration-300 hover:bg-[#0d3070] ${
+            className={`mt-6 w-full py-4 bg-blue text-white text-center text-base font-semibold rounded transition-all duration-300 hover:bg-blue-dark ${
               menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
-            style={{ transitionDelay: menuOpen ? `${navItems.length * 60}ms` : "0ms" }}
+            style={{ transitionDelay: menuOpen ? `${navItems.length * 50}ms` : "0ms" }}
           >
-            견적서 의뢰하기
+            {ctaItem.name}
           </Link>
         </nav>
       </div>

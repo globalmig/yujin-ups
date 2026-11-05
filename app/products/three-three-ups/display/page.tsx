@@ -50,9 +50,9 @@ export default function ThreeThreeUpsDisplayPage() {
             />
             <Link
               href="/contact"
-              className="w-full py-5 bg-[#3d7bd4] text-white text-center font-semibold text-base hover:bg-[#2f6bbf] transition-colors block"
+              className="w-full py-5 bg-blue text-white text-center font-semibold text-base hover:bg-blue-dark transition-colors block"
             >
-              견적서 의뢰하기
+              견적문의
             </Link>
           </div>
         </div>
