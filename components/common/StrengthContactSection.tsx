@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 
 const strengths = [
   "30년 이상 UPS 제조 노하우",
@@ -15,11 +15,12 @@ export default function StrengthContactSection() {
       {/* 강점 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 bg-navy text-white">
         <div className="px-6 py-10 md:px-10 md:py-12 flex flex-col justify-center">
-          <h2 className="text-xl md:text-2xl font-bold mb-5">유진전원시스템의 강점</h2>
+          <p className="text-xs font-bold tracking-[0.2em] text-white/70 mb-2">OUR STRENGTHS</p>
+          <h2 className="text-xl md:text-[40px] font-bold mb-5">유진전원시스템의 강점</h2>
           <ul className="flex flex-col gap-2.5 text-sm">
             {strengths.map((s) => (
               <li key={s} className="flex items-center gap-2.5">
-                <span className="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center text-[9px] shrink-0">✓</span>
+                <span className="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center text-xs shrink-0">✓</span>
                 {s}
               </li>
             ))}
@@ -34,8 +35,8 @@ export default function StrengthContactSection() {
       {/* 문의 */}
       <div id="contact" className="relative overflow-hidden bg-linear-to-br from-blue to-blue-dark text-white scroll-mt-20">
         <div className="relative z-10 px-6 py-10 md:px-14 md:py-12 max-w-lg">
-          <p className="text-[10px] font-bold tracking-[0.2em] text-white/70 mb-2">YOUR POWER, OUR RESPONSIBILITY</p>
-          <h2 className="text-xl md:text-2xl font-bold mb-2">UPS 견적이 필요하신가요?</h2>
+          <p className="text-xs font-bold tracking-[0.2em] text-white/70 mb-2">YOUR POWER, OUR RESPONSIBILITY</p>
+          <h2 className="text-xl md:text-[40px] font-bold mb-2">UPS 견적이 필요하신가요?</h2>
           <p className="text-sm text-white/85 leading-relaxed mb-4">
             용량을 모르셔도, 제품을 모르셔도 괜찮습니다.
             <br />

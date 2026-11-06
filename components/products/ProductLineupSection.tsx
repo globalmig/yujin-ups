@@ -1,37 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import Button from "@/components/Button";
-import { getImageSrc } from "@/lib/products";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 
 const lineup = [
   {
     title: "SPT 시리즈",
     range: "1 ~ 30kVA",
     desc: "온라인 방식, 범용형 UPS",
-    image: getImageSrc("SPT-301K_single-ups", "1_product-profile2.png"),
+    image: "/image/products/spt-301k.png",
     href: "/products/single-ups",
   },
   {
     title: "3상 온라인 UPS",
     range: "10 ~ 600kVA",
     desc: "데이터센터, 대형 설비용",
-    image: getImageSrc("SPT-3300_three-three-ups", "1_product-profile2.png"),
+    image: "/image/products/spt-3300.png",
     href: "/products/three-three-ups",
   },
   {
     title: "모듈형 UPS",
     range: "20 ~ 600kVA",
     desc: "확장성, 이중화 지원",
-    image: getImageSrc("SPT-100AK_three-single-ups", "1_product-profile2.png"),
+    image: "/image/products/spt-3000.png",
     href: "/products/three-single-ups",
   },
   {
     title: "산업용 / 특수 UPS",
     range: "맞춤형 설계",
     desc: "특수 환경 및 산업용",
-    image: getImageSrc("NFS-2000_frequency", "1_product-profile.png"),
+    image: "/image/products/NFS-2000.png",
     href: "/products/frequency",
   },
 ];
@@ -40,7 +39,7 @@ export default function ProductLineupSection() {
   return (
     <section className="py-16 md:py-24 bg-surface">
       <Container>
-        <SectionTitle title="제품 라인업" description="용량과 요구사항에 맞는 최적의 UPS 솔루션을 제공합니다." />
+        <SectionTitle eyebrow="PRODUCT LINEUP" title="제품 라인업" description="용량과 요구사항에 맞는 최적의 UPS 솔루션을 제공합니다." />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {lineup.map((item) => (
             <Link

@@ -1,4 +1,5 @@
-import Container from "@/components/Container";
+import Container from "@/components/layout/Container";
+import { productContentMap } from "@/data/products/product-content";
 
 function ShieldIcon() {
   return (
@@ -35,31 +36,31 @@ function ClockIcon() {
   );
 }
 
-const items = [
-  { icon: ShieldIcon, title: "무정전 전원공급", desc: "정전, 순간정전, 전압 변동 발생 시 안정적인 전원 공급" },
-  { icon: ActivityIcon, title: "전력 품질 개선", desc: "전압 안정화, 주파수 안정화로 장비 수명과 성능 최적화" },
-  { icon: ServerIcon, title: "데이터 & 설비 보호", desc: "데이터 손실, 서버 다운, 설비 손상 등 리스크 최소화" },
-  { icon: ClockIcon, title: "24시간 안심 운영", desc: "365일 24시간 모니터링과 신속한 서비스 지원" },
-];
+const icons = { shield: ShieldIcon, activity: ActivityIcon, server: ServerIcon, clock: ClockIcon } as const;
 
-export default function ProductFeatureBar() {
+export default function ProductFeatureBar({ categoryId }: { categoryId: string }) {
+  const items = productContentMap[categoryId].featureBar;
+
   return (
-    <section className="bg-navy text-white">
+    <section className="bg-navy-dark text-white">
       <Container className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 py-10 md:py-12">
-        {items.map(({ icon: Icon, title, desc }, i) => (
-          <div
-            key={title}
-            className={`flex items-start gap-4 px-2 ${i < items.length - 1 ? "lg:border-r lg:border-white/15" : ""}`}
-          >
-            <span className="text-white shrink-0">
-              <Icon />
-            </span>
-            <div>
-              <h3 className="text-sm md:text-base font-bold mb-1.5">{title}</h3>
-              <p className="text-xs text-white/65 leading-relaxed">{desc}</p>
+        {items.map(({ icon, title, desc }, i) => {
+          const Icon = icons[icon];
+          return (
+            <div
+              key={title}
+              className={`flex items-start gap-4 px-2 ${i < items.length - 1 ? "lg:border-r lg:border-white/15" : ""}`}
+            >
+              <span className="text-white shrink-0">
+                <Icon />
+              </span>
+              <div>
+                <h3 className="text-sm md:text-base font-bold mb-1.5">{title}</h3>
+                <p className="text-xs text-white/65 leading-relaxed">{desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Container>
     </section>
   );

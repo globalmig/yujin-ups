@@ -1,6 +1,6 @@
 # 유진전원시스템 디자인 시스템
 
-현재 코드(`app/`, `components/`, `app/globals.css`)와 리뉴얼 시안(`docs/yujin-main.html`)을 기준으로 정리한 디자인 시스템입니다. 시안의 루트 팔레트(`--navy --blue --ink --muted --line --surface`)가 기준이며, 코드에만 존재하고 시안에는 없는 색(`--navy-dark`, `--blue-light`)과 `app/contact`·`app/company`·`ProductSidebar.tsx`의 하드코딩 색(`#1a4fa0`, `#009fe8` 등)은 **드리프트(이탈)**로 간주해 신규 작업에서 제외합니다.
+현재 코드(`app/`, `components/`, `app/globals.css`)와 리뉴얼 시안(`docs/yujin-main.html`)을 기준으로 정리한 디자인 시스템입니다. 시안의 루트 팔레트(`--navy --blue --ink --muted --line --surface`)가 기준이며, `--navy-dark(#091a2d)`는 제품 상세 페이지의 특정 다크 섹션 전용으로 신규 추가되었습니다(2번 토큰 표 참고). 그 외 코드에만 존재하고 시안에는 없는 색(`--blue-light`)과 `app/contact`·`app/company`·`ProductSidebar.tsx`의 하드코딩 색(`#1a4fa0`, `#009fe8` 등)은 **드리프트(이탈)**로 간주해 신규 작업에서 제외합니다.
 
 ## 1. 디자인 방향
 
@@ -12,11 +12,12 @@
 
 ## 2. 디자인 토큰
 
-색상은 시안(`docs/yujin-main.html` `:root`)과 동일한 **6개 핵심 토큰**만 사용합니다. 그 외 색은 추가하지 않습니다.
+색상은 시안(`docs/yujin-main.html` `:root`)과 동일한 **6개 핵심 토큰** + 제품 상세 전용 다크 배경 토큰 1개를 사용합니다. 그 외 색은 추가하지 않습니다.
 
 | 토큰 | 값 | 클래스 | 용도 |
 |---|---|---|---|
 | `--navy` | `#082d62` | `text-navy` `bg-navy` | 헤딩, 다크 배경 |
+| `--navy-dark` | `#091a2d` | `bg-navy-dark` | 가장 어두운 네이비. 제품 상세 페이지의 특징 바(무정전 전원 공급~24시간 안심운영, `ProductFeatureBar`)와 "UPS가 필수인 분야" 섹션(`ProductFieldsSection`) 배경 전용 |
 | `--blue` (Primary) | `#104b9d` | `bg-blue` `text-blue` | 버튼, 링크, 강조 숫자 |
 | `--ink` (Text) | `#171b22` | `text-ink` | 본문 텍스트 |
 | `--muted` (보조 텍스트) | `#626a75` | `text-muted` | 설명/캡션 |
@@ -24,7 +25,7 @@
 | `--surface` (보조 배경) | `#f5f7fa` | `bg-surface` | 섹션 교차 배경 |
 
 - **Hover 전용 파생색**: 블루 계열 hover는 `#073675`(blue-dark) 하나만 사용(시안의 버튼/CTA hover와 동일). 별도 토큰 변수로 두지 않고 `hover:` 유틸에만 적용.
-- **다크 섹션 배경**: 시안은 단일 "navy-dark" 토큰 대신 섹션마다 그라디언트(`#062a59→#0c3a78`, `#082c5d`, `#082e68` 등)를 직접 지정합니다. 코드의 `--navy-dark(#051b3d)`는 시안에 없는 색이므로 **신규 작업에서는 제거**하고, 다크 섹션은 `--navy` 또는 시안과 동일한 그라디언트를 그대로 사용합니다.
+- **다크 섹션 배경**: 기본 다크 섹션은 `--navy`를 사용합니다. `--navy-dark(#091a2d)`는 범용 다크 배경이 아니라 위 표에 명시된 두 섹션(제품 상세 특징 바, UPS 필수 분야)에만 한정해서 사용하고, 다른 다크 섹션에 임의로 확장하지 않습니다.
 - **제거 대상(드리프트)**: `--blue-light(#4d8ef0)`는 시안에 없는 색 — 사용 중인 곳(ProductDetailHero, ProductFeatureBar)은 리뉴얼 시 `--blue` 또는 흰색 텍스트로 대체. `#1a4fa0`/`#009fe8`/`#3d7bd4`/Tailwind 기본 `gray-*`(contact 폼, company, ProductSidebar)도 전부 위 6개 토큰으로 교체 대상.
 - **흰색 알파 단계**: 다크 배경 위 계층 구분은 `white/10~85` 알파값 단계로만 처리(별도 색 추가 금지).
 - **폰트**: Noto Sans KR, 굵기 400/500/700 중심(300은 거의 미사용). `word-break: keep-all` 전역 유지.

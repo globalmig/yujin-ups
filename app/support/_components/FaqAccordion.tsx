@@ -44,7 +44,7 @@ export default function FaqAccordion() {
             </button>
             <div className={`grid transition-all duration-200 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
               <div className="overflow-hidden">
-                <p className="px-5 pb-4 text-[13px] md:text-sm text-muted leading-relaxed flex gap-3">
+                <p className="px-5 pb-4 text-sm text-muted leading-relaxed flex gap-3">
                   <span className="text-blue font-bold shrink-0">A</span>
                   {item.a}
                 </p>

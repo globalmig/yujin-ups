@@ -93,3 +93,14 @@ export const productImageMap: Record<string, ImageEntry> = {
 };
 
 export const getImageSrc = (folder: string, filename: string) => `/image/products/${folder}/${filename}`;
+
+type DisplayImageEntry = { folder: string; filename: string; alt: string };
+
+// categoryId별 "디스플레이 상세보기" 하위 페이지(예: /products/three-three-ups/display)에서 사용하는 이미지
+export const productDisplayImageMap: Record<string, DisplayImageEntry> = {
+  "three-three-ups": {
+    folder: "SPT-3300_three-three-ups",
+    filename: "9_display_detail.png",
+    alt: "삼상 / 삼상 UPS 디스플레이 상세",
+  },
+};

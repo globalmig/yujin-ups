@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import Button from "@/components/Button";
+import Container from "@/components/layout/Container";
+import Button from "@/components/ui/Button";
 
 function TrophyIcon() {
   return (
@@ -50,7 +50,8 @@ export default function ProductWhyUsSection() {
     <section className="py-16 md:py-24 bg-white">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-navy leading-snug mb-4">
+          <p className="text-xs text-blue font-bold tracking-widest uppercase mb-3">WHY CHOOSE US</p>
+          <h2 className="text-2xl md:text-[40px] font-bold text-navy leading-snug mb-4">
             왜 <span className="text-blue">유진전원시스템</span>의
             <br />
             UPS를 선택해야 할까요?

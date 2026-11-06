@@ -66,14 +66,14 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      className={`text-[15px] font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
+                      className={`text-base lg:text-lg font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
                     >
                       {item.name}
                     </Link>
 
                     {/* 드롭다운 */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${productsDropdownOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}
+                      className={`absolute top-full left-0 pt-3 transition-all duration-200 ${productsDropdownOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}
                     >
                       <ul className="bg-white shadow-lg rounded-lg overflow-hidden min-w-max border border-line">
                         {categories.map((cat) => (
@@ -96,7 +96,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-[15px] font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
+                  className={`text-base lg:text-lg font-medium transition-colors hover:text-blue whitespace-nowrap ${pathname.startsWith(item.href) ? "text-blue font-semibold" : "text-ink"}`}
                 >
                   {item.name}
                 </Link>
@@ -126,7 +126,7 @@ export default function Header() {
         <div className="h-17 shrink-0" />
 
         {/* 메뉴 링크 */}
-        <nav className="flex flex-col flex-1 overflow-y-auto justify-center items-center gap-1 px-8 py-6">
+        <nav className="flex flex-col flex-1 overflow-y-auto items-center gap-1 px-8 pt-8 pb-6">
           {navItems.map((item, i) => {
             if (item.href === "/products") {
               return (

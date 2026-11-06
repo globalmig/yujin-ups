@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/lib/projects";
 
 export default function ProjectsSection() {
@@ -14,7 +14,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-16 md:py-24 bg-white scroll-mt-20">
       <Container>
-        <SectionTitle title="주요 납품 실적" description="유진전원시스템의 UPS는 다양한 분야에서 안정적으로 운용되고 있습니다." />
+        <SectionTitle eyebrow="DELIVERY RECORD" title="주요 납품 실적" description="유진전원시스템의 UPS는 다양한 분야에서 안정적으로 운용되고 있습니다." />
         <div className="relative px-7 md:px-8">
           <button
             onClick={() => rotate(-1)}

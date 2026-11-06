@@ -1,9 +1,9 @@
-import HeroSection from "@/components/HeroSection";
-import StatsBar from "@/components/StatsBar";
-import WhyUsSection from "@/components/WhyUsSection";
-import SolutionsSection from "@/components/SolutionsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import StrengthContactSection from "@/components/StrengthContactSection";
+import HeroSection from "@/components/home/HeroSection";
+import StatsBar from "@/components/common/StatsBar";
+import WhyUsSection from "@/components/home/WhyUsSection";
+import SolutionsSection from "@/components/home/SolutionsSection";
+import ProjectsSection from "@/components/home/ProjectsSection";
+import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export default function Home() {
   return (

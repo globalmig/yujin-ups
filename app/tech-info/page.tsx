@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import Button from "@/components/Button";
-import ContactSection from "@/components/ContactSection";
+import PageHero from "@/components/layout/PageHero";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 import { solutions } from "@/lib/solutions";
+import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
   title: "기술정보",
@@ -32,13 +32,14 @@ export default function TechInfoPage() {
         imageAlt="유진전원시스템 UPS 제품"
         eyebrow="TECHNICAL INFORMATION"
         title="기술정보"
-        breadcrumbs={[{ label: "기술정보" }]}
+        description="1KVA부터 200KVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다."
       />
 
       {/* 기술 개요 */}
       <section className="py-16 md:py-24 bg-white">
         <Container>
           <SectionTitle
+            eyebrow="UPS TECHNOLOGY"
             title="안정적인 전원 공급을 위한 UPS 기술력"
             description="1996년부터 축적해 온 제조 기술력과 현장 경험으로 완성한 유진전원시스템의 UPS입니다."
           />
@@ -50,7 +51,7 @@ export default function TechInfoPage() {
             {protections.map((p) => (
               <div key={p.title} className="bg-surface rounded-md p-5 md:p-6 text-center">
                 <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{p.title}</h3>
-                <p className="text-[11px] md:text-xs text-muted leading-relaxed">{p.desc}</p>
+                <p className="text-xs text-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -78,7 +79,8 @@ export default function TechInfoPage() {
       {/* 제품별 상세 사양 CTA */}
       <section className="py-16 md:py-20 bg-white">
         <Container className="text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-3">제품별 상세 사양이 궁금하신가요?</h2>
+          <p className="text-xs text-blue tracking-widest uppercase mb-3">PRODUCT SPECIFICATIONS</p>
+          <h2 className="text-xl md:text-[40px] font-bold text-navy mb-3">제품별 상세 사양이 궁금하신가요?</h2>
           <p className="text-sm md:text-base text-muted mb-8">제품소개 페이지에서 모델별 상세 기술 사양을 확인하실 수 있습니다.</p>
           <Button href="/products" variant="primary">
             제품소개 바로가기
@@ -86,7 +88,7 @@ export default function TechInfoPage() {
         </Container>
       </section>
 
-      <ContactSection />
+      <StrengthContactSection />
     </>
   );
 }

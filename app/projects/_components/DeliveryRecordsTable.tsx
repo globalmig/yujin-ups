@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/ui/Pagination";
 import { deliveryRecords, type DeliveryField } from "@/data/deliveries/delivery-records";
 
 const fields: DeliveryField[] = ["교육", "산업·기업", "공공·연구", "의료"];
@@ -51,7 +51,7 @@ export default function DeliveryRecordsTable() {
       </div>
 
       <div className="overflow-x-auto rounded-md border border-line bg-white">
-        <table className="w-full text-left border-collapse min-w-[560px]">
+        <table className="w-full text-left border-collapse min-w-140">
           <thead>
             <tr className="bg-surface border-b border-line">
               <th className="px-4 md:px-5 py-3 text-xs font-semibold text-muted uppercase tracking-wide">납품처</th>

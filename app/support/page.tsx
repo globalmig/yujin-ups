@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import Button from "@/components/Button";
+import PageHero from "@/components/layout/PageHero";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 import FaqAccordion from "./_components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -79,20 +79,20 @@ export default function SupportPage() {
         imageAlt="고객지원 배경"
         eyebrow="CUSTOMER SUPPORT"
         title="고객지원"
-        breadcrumbs={[{ label: "고객지원" }]}
+        description="연락처 안내와 자주 묻는 질문 등 유진전원시스템 고객지원 정보를 확인하세요."
       />
 
       {/* 연락처 */}
       <section className="py-16 md:py-24 bg-white">
         <Container>
-          <SectionTitle title="연락처 안내" description="궁금하신 사항이나 필요한 자료가 있으시면 언제든지 문의해 주세요." />
+          <SectionTitle eyebrow="CONTACT INFO" title="연락처 안내" description="궁금하신 사항이나 필요한 자료가 있으시면 언제든지 문의해 주세요." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {channels.map((c) => {
               const content = (
                 <div className="h-full bg-surface rounded-md p-5 md:p-6 text-center flex flex-col items-center gap-3">
                   <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue/10 text-blue">{c.icon}</span>
                   <div>
-                    <p className="text-[11px] text-muted font-semibold tracking-widest uppercase mb-1">{c.label}</p>
+                    <p className="text-xs text-muted font-semibold tracking-widest uppercase mb-1">{c.label}</p>
                     <p className="text-sm md:text-base font-bold text-ink break-all">{c.value}</p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ export default function SupportPage() {
       {/* 바로가기 */}
       <section className="py-16 md:py-24 bg-surface">
         <Container>
-          <SectionTitle title="바로가기" description="필요한 정보를 빠르게 찾아보세요." />
+          <SectionTitle eyebrow="QUICK LINKS" title="바로가기" description="필요한 정보를 빠르게 찾아보세요." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {quickLinks.map((q) => (
               <Link
@@ -122,7 +122,7 @@ export default function SupportPage() {
               >
                 <div>
                   <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{q.title}</h3>
-                  <p className="text-[11px] md:text-xs text-muted leading-relaxed">{q.desc}</p>
+                  <p className="text-xs text-muted leading-relaxed">{q.desc}</p>
                 </div>
                 <span className="self-end w-8 h-8 rounded-full bg-surface border border-line flex items-center justify-center text-navy text-xs group-hover:bg-blue group-hover:text-white group-hover:border-blue transition-colors">
                   ›
@@ -136,15 +136,16 @@ export default function SupportPage() {
       {/* FAQ */}
       <section className="py-16 md:py-24 bg-white">
         <Container className="max-w-220">
-          <SectionTitle title="자주 묻는 질문" />
+          <SectionTitle eyebrow="FAQ" title="자주 묻는 질문" />
           <FaqAccordion />
         </Container>
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue to-blue-dark">
+      <section className="py-16 md:py-20 bg-linear-to-br from-blue to-blue-dark">
         <Container className="text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">더 궁금한 점이 있으신가요?</h2>
+          <p className="text-xs text-white/70 tracking-widest uppercase mb-3">NEED MORE HELP?</p>
+          <h2 className="text-xl md:text-[40px] font-bold text-white mb-3">더 궁금한 점이 있으신가요?</h2>
           <p className="text-sm md:text-base text-white/80 mb-8">전문 상담원이 친절하게 안내해 드리겠습니다.</p>
           <Button href="/contact" variant="white">
             견적문의 하러가기

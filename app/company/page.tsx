@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import PageHero from "@/components/PageHero";
-import ContactSection from "@/components/ContactSection";
+import PageHero from "@/components/layout/PageHero";
+import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -18,35 +18,41 @@ export const metadata: Metadata = {
 export default function CompanyPage() {
   return (
     <>
-      <PageHero imageSrc="/image/company/bg-hero.png" imageAlt="회사소개 배경" eyebrow="COMPANY INTRODUCTION" title="회사소개" breadcrumbs={[{ label: "회사소개" }]} />
+      <PageHero
+        imageSrc="/image/company/bg-hero.png"
+        imageAlt="회사소개 배경"
+        eyebrow="COMPANY INTRODUCTION"
+        title="회사소개"
+        description="30여 년 UPS 제조 기술력, 2,500여 대 납품 실적의 전원장치 전문기업입니다."
+      />
 
       <section className="py-20 bg-white">
         <div className="max-w-275 mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16">
 
             {/* 왼쪽: 연락처 */}
-            <div className="md:w-56 shrink-0 flex flex-col gap-4 md:pt-16">
+            {/* <div className="md:w-56 shrink-0 flex flex-col gap-4 md:pt-16">
               <div className="border-t-2 border-blue pt-5 flex flex-col gap-4">
                 <div>
-                  <p className="text-[10px] font-bold text-blue tracking-widest uppercase mb-1">Tel</p>
+                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">Tel</p>
                   <p className="text-base font-semibold text-ink">02-894-8057</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-blue tracking-widest uppercase mb-1">Fax</p>
+                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">Fax</p>
                   <p className="text-base font-semibold text-ink">02-894-8058</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-blue tracking-widest uppercase mb-1">E-mail</p>
+                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">E-mail</p>
                   <a href="mailto:ups8057@naver.com" className="text-sm font-semibold text-blue hover:underline break-all">ups8057@naver.com</a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* 오른쪽: 본문 */}
             <div className="flex-1 flex flex-col gap-10">
               <div>
                 <p className="text-xs text-blue tracking-widest uppercase mb-3">ABOUT US</p>
-                <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-5 text-navy">
+                <h2 className="text-2xl md:text-[40px] font-bold leading-snug mb-5 text-navy">
                   유진전원시스템(주)
                   <br />
                   국산화에 앞장서는 UPS 전문기업
@@ -84,7 +90,7 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      <ContactSection />
+      <StrengthContactSection />
     </>
   );
 }

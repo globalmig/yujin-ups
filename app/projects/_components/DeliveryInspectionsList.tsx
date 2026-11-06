@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/ui/Pagination";
 import { deliveryInspections, type InspectionCategory } from "@/data/deliveries/delivery-inspections";
 
 const categories: InspectionCategory[] = [
@@ -66,7 +66,7 @@ export default function DeliveryInspectionsList() {
             <div key={`${g.category}-${g.client}`} className="bg-white border border-line rounded-md p-5">
               <div className="flex items-start justify-between gap-3 mb-2">
                 <h3 className="text-sm md:text-base font-bold text-navy">{g.client}</h3>
-                <span className="shrink-0 rounded-full bg-blue/10 text-blue text-[11px] font-semibold px-2.5 py-1 whitespace-nowrap">
+                <span className="shrink-0 rounded-full bg-blue/10 text-blue text-xs font-semibold px-2.5 py-1 whitespace-nowrap">
                   총 {g.documents.length}장
                 </span>
               </div>

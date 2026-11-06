@@ -91,7 +91,7 @@ export default function AdminPage() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border border-gray-300 px-3 py-2 rounded outline-none focus:border-[#1a4fa0]"
             />
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {error && <p className="text-red-700 text-sm">{error}</p>}
             <button
               type="submit"
               className="w-full bg-[#1a4fa0] text-white py-2 rounded hover:bg-[#0d3070] transition-colors"
@@ -110,10 +110,10 @@ export default function AdminPage() {
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-800">문의 관리</h1>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500">총 {contacts.length}건</span>
+            <span className="text-sm text-gray-600">총 {contacts.length}건</span>
             <button
               onClick={handleLogout}
-              className="text-sm text-gray-500 hover:text-gray-800 underline"
+              className="text-sm text-gray-600 hover:text-gray-800 underline"
             >
               로그아웃
             </button>
@@ -121,7 +121,7 @@ export default function AdminPage() {
         </div>
 
         {contacts.length === 0 ? (
-          <div className="bg-white rounded shadow p-10 text-center text-gray-400">
+          <div className="bg-white rounded shadow p-10 text-center text-gray-600">
             접수된 문의가 없습니다.
           </div>
         ) : (
@@ -134,20 +134,20 @@ export default function AdminPage() {
                 >
                   <div className="flex items-center gap-4 flex-wrap">
                     <span className="font-semibold text-gray-800">{c.company}</span>
-                    <span className="text-sm text-gray-500">{c.manager} ({c.position})</span>
+                    <span className="text-sm text-gray-600">{c.manager} ({c.position})</span>
                     <span className="text-sm bg-[#e8eef8] text-[#1a4fa0] px-2 py-0.5 rounded">
                       {PRODUCT_LABELS[c.product] ?? c.product}
                     </span>
                   </div>
                   <div className="flex items-center gap-4 shrink-0">
-                    <span className="text-xs text-gray-400">{formatDate(c.created_at)}</span>
+                    <span className="text-xs text-gray-600">{formatDate(c.created_at)}</span>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleDelete(c.id); }}
-                      className="text-xs text-red-500 hover:text-red-700 px-2 py-1 border border-red-300 rounded hover:bg-red-50"
+                      className="text-xs text-red-700 hover:text-red-800 px-2 py-1 border border-red-300 rounded hover:bg-red-50"
                     >
                       삭제
                     </button>
-                    <span className="text-gray-400 text-xs">{expanded === c.id ? "▲" : "▼"}</span>
+                    <span className="text-gray-600 text-xs">{expanded === c.id ? "▲" : "▼"}</span>
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ export default function AdminPage() {
                     {c.backup && <Row label="백업시간" value={c.backup} />}
                     {c.message && (
                       <div className="md:col-span-2">
-                        <span className="font-medium text-gray-500 mr-2">기타내용</span>
+                        <span className="font-medium text-gray-600 mr-2">기타내용</span>
                         <span className="whitespace-pre-wrap">{c.message}</span>
                       </div>
                     )}
@@ -186,7 +186,7 @@ export default function AdminPage() {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <span className="font-medium text-gray-500 mr-2">{label}</span>
+      <span className="font-medium text-gray-600 mr-2">{label}</span>
       <span>{value}</span>
     </div>
   );

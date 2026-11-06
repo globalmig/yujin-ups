@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import ContactSection from "@/components/ContactSection";
+import PageHero from "@/components/layout/PageHero";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
+import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
   title: "유지보수",
@@ -37,13 +37,14 @@ export default function MaintenancePage() {
         imageAlt="현장 기술 담당자"
         eyebrow="MAINTENANCE SERVICE"
         title="유지보수"
-        breadcrumbs={[{ label: "유지보수" }]}
+        description="국산·수입을 가리지 않는 UPS 전문 유지보수. 정기 점검부터 신속한 출동, 부품 교체까지 책임집니다."
       />
 
       {/* 소개 */}
       <section className="py-16 md:py-24 bg-white">
         <Container>
           <SectionTitle
+            eyebrow="OVERVIEW"
             title="국산 · 수입, 모두 가능한 UPS 유지보수"
             description="제조사의 구분 없이 국산 및 수입 UPS의 보수, 정비, 유지관리가 가능합니다."
           />
@@ -57,13 +58,13 @@ export default function MaintenancePage() {
       {/* 서비스 */}
       <section className="py-16 md:py-24 bg-surface">
         <Container>
-          <SectionTitle title="유지보수 서비스" />
+          <SectionTitle eyebrow="OUR SERVICES" title="유지보수 서비스" />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {services.map((s) => (
               <div key={s.title} className="bg-white rounded-md border border-line p-5 md:p-6 shadow-sm">
                 <span className="flex items-center justify-center w-9 h-9 rounded-full bg-blue/10 text-blue font-bold text-sm mb-4">✓</span>
                 <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{s.title}</h3>
-                <p className="text-[11px] md:text-xs text-muted leading-relaxed">{s.desc}</p>
+                <p className="text-xs text-muted leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -73,7 +74,7 @@ export default function MaintenancePage() {
       {/* 진행 절차 */}
       <section className="py-16 md:py-24 bg-white">
         <Container>
-          <SectionTitle title="A/S 진행 절차" description="문의부터 사후관리까지, 체계적인 프로세스로 진행합니다." />
+          <SectionTitle eyebrow="SERVICE PROCESS" title="A/S 진행 절차" description="문의부터 사후관리까지, 체계적인 프로세스로 진행합니다." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
             {process.map((p, i) => (
               <div key={p.step} className="relative text-center px-2">
@@ -84,14 +85,14 @@ export default function MaintenancePage() {
                   {p.step}
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{p.title}</h3>
-                <p className="text-[11px] md:text-xs text-muted leading-relaxed">{p.desc}</p>
+                <p className="text-xs text-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <ContactSection />
+      <StrengthContactSection />
     </>
   );
 }

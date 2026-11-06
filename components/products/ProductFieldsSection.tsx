@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 function DatacenterIcon() {
   return (
@@ -56,9 +56,9 @@ const fields = [
 
 export default function ProductFieldsSection() {
   return (
-    <section className="py-16 md:py-24 bg-navy">
+    <section className="py-16 md:py-24 bg-navy-dark">
       <Container>
-        <SectionTitle light title="UPS가 필수인 분야" description="다양한 산업에서 UPS는 선택이 아닌 필수입니다." />
+        <SectionTitle light eyebrow="APPLICATION FIELDS" title="UPS가 필수인 분야" description="다양한 산업에서 UPS는 선택이 아닌 필수입니다." />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {fields.map(({ icon: Icon, title, sub, image }) => (
             <div key={title}>

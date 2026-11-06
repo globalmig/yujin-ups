@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { solutions } from "@/lib/solutions";
 
 export default function SolutionsSection() {
   return (
     <section id="solutions" className="py-16 md:py-24 bg-surface scroll-mt-20">
       <Container>
-        <SectionTitle title="용도별 UPS 솔루션" description="사용 환경에 맞는 최적의 UPS를 제안해 드립니다." />
+        <SectionTitle eyebrow="UPS SOLUTIONS" title="용도별 UPS 솔루션" description="사용 환경에 맞는 최적의 UPS를 제안해 드립니다." />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {solutions.map((s) => (
             <Link

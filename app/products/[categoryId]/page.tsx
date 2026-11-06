@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
-import ProductDetailHero from "@/components/ProductDetailHero";
-import ProductFeatureBar from "@/components/ProductFeatureBar";
-import ProductWhyUsSection from "@/components/ProductWhyUsSection";
-import ProductFieldsSection from "@/components/ProductFieldsSection";
-import ProductLineupSection from "@/components/ProductLineupSection";
+import ProductDetailHero from "@/components/products/ProductDetailHero";
+import ProductFeatureBar from "@/components/products/ProductFeatureBar";
+import ProductWhyUsSection from "@/components/products/ProductWhyUsSection";
+import ProductFeaturesSection from "@/components/products/ProductFeaturesSection";
+import ProductSpecsSection from "@/components/products/ProductSpecsSection";
+import ProductFieldsSection from "@/components/products/ProductFieldsSection";
+import ProductLineupSection from "@/components/products/ProductLineupSection";
+import ContactCtaBar from "@/components/products/ContactCtaBar";
 import { categories, findCategory } from "@/lib/products";
 
 interface Props {
@@ -52,11 +55,14 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <ProductDetailHero />
-      <ProductFeatureBar />
+      <ProductDetailHero categoryId={categoryId} />
+      <ProductFeatureBar categoryId={categoryId} />
       <ProductWhyUsSection />
+      <ProductFeaturesSection categoryId={categoryId} />
+      <ProductSpecsSection categoryId={categoryId} />
       <ProductFieldsSection />
       <ProductLineupSection />
+      <ContactCtaBar />
     </>
   );
 }

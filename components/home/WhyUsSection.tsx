@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 const features = [
   {
@@ -39,7 +39,7 @@ export default function WhyUsSection() {
   return (
     <section id="about" className="py-16 md:py-24 bg-white scroll-mt-20">
       <Container>
-        <SectionTitle title="왜 유진전원시스템인가?" description="30년의 경험과 검증된 기술로 고객의 소중한 전원을 책임집니다." />
+        <SectionTitle eyebrow="WHY US" title="왜 유진전원시스템인가?" description="30년의 경험과 검증된 기술로 고객의 소중한 전원을 책임집니다." />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
           {features.map((f) => (
             <article key={f.title} className="border border-line rounded-md overflow-hidden bg-white shadow-sm">
@@ -48,7 +48,7 @@ export default function WhyUsSection() {
               </div>
               <div className="text-center px-3 py-4">
                 <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{f.title}</h3>
-                <p className="text-[11px] md:text-xs text-muted leading-relaxed">{f.desc}</p>
+                <p className="text-xs text-muted leading-relaxed">{f.desc}</p>
               </div>
             </article>
           ))}

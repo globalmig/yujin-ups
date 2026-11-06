@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Container from "@/components/Container";
-import Button from "@/components/Button";
+import Container from "@/components/layout/Container";
+import Button from "@/components/ui/Button";
 
 function WrenchIcon() {
   return (
@@ -60,7 +60,7 @@ export default function HeroSection() {
 
       <Container className="relative z-10">
         <div className="max-w-xl py-14 md:py-24">
-          <p className="text-[11px] font-bold tracking-[0.25em] text-blue-dark/80 mb-4">POWERING YOUR BUSINESS SINCE 1996</p>
+          <p className="text-xs font-bold tracking-[0.25em] text-blue-dark/80 mb-4">POWERING YOUR BUSINESS SINCE 1996</p>
           <h1 className="text-3xl md:text-5xl font-bold text-ink leading-[1.2] tracking-tight mb-5">
             <span className="text-blue">30년 이상,</span>
             <br />
