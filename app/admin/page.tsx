@@ -11,6 +11,11 @@ const PRODUCT_LABELS: Record<string, string> = {
   battery: "배터리",
 };
 
+interface StoredSession {
+  token: string;
+  expiresAt: number;
+}
+
 export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState<string | null>(null);
@@ -19,32 +24,57 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
-  const fetchContacts = useCallback(async (pw: string) => {
+  const fetchContacts = useCallback(async (sessionToken: string) => {
     setLoading(true);
     setError("");
     const res = await fetch("/api/admin/contacts", {
-      headers: { Authorization: `Bearer ${pw}` },
+      headers: { Authorization: `Bearer ${sessionToken}` },
     });
     setLoading(false);
     if (res.status === 401) {
-      setError("비밀번호가 올바르지 않습니다.");
+      setError("로그인이 필요합니다.");
+      sessionStorage.removeItem("admin_session");
       setToken(null);
       return;
     }
     const data = await res.json();
     setContacts(data);
-    setToken(pw);
+    setToken(sessionToken);
   }, []);
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("admin_token");
-    if (saved) fetchContacts(saved);
+    const saved = sessionStorage.getItem("admin_session");
+    if (!saved) return;
+    try {
+      const session: StoredSession = JSON.parse(saved);
+      if (session.expiresAt > Date.now()) {
+        fetchContacts(session.token);
+      } else {
+        sessionStorage.removeItem("admin_session");
+      }
+    } catch {
+      sessionStorage.removeItem("admin_session");
+    }
   }, [fetchContacts]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    sessionStorage.setItem("admin_token", password);
-    fetchContacts(password);
+    setLoading(true);
+    setError("");
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    setLoading(false);
+    if (!res.ok) {
+      setError(res.status === 429 ? "잠시 후 다시 시도해 주세요." : "비밀번호가 올바르지 않습니다.");
+      return;
+    }
+    const session: StoredSession = await res.json();
+    sessionStorage.setItem("admin_session", JSON.stringify(session));
+    setPassword("");
+    fetchContacts(session.token);
   };
 
   const handleDelete = async (id: string) => {
@@ -61,7 +91,7 @@ export default function AdminPage() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem("admin_token");
+    sessionStorage.removeItem("admin_session");
     setToken(null);
     setContacts([]);
     setPassword("");

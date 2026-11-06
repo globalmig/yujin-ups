@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { supabasePublic } from './supabase-public';
 
 export interface ContactSubmission {
   id: string;
@@ -32,15 +33,10 @@ export async function getContacts(): Promise<ContactSubmission[]> {
 
 export async function saveContact(
   contact: Omit<ContactSubmission, 'id' | 'created_at'>
-): Promise<ContactSubmission> {
-  const { data, error } = await supabase
-    .from('contacts')
-    .insert(contact)
-    .select()
-    .single();
+): Promise<void> {
+  const { error } = await supabasePublic.from('contacts').insert(contact);
 
   if (error) throw error;
-  return data;
 }
 
 export async function deleteContact(id: string): Promise<boolean> {
