@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 const strengths = [
   "30년 이상 UPS 제조 노하우",
@@ -27,7 +28,7 @@ export default function StrengthContactSection() {
           </ul>
         </div>
         <div className="relative min-h-55 sm:min-h-full">
-          <Image src="/image/home/factory.jpg" alt="제조 시설" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
+          <Image src="/image/home/strength.png" alt="유진전원시스템의 강점" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
           <div className="absolute inset-0 bg-linear-to-r from-navy/70 to-transparent" />
         </div>
       </div>
@@ -42,12 +43,12 @@ export default function StrengthContactSection() {
             <br />
             전문가가 친절하게 상담해 드리겠습니다.
           </p>
-          <a href="tel:02-894-8057" className="block text-2xl font-bold mb-1">
+          <Link href="tel:02-894-8057" className="block text-2xl font-bold mb-1">
             ☎ 02-894-8057
-          </a>
-          <a href="mailto:ups8057@naver.com" className="block text-sm text-white/85 mb-5">
+          </Link>
+          <Link href="mailto:ups8057@naver.com" className="block text-sm text-white/85 mb-5">
             ✉ ups8057@naver.com
-          </a>
+          </Link>
           <Button href="mailto:ups8057@naver.com?subject=UPS%20견적%20문의" variant="white">
             견적 문의하기
           </Button>
@@ -56,7 +57,7 @@ export default function StrengthContactSection() {
           className="hidden md:block absolute right-[3%] bottom-0 w-[32%] h-[95%]"
           style={{ maskImage: "linear-gradient(90deg, transparent, #000 20%)", WebkitMaskImage: "linear-gradient(90deg, transparent, #000 20%)" }}
         >
-          <Image src="/image/home/engineer.jpg" alt="현장 기술 담당자" fill sizes="32vw" className="object-cover object-bottom" />
+          <Image src="/image/home/quote.png" alt="UPS 견적 문의" fill sizes="32vw" className="object-cover object-bottom" />
         </div>
       </div>
     </section>

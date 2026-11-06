@@ -47,7 +47,7 @@ const stats = [
 
 export default function ProductWhyUsSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-30 bg-white">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
           <p className="text-xs text-blue font-bold tracking-widest uppercase mb-3">WHY CHOOSE US</p>

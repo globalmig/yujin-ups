@@ -118,7 +118,7 @@ export default function ProductSidebar() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-muted w-10 shrink-0">E-mail</span>
-            <a href="mailto:ups8057@naver.com" className="text-xs text-blue hover:underline break-all">ups8057@naver.com</a>
+            <Link href="mailto:ups8057@naver.com" className="text-xs text-blue hover:underline break-all">ups8057@naver.com</Link>
           </div>
         </div>
       </aside>

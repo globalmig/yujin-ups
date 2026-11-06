@@ -21,14 +21,14 @@ export default function ContactSection() {
         <p className="text-white text-xl md:text-2xl font-bold mb-10">언제든지 문의해주세요.</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:028948057" className="flex items-center justify-center gap-3 bg-blue text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-dark transition-colors">
+          <Link href="tel:028948057" className="flex items-center justify-center gap-3 bg-blue text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-dark transition-colors">
             <Image src="/image/icons/call.svg" alt="전화 문의" width={20} height={20} style={{ width: "20px", height: "20px" }} />
             02-894-8057
-          </a>
-          <a href="mailto:ups8057@naver.com" className="flex items-center justify-center gap-3 bg-navy text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-dark transition-colors">
+          </Link>
+          <Link href="mailto:ups8057@naver.com" className="flex items-center justify-center gap-3 bg-navy text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-dark transition-colors">
             <Image src="/image/icons/mail.svg" alt="이메일 문의" width={20} height={20} style={{ width: "20px", height: "20px" }} />
             ups8057@naver.com
-          </a>
+          </Link>
           <Link href="/contact" className="flex items-center justify-center gap-3 bg-white/10 border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white/20 transition-colors">
             <Image src="/image/icons/list.svg" alt="" width={20} height={20} style={{ width: "20px", height: "20px" }} />
             고객 문의하기

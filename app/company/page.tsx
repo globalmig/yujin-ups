@@ -30,24 +30,6 @@ export default function CompanyPage() {
         <div className="max-w-275 mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16">
 
-            {/* 왼쪽: 연락처 */}
-            {/* <div className="md:w-56 shrink-0 flex flex-col gap-4 md:pt-16">
-              <div className="border-t-2 border-blue pt-5 flex flex-col gap-4">
-                <div>
-                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">Tel</p>
-                  <p className="text-base font-semibold text-ink">02-894-8057</p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">Fax</p>
-                  <p className="text-base font-semibold text-ink">02-894-8058</p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-blue tracking-widest uppercase mb-1">E-mail</p>
-                  <a href="mailto:ups8057@naver.com" className="text-sm font-semibold text-blue hover:underline break-all">ups8057@naver.com</a>
-                </div>
-              </div>
-            </div> */}
-
             {/* 오른쪽: 본문 */}
             <div className="flex-1 flex flex-col gap-10">
               <div>

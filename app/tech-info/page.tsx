@@ -36,7 +36,7 @@ export default function TechInfoPage() {
       />
 
       {/* 기술 개요 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle
             eyebrow="UPS TECHNOLOGY"
@@ -59,7 +59,7 @@ export default function TechInfoPage() {
       </section>
 
       {/* 용량별 대응 범위 */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-30 bg-surface">
         <Container>
           <SectionTitle eyebrow="CAPACITY RANGE" title="1KVA부터 200KVA까지" description="사용 환경과 용도에 맞는 최적의 용량으로 대응합니다." />
           <div className="bg-white rounded-md border border-line overflow-hidden">

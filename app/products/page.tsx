@@ -232,7 +232,7 @@ export default function ProductsPage() {
       </section>
 
       {/* 제품 카테고리별 UPS 라인업 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle
             eyebrow="PRODUCT LINEUP"
@@ -244,7 +244,7 @@ export default function ProductsPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-col rounded-lg border border-line overflow-hidden bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                className="flex flex-col rounded-lg border border-line overflow-hidden bg-white transition-all duration-200 hover:-translate-y-1 shadow-lg"
               >
                 <div className="bg-navy text-white text-center text-sm font-bold py-3">{item.range}</div>
                 <div className="px-5 pt-5 pb-6">
@@ -273,7 +273,7 @@ export default function ProductsPage() {
       </section>
 
       {/* UPS 작동 방식 · 주요 특징 · 실제 설치 현장 · 납품 실적 */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-30 bg-surface">
         <Container>
           <SectionTitle
             eyebrow="ABOUT UPS"

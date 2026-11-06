@@ -33,15 +33,15 @@ export default function MaintenancePage() {
   return (
     <>
       <PageHero
-        imageSrc="/image/home/engineer.jpg"
-        imageAlt="현장 기술 담당자"
+        imageSrc="/image/home/maintenance-hero.jpg"
+        imageAlt="유지보수 배경"
         eyebrow="MAINTENANCE SERVICE"
         title="유지보수"
         description="국산·수입을 가리지 않는 UPS 전문 유지보수. 정기 점검부터 신속한 출동, 부품 교체까지 책임집니다."
       />
 
       {/* 소개 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle
             eyebrow="OVERVIEW"
@@ -56,7 +56,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* 서비스 */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-30 bg-surface">
         <Container>
           <SectionTitle eyebrow="OUR SERVICES" title="유지보수 서비스" />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
@@ -72,7 +72,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* 진행 절차 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle eyebrow="SERVICE PROCESS" title="A/S 진행 절차" description="문의부터 사후관리까지, 체계적인 프로세스로 진행합니다." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">

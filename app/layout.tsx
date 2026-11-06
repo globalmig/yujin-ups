@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import QuickInquiryBar from "@/components/layout/QuickInquiryBar";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import "./globals.css";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 pt-15">{children}</main>
         <Footer />
+        <QuickInquiryBar />
         <ScrollToTop />
       </body>
     </html>

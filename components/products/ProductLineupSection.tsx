@@ -37,7 +37,7 @@ const lineup = [
 
 export default function ProductLineupSection() {
   return (
-    <section className="py-16 md:py-24 bg-surface">
+    <section className="py-16 md:py-30 bg-surface">
       <Container>
         <SectionTitle eyebrow="PRODUCT LINEUP" title="제품 라인업" description="용량과 요구사항에 맞는 최적의 UPS 솔루션을 제공합니다." />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
@@ -47,11 +47,11 @@ export default function ProductLineupSection() {
               href={item.href}
               className="group block bg-white rounded-lg border border-line overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative h-36 md:h-44 bg-white">
-                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-4" />
+              <div className="relative w-full aspect-square bg-white">
+                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-6" />
               </div>
               <div className="px-4 pb-5 pt-1">
-                <h3 className="text-sm md:text-base font-bold text-navy mb-1">{item.title}</h3>
+                <h3 className="text-sm md:text-xl font-bold text-navy mb-1">{item.title}</h3>
                 <p className="text-xs md:text-sm font-semibold text-blue mb-2">{item.range}</p>
                 <p className="text-xs text-muted">{item.desc}</p>
               </div>

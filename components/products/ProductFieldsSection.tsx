@@ -56,13 +56,13 @@ const fields = [
 
 export default function ProductFieldsSection() {
   return (
-    <section className="py-16 md:py-24 bg-navy-dark">
+    <section className="py-16 md:py-30 bg-navy-dark">
       <Container>
         <SectionTitle light eyebrow="APPLICATION FIELDS" title="UPS가 필수인 분야" description="다양한 산업에서 UPS는 선택이 아닌 필수입니다." />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {fields.map(({ icon: Icon, title, sub, image }) => (
             <div key={title}>
-              <div className="relative h-32 md:h-40 rounded-lg overflow-hidden bg-white/5 mb-4">
+              <div className="relative w-full aspect-3/4 rounded-lg overflow-hidden bg-white/5 mb-4">
                 <Image src={image} alt={title} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
                 <span className="absolute left-3 bottom-3 w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center">
                   <Icon />

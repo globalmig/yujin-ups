@@ -28,7 +28,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        imageSrc="/image/home/project-datacenter.jpg"
+        imageSrc="/image/home/project-datacenter.png"
         imageAlt="데이터센터 UPS 납품 현장"
         eyebrow="DELIVERY RECORD"
         title="납품실적"
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
       <StatsBar />
 
       {/* 공급 분야 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle
             eyebrow="SUPPLY FIELDS"
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {projectFields.map((f) => (
               <div key={f.label} className="rounded-md overflow-hidden border border-line bg-white shadow-sm">
-                <div className="relative h-32 md:h-36">
+                <div className="relative aspect-square">
                   <Image src={f.image} alt={f.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                 </div>
                 <div className="px-4 py-4 text-center">
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* 주요 납품 사례 */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-30 bg-surface">
         <Container>
           <SectionTitle
             eyebrow="CASE STUDIES"
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* 납품검수확인서 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle
             eyebrow="INSPECTION DOCUMENTS"

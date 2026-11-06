@@ -15,13 +15,21 @@ const INITIAL_FORM = {
 
 type FormState = typeof INITIAL_FORM;
 
+const TEL_FIELDS = new Set(["tel1", "tel2", "tel3", "mobile1", "mobile2", "mobile3", "fax1", "fax2", "fax3"]);
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ContactPage() {
   const [agreed, setAgreed] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    if (TEL_FIELDS.has(name)) {
+      setForm((prev) => ({ ...prev, [name]: value.replace(/\D/g, "") }));
+      return;
+    }
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async () => {
@@ -35,6 +43,11 @@ export default function ContactPage() {
 
     if (missing.length > 0) {
       alert(`다음 필수 항목을 입력해 주세요:\n${missing.map((m) => `• ${m}`).join("\n")}`);
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(`${form.email1}@${form.email2}`)) {
+      alert("이메일 형식이 올바르지 않습니다.");
       return;
     }
 
@@ -99,11 +112,11 @@ export default function ContactPage() {
                 전화번호 <span className="text-red-500 ml-0.5">*</span>
               </span>
               <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="tel1" maxLength={4} value={form.tel1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="tel1" maxLength={4} value={form.tel1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="tel2" maxLength={4} value={form.tel2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="tel2" maxLength={4} value={form.tel2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="tel3" maxLength={4} value={form.tel3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="tel3" maxLength={4} value={form.tel3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
@@ -120,7 +133,7 @@ export default function ContactPage() {
             </div>
 
             {/* 제품선택 */}
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row border-b border-line">
               <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">
                 제품선택 <span className="text-red-500 ml-0.5">*</span>
               </span>
@@ -135,22 +148,16 @@ export default function ContactPage() {
                 </select>
               </div>
             </div>
-          </div>
 
-          <p className="text-sm text-muted leading-relaxed my-6">
-            위 필수 항목만 입력하셔도 문의가 가능합니다. 아래 선택 항목을 추가로 입력해 주시면 더 상세한 견적서를 전달드리겠습니다.
-          </p>
-
-          <div className="w-full border border-line rounded-md overflow-hidden">
             {/* 휴대폰 */}
             <div className="flex flex-col md:flex-row border-b border-line">
               <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">휴대폰</span>
               <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="mobile1" maxLength={4} value={form.mobile1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="mobile1" maxLength={4} value={form.mobile1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="mobile2" maxLength={4} value={form.mobile2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="mobile2" maxLength={4} value={form.mobile2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="mobile3" maxLength={4} value={form.mobile3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="mobile3" maxLength={4} value={form.mobile3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 
@@ -158,11 +165,11 @@ export default function ContactPage() {
             <div className="flex flex-col md:flex-row border-b border-line">
               <span className="w-full md:w-35 shrink-0 bg-surface px-4 py-3 font-medium text-ink border-b border-line md:border-b-0 md:border-r flex items-center">팩스번호</span>
               <div className="flex-1 px-4 py-2 flex items-center gap-1">
-                <input type="text" name="fax1" maxLength={4} value={form.fax1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="fax1" maxLength={4} value={form.fax1} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="fax2" maxLength={4} value={form.fax2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="fax2" maxLength={4} value={form.fax2} onChange={handleChange} className="w-20 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
                 <span className="text-muted">-</span>
-                <input type="text" name="fax3" maxLength={4} value={form.fax3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
+                <input type="text" inputMode="numeric" pattern="[0-9]*" name="fax3" maxLength={4} value={form.fax3} onChange={handleChange} className="w-15 border border-line px-2 py-1 text-center rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20" />
               </div>
             </div>
 

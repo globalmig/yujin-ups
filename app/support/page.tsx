@@ -5,6 +5,7 @@ import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import FaqAccordion from "./_components/FaqAccordion";
+import InquiryForm from "./_components/InquiryForm";
 
 export const metadata: Metadata = {
   title: "고객지원",
@@ -82,35 +83,25 @@ export default function SupportPage() {
         description="연락처 안내와 자주 묻는 질문 등 유진전원시스템 고객지원 정보를 확인하세요."
       />
 
-      {/* 연락처 */}
-      <section className="py-16 md:py-24 bg-white">
-        <Container>
-          <SectionTitle eyebrow="CONTACT INFO" title="연락처 안내" description="궁금하신 사항이나 필요한 자료가 있으시면 언제든지 문의해 주세요." />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {channels.map((c) => {
-              const content = (
-                <div className="h-full bg-surface rounded-md p-5 md:p-6 text-center flex flex-col items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue/10 text-blue">{c.icon}</span>
-                  <div>
-                    <p className="text-xs text-muted font-semibold tracking-widest uppercase mb-1">{c.label}</p>
-                    <p className="text-sm md:text-base font-bold text-ink break-all">{c.value}</p>
-                  </div>
-                </div>
-              );
-              return c.href ? (
-                <a key={c.label} href={c.href} className="block hover:-translate-y-1 transition-transform">
-                  {content}
-                </a>
-              ) : (
-                <div key={c.label}>{content}</div>
-              );
-            })}
-          </div>
+  {/* 일반 문의 */}
+      <section className="py-16 md:py-30 bg-white">
+        <Container className="max-w-275">
+          <SectionTitle eyebrow="GENERAL INQUIRY" title="일반 문의" description="견적 외 궁금한 점이나 요청 사항을 남겨주시면 담당자가 확인 후 답변드립니다." />
+          <InquiryForm />
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="py-16 md:py-30 bg-surface">
+        <Container className="max-w-220">
+          <SectionTitle eyebrow="FAQ" title="자주 묻는 질문" />
+          <FaqAccordion />
+        </Container>
+      </section>
+
+
       {/* 바로가기 */}
-      <section className="py-16 md:py-24 bg-surface">
+      {/* <section className="py-16 md:py-30 bg-surface">
         <Container>
           <SectionTitle eyebrow="QUICK LINKS" title="바로가기" description="필요한 정보를 빠르게 찾아보세요." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
@@ -131,25 +122,32 @@ export default function SupportPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
 
-      {/* FAQ */}
-      <section className="py-16 md:py-24 bg-white">
-        <Container className="max-w-220">
-          <SectionTitle eyebrow="FAQ" title="자주 묻는 질문" />
-          <FaqAccordion />
-        </Container>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 md:py-20 bg-linear-to-br from-blue to-blue-dark">
-        <Container className="text-center">
-          <p className="text-xs text-white/70 tracking-widest uppercase mb-3">NEED MORE HELP?</p>
-          <h2 className="text-xl md:text-[40px] font-bold text-white mb-3">더 궁금한 점이 있으신가요?</h2>
-          <p className="text-sm md:text-base text-white/80 mb-8">전문 상담원이 친절하게 안내해 드리겠습니다.</p>
-          <Button href="/contact" variant="white">
-            견적문의 하러가기
-          </Button>
+       {/* 연락처 */}
+      <section className="py-16 md:py-30 bg-white">
+        <Container>
+          <SectionTitle eyebrow="CONTACT INFO" title="연락처 안내" description="궁금하신 사항이나 필요한 자료가 있으시면 언제든지 문의해 주세요." />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {channels.map((c) => {
+              const content = (
+                <div className="h-full bg-surface rounded-md p-5 md:p-6 text-center flex flex-col items-center gap-3">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue/10 text-blue">{c.icon}</span>
+                  <div>
+                    <p className="text-xs text-muted font-semibold tracking-widest uppercase mb-1">{c.label}</p>
+                    <p className="text-sm md:text-base font-bold text-ink break-all">{c.value}</p>
+                  </div>
+                </div>
+              );
+              return c.href ? (
+                <Link key={c.label} href={c.href} className="block hover:-translate-y-1 transition-transform">
+                  {content}
+                </Link>
+              ) : (
+                <div key={c.label}>{content}</div>
+              );
+            })}
+          </div>
         </Container>
       </section>
     </>

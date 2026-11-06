@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import type { ProductSpecTable } from "@/data/products/product-specs";
 
 const headerCellClass = "px-4 md:px-5 py-3 text-xs font-semibold text-white uppercase tracking-wide text-center whitespace-nowrap border-x border-white/20";
-const bandCellClass = "px-4 md:px-5 py-2.5 text-xs font-bold text-white uppercase tracking-widest text-center bg-blue border-x border-white/20";
+const bandCellClass = "px-4 md:px-5 py-2.5 text-xs font-bold text-navy uppercase tracking-widest text-center bg-surface border-x border-white/20";
 const groupLabelClass = "px-4 md:px-5 py-3 text-sm font-bold text-navy text-center bg-surface border-x border-line align-middle";
 const itemLabelClass = "px-4 md:px-5 py-3 text-sm text-ink text-center bg-white border-x border-line align-middle";
 const valueClass = "px-4 md:px-5 py-3 text-sm text-muted text-center bg-white border-x border-line";

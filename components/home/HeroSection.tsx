@@ -58,7 +58,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-linear-to-r from-white via-white/95 to-white/10 md:from-white md:via-white/85 md:to-transparent" />
       </div>
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 h-171">
         <div className="max-w-xl py-14 md:py-24">
           <p className="text-xs font-bold tracking-[0.25em] text-blue-dark/80 mb-4">POWERING YOUR BUSINESS SINCE 1996</p>
           <h1 className="text-3xl md:text-5xl font-bold text-ink leading-[1.2] tracking-tight mb-5">

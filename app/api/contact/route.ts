@@ -12,6 +12,10 @@ function isOptionalString(value: unknown, maxLength = 200): string | null {
   return isNonEmptyString(value, maxLength) ? value : null;
 }
 
+function isNumericTel(value: unknown, maxLength = 4): value is string {
+  return isNonEmptyString(value, maxLength) && /^[0-9]+$/.test(value);
+}
+
 function isValidEmail(local: unknown, domain: unknown): boolean {
   if (!isNonEmptyString(local, 64) || !isNonEmptyString(domain, 190)) return false;
   return /^[^\s@]+$/.test(local) && /^[^\s@]+\.[^\s@]+$/.test(domain);
@@ -39,9 +43,9 @@ export async function POST(request: NextRequest) {
     !isNonEmptyString(body.company) ||
     !isNonEmptyString(body.position) ||
     !isNonEmptyString(body.manager) ||
-    !isNonEmptyString(body.tel1, 4) ||
-    !isNonEmptyString(body.tel2, 4) ||
-    !isNonEmptyString(body.tel3, 4) ||
+    !isNumericTel(body.tel1) ||
+    !isNumericTel(body.tel2) ||
+    !isNumericTel(body.tel3) ||
     !isNonEmptyString(body.product, 50) ||
     !isValidEmail(body.email1, body.email2)
   ) {
@@ -49,11 +53,11 @@ export async function POST(request: NextRequest) {
   }
 
   const mobile =
-    isNonEmptyString(body.mobile1, 4) && isNonEmptyString(body.mobile2, 4) && isNonEmptyString(body.mobile3, 4)
+    isNumericTel(body.mobile1) && isNumericTel(body.mobile2) && isNumericTel(body.mobile3)
       ? `${body.mobile1}-${body.mobile2}-${body.mobile3}`
       : null;
   const fax =
-    isNonEmptyString(body.fax1, 4) && isNonEmptyString(body.fax2, 4) && isNonEmptyString(body.fax3, 4)
+    isNumericTel(body.fax1) && isNumericTel(body.fax2) && isNumericTel(body.fax3)
       ? `${body.fax1}-${body.fax2}-${body.fax3}`
       : null;
 

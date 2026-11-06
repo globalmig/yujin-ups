@@ -16,19 +16,19 @@ const features = [
     desc: "금융기관, 공공기관, 기업, 산업현장, 데이터센터 등 다양한 분야에 납품",
   },
   {
-    image: "/image/home/feature-product.jpg",
+    image: "/image/home/feature-product.png",
     alt: "UPS 제품",
     title: "1KVA ~ 200KVA",
     desc: "소형 UPS부터 대용량 UPS까지 고객 환경에 맞는 제품 제공",
   },
   {
-    image: "/image/home/feature-engineer.jpg",
+    image: "/image/home/feature-engineer.png",
     alt: "UPS 기술 점검",
     title: "토탈 솔루션 제공",
     desc: "설계, 제조, 설치, 유지보수까지 원스톱 토탈 솔루션 제공",
   },
   {
-    image: "/image/home/feature-service.jpg",
+    image: "/image/home/feature-service.png",
     alt: "UPS 유지보수",
     title: "국산·수입 UPS 유지보수",
     desc: "다양한 브랜드의 UPS 점검·정비·유지보수 가능",
@@ -37,13 +37,13 @@ const features = [
 
 export default function WhyUsSection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-white scroll-mt-20">
+    <section id="about" className="py-16 md:py-30 bg-white scroll-mt-20">
       <Container>
         <SectionTitle eyebrow="WHY US" title="왜 유진전원시스템인가?" description="30년의 경험과 검증된 기술로 고객의 소중한 전원을 책임집니다." />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
           {features.map((f) => (
             <article key={f.title} className="border border-line rounded-md overflow-hidden bg-white shadow-sm">
-              <div className="relative h-32 md:h-36 bg-surface">
+              <div className="relative w-full aspect-square bg-surface">
                 <Image src={f.image} alt={f.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
               <div className="text-center px-3 py-4">

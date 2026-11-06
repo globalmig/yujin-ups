@@ -22,9 +22,9 @@ export default function Button({ href, variant = "primary", children, className 
 
   if (isExternal) {
     return (
-      <a href={href} className={classes}>
+      <Link href={href} className={classes}>
         {children}
-      </a>
+      </Link>
     );
   }
 

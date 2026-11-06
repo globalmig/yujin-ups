@@ -7,7 +7,7 @@ export default function ProductFeaturesSection({ categoryId }: { categoryId: str
   const image = productContentMap[categoryId].image;
 
   return (
-    <section className="py-16 md:py-24 bg-navy">
+    <section className="py-16 md:py-30 bg-navy">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="relative w-full aspect-4/3 rounded-lg overflow-hidden">
           <Image

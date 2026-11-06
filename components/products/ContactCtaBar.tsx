@@ -19,21 +19,21 @@ export default function ContactCtaBar() {
         </div>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 bg-navy px-6 py-6 md:px-10 flex-1">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-8">
-            <a href="tel:02-894-8057" className="flex items-center gap-3">
+            <Link href="tel:02-894-8057" className="flex items-center gap-3">
               <Image src="/image/icons/call.svg" alt="" width={20} height={20} style={{ width: "20px", height: "20px" }} />
               <span className="leading-tight">
                 <span className="block text-base font-bold text-white">02-894-8057</span>
                 <span className="block text-xs text-white/60">평일 09:00 ~ 18:00</span>
               </span>
-            </a>
+            </Link>
             <div className="hidden sm:block w-px h-9 bg-white/15" />
-            <a href="mailto:ups8057@naver.com" className="flex items-center gap-3">
+            <Link href="mailto:ups8057@naver.com" className="flex items-center gap-3">
               <Image src="/image/icons/mail.svg" alt="" width={20} height={20} style={{ width: "20px", height: "20px" }} />
               <span className="leading-tight">
                 <span className="block text-base font-bold text-white">ups8057@naver.com</span>
                 <span className="block text-xs text-white/60">24시간 견적 문의 가능</span>
               </span>
-            </a>
+            </Link>
           </div>
 
           <Link

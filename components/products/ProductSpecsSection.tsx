@@ -9,7 +9,7 @@ export default function ProductSpecsSection({ categoryId }: { categoryId: string
   const table = productSpecsMap[categoryId];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-30 bg-white">
       <Container>
         <SectionTitle eyebrow="SPECIFICATIONS" title={`${title} 제품 사양`} description="모델별 상세 사양을 확인하세요." />
         <SpecsTable table={table} />
