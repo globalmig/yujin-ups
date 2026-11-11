@@ -12,7 +12,7 @@ const notoSansKr = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
 });
 
-const BASE_URL = "https://upscom.co.kr";
+const BASE_URL = "https://www.upscom.co.kr";
 
 const SITE_TITLE = "유진전원시스템 - UPS 전문기업";
 const SITE_DESC = "30년의 기술력으로 UPS, AVR, 주파수변환기(FC), 배터리를 " + "공급하는 유진전원시스템입니다. 국산 및 수입 UPS 제조·유지보수 전문.";

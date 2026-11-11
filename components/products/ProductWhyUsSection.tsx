@@ -56,7 +56,7 @@ export default function ProductWhyUsSection() {
             <br />
             UPS를 선택해야 할까요?
           </h2>
-          <p className="text-sm md:text-base text-muted leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-muted leading-relaxed mb-8">
             30년 기술력과 현장 경험으로 검증된 안정성과 신뢰성, 차별화된
             서비스를 제공합니다.
           </p>

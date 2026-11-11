@@ -1,0 +1,30 @@
+# 유진전원시스템 (Eugene Power System)
+
+> 1994년 설립, 30년 이상의 UPS(무정전전원장치) 제조 기술력을 보유한 대한민국 전원장치 전문기업입니다. UPS, AVR(자동전압조정기), 주파수변환기(FC), 배터리를 국내에서 직접 설계·제작·유지보수합니다.
+
+금융권, 데이터센터, 공공기관, 산업현장 등에 2,500대 이상의 UPS를 납품한 실적을 보유하고 있으며, 국산 및 수입 UPS에 대한 정기점검·유지보수 서비스를 제공합니다.
+
+## 회사
+- [회사소개](https://www.upscom.co.kr/company): 유진전원시스템의 역사, 기술력, 납품 실적 소개
+- [납품실적](https://www.upscom.co.kr/projects): 금융권·공공기관·산업현장 등 UPS 납품 및 검수 사례
+
+## 제품
+- [제품소개](https://www.upscom.co.kr/products): 전체 UPS/AVR/주파수변환기/배터리 제품 라인업
+- [단상 UPS](https://www.upscom.co.kr/products/single-ups): 소용량 사무실·전산실용 단상 UPS
+- [삼상/단상 UPS](https://www.upscom.co.kr/products/three-single-ups): 중대형 시설용 삼상 입력/단상 출력 UPS
+- [삼상/삼상 UPS](https://www.upscom.co.kr/products/three-three-ups): 대형 시설·데이터센터용 삼상 UPS
+- [PC서버용 UPS](https://www.upscom.co.kr/products/server-ups): 서버·네트워크 장비 보호용 UPS
+- [자동전압조정기 (AVR)](https://www.upscom.co.kr/products/avr): 전압 변동 보상 장치
+- [주파수변환기](https://www.upscom.co.kr/products/frequency): 주파수 변환 전원 공급 장치
+- [배터리 ES Series](https://www.upscom.co.kr/products/battery-es): UPS용 축전지
+- [배터리 RP Series](https://www.upscom.co.kr/products/battery-rp): UPS용 축전지
+
+## 기술 / 서비스
+- [기술정보](https://www.upscom.co.kr/tech-info): UPS 기술력, 1~200KVA 용량별 대응 범위
+- [유지보수](https://www.upscom.co.kr/maintenance): 국산·수입 UPS 정기점검 및 유지보수 서비스
+- [고객지원](https://www.upscom.co.kr/support): 자주 묻는 질문 및 문의 채널
+- [견적문의](https://www.upscom.co.kr/contact): UPS/AVR/주파수변환기/배터리 견적 요청
+
+## 법적 정보
+- [개인정보처리방침](https://www.upscom.co.kr/privacy)
+- [이용약관](https://www.upscom.co.kr/terms)

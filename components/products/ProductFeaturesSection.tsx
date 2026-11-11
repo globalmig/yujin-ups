@@ -22,7 +22,7 @@ export default function ProductFeaturesSection({ categoryId }: { categoryId: str
         <div>
           <p className="text-xs text-blue-light tracking-widest uppercase mb-3">{eyebrow}</p>
           <h2 className="text-2xl md:text-[40px] font-bold text-white leading-snug mb-4">{title}</h2>
-          <p className="text-sm md:text-base text-white/70 leading-relaxed mb-8">{description}</p>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8">{description}</p>
 
           <ul className="flex flex-col gap-4">
             {items.map(({ title: itemTitle, desc }) => (

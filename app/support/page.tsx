@@ -10,11 +10,11 @@ import InquiryForm from "./_components/InquiryForm";
 export const metadata: Metadata = {
   title: "고객지원",
   description: "유진전원시스템 고객지원 안내. 연락처, 납품실적·유지보수·기술정보 바로가기, 자주 묻는 질문을 확인하세요.",
-  alternates: { canonical: "https://upscom.co.kr/support" },
+  alternates: { canonical: "https://www.upscom.co.kr/support" },
   openGraph: {
     title: "고객지원 | 유진전원시스템",
     description: "연락처 안내와 자주 묻는 질문, 유진전원시스템 고객지원",
-    url: "https://upscom.co.kr/support",
+    url: "https://www.upscom.co.kr/support",
   },
 };
 

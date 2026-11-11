@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${category.label} 제품소개`;
   const description = `유진전원시스템의 ${category.label} 제품을 소개합니다. 30년 기술력의 고품질 전원장치.`;
-  const url = `https://upscom.co.kr/products/${categoryId}`;
+  const url = `https://www.upscom.co.kr/products/${categoryId}`;
 
   return {
     title,

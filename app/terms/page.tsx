@@ -5,11 +5,11 @@ import Container from "@/components/layout/Container";
 export const metadata: Metadata = {
   title: "서비스 이용약관",
   description: "유진전원시스템(주)의 서비스 이용약관을 안내합니다.",
-  alternates: { canonical: "https://upscom.co.kr/terms" },
+  alternates: { canonical: "https://www.upscom.co.kr/terms" },
   openGraph: {
     title: "서비스 이용약관 | 유진전원시스템",
     description: "유진전원시스템(주)의 서비스 이용약관을 안내합니다.",
-    url: "https://upscom.co.kr/terms",
+    url: "https://www.upscom.co.kr/terms",
   },
 };
 

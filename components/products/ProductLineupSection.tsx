@@ -51,8 +51,8 @@ export default function ProductLineupSection() {
                 <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-6" />
               </div>
               <div className="px-4 pb-5 pt-1">
-                <h3 className="text-sm md:text-xl font-bold text-navy mb-1">{item.title}</h3>
-                <p className="text-xs md:text-sm font-semibold text-blue mb-2">{item.range}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-1">{item.title}</h3>
+                <p className="text-xs md:text-sm font-semibold text-blue mb-3 md:mb-4">{item.range}</p>
                 <p className="text-xs text-muted">{item.desc}</p>
               </div>
             </Link>

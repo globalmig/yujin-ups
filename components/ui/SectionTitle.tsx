@@ -18,7 +18,7 @@ export default function SectionTitle({
       )}
       <h2 className={`text-2xl md:text-[40px] font-bold mb-3 ${light ? "text-white" : "text-navy"}`}>{title}</h2>
       {description && (
-        <p className={`text-sm md:text-base ${light ? "text-white/70" : "text-muted"}`}>{description}</p>
+        <p className={`text-lg md:text-xl ${light ? "text-white/70" : "text-muted"}`}>{description}</p>
       )}
     </div>
   );

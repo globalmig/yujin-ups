@@ -7,11 +7,11 @@ import StrengthContactSection from "@/components/common/StrengthContactSection";
 export const metadata: Metadata = {
   title: "유지보수",
   description: "국산·수입을 가리지 않는 UPS 전문 유지보수. 정기 점검부터 신속한 출동, 부품 교체까지 유진전원시스템이 책임집니다.",
-  alternates: { canonical: "https://upscom.co.kr/maintenance" },
+  alternates: { canonical: "https://www.upscom.co.kr/maintenance" },
   openGraph: {
     title: "유지보수 | 유진전원시스템",
     description: "30년 노하우의 UPS 전문 유지보수 · 사후관리",
-    url: "https://upscom.co.kr/maintenance",
+    url: "https://www.upscom.co.kr/maintenance",
   },
 };
 
@@ -48,7 +48,7 @@ export default function MaintenancePage() {
             title="국산 · 수입, 모두 가능한 UPS 유지보수"
             description="제조사의 구분 없이 국산 및 수입 UPS의 보수, 정비, 유지관리가 가능합니다."
           />
-          <p className="max-w-2xl mx-auto text-sm md:text-base text-muted leading-relaxed text-center">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted leading-relaxed text-center">
             1996년부터 축적해 온 UPS 제조 기술력과 현장 경험을 바탕으로, 노이즈·서지·순간정전 등 전기적 트러블로 발생할 수 있는 문제를 가장 빠르고 안정적으로 해결합니다. 성실과 신뢰를 생명으로 철저한
             사후관리와 신속한 유지보수로 고객의 전원 시스템을 책임집니다.
           </p>
@@ -63,8 +63,8 @@ export default function MaintenancePage() {
             {services.map((s) => (
               <div key={s.title} className="bg-white rounded-md border border-line p-5 md:p-6 shadow-sm">
                 <span className="flex items-center justify-center w-9 h-9 rounded-full bg-blue/10 text-blue font-bold text-sm mb-4">✓</span>
-                <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{s.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{s.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{s.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -84,8 +84,8 @@ export default function MaintenancePage() {
                 <div className="relative z-10 w-12 h-12 mx-auto rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm mb-4">
                   {p.step}
                 </div>
-                <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{p.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{p.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>

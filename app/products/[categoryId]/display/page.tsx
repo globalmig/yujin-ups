@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${category.label} 디스플레이 상세`;
   const description = `유진전원시스템의 ${category.label} 디스플레이 상세 정보를 확인하세요. 30년 기술력의 고품질 전원장치.`;
-  const url = `https://upscom.co.kr/products/${categoryId}/display`;
+  const url = `https://www.upscom.co.kr/products/${categoryId}/display`;
 
   return {
     title,

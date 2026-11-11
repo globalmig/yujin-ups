@@ -11,11 +11,11 @@ import { projects, projectFields } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "제품소개",
   description: "1KVA부터 200KVA까지, 유진전원시스템의 UPS·AVR·주파수 변환기·배터리 제품 라인업을 소개합니다.",
-  alternates: { canonical: "https://upscom.co.kr/products" },
+  alternates: { canonical: "https://www.upscom.co.kr/products" },
   openGraph: {
     title: "제품소개 | 유진전원시스템",
     description: "30년 기술력으로 완성한 유진전원시스템의 전원장치 제품 라인업",
-    url: "https://upscom.co.kr/products",
+    url: "https://www.upscom.co.kr/products",
   },
 };
 
@@ -142,7 +142,7 @@ function HeadsetIcon() {
         <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
         <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
       </svg>
-      <span className="absolute top-2 left-2 w-7 h-7 rounded-full bg-blue text-white text-xs font-bold flex items-center justify-center">
+      <span className="absolute top-2 left-2 w-7 h-7 rounded-full bg-white text-blue text-xs font-bold flex items-center justify-center">
         24
       </span>
     </span>
@@ -222,7 +222,7 @@ export default function ProductsPage() {
                   <Icon />
                 </span>
                 <p className="flex flex-col leading-tight">
-                  <b className="text-sm font-bold text-white">{value}</b>
+                  <b className="text-base md:text-xl font-bold text-white md:mb-1">{value}</b>
                   <span className="text-xs text-white/60">{label}</span>
                 </p>
               </div>
@@ -239,17 +239,17 @@ export default function ProductsPage() {
             title="제품 카테고리별 UPS 라인업"
             description="단상/삼상 UPS부터 AVR, 주파수 변환기, 배터리까지 유진전원시스템의 전체 제품군을 소개합니다."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {productLineup.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="flex flex-col rounded-lg border border-line overflow-hidden bg-white transition-all duration-200 hover:-translate-y-1 shadow-lg"
               >
-                <div className="bg-navy text-white text-center text-sm font-bold py-3">{item.range}</div>
+                <div className="bg-navy text-white text-center text-lg md:text-2xl font-bold py-3">{item.range}</div>
                 <div className="px-5 pt-5 pb-6">
-                  <p className="text-center text-sm font-bold text-navy mb-3">{item.title}</p>
-                  <div className="relative w-full aspect-4/3 rounded-md overflow-hidden mb-4">
+                  <p className="text-center text-lg md:text-xl font-bold text-navy mb-3 md:mb-5">{item.title}</p>
+                  <div className="relative w-full aspect-4/3 rounded-md overflow-hidden mb-4 md:mb-7">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -260,7 +260,7 @@ export default function ProductsPage() {
                   </div>
                   <ul className="flex flex-col gap-1.5">
                     {item.features.map((f) => (
-                      <li key={f} className="text-xs text-muted leading-relaxed">
+                      <li key={f} className="text-base text-muted leading-relaxed">
                         · {f}
                       </li>
                     ))}
@@ -334,7 +334,7 @@ export default function ProductsPage() {
                 ))}
               </div>
               <Button href="/projects" variant="outline" className="w-full justify-center">
-                납품실적 전체보기
+                납품실적 전체보기 →
               </Button>
             </div>
 

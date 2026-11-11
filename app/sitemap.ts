@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories } from "@/lib/products";
 
-const BASE_URL = "https://upscom.co.kr";
+const BASE_URL = "https://www.upscom.co.kr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const productPages: MetadataRoute.Sitemap = categories.flatMap((cat) =>

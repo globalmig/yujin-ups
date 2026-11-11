@@ -4,7 +4,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 function DatacenterIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="3" width="20" height="7" rx="1.5" />
       <rect x="2" y="14" width="20" height="7" rx="1.5" />
       <path d="M6 6.5h.01M6 17.5h.01" />
@@ -14,7 +14,7 @@ function DatacenterIcon() {
 
 function BankIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 10h18M5 10v9M9 10v9M15 10v9M19 10v9M2 21h20M12 2 3 7h18l-9-5z" />
     </svg>
   );
@@ -22,7 +22,7 @@ function BankIcon() {
 
 function BuildingIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <rect x="4" y="2" width="16" height="20" rx="1" />
       <path d="M9 22v-4h6v4M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1" />
     </svg>
@@ -31,7 +31,7 @@ function BuildingIcon() {
 
 function FactoryIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 21V10l6 4v-4l6 4V7l7 4.5V21H2z" />
     </svg>
   );
@@ -39,7 +39,7 @@ function FactoryIcon() {
 
 function MonitorIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="4" width="20" height="13" rx="1.5" />
       <path d="M8 21h8M12 17v4" />
     </svg>
@@ -64,11 +64,11 @@ export default function ProductFieldsSection() {
             <div key={title}>
               <div className="relative w-full aspect-3/4 rounded-lg overflow-hidden bg-white/5 mb-4">
                 <Image src={image} alt={title} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-                <span className="absolute left-3 bottom-3 w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center">
+                <span className="absolute left-3 bottom-3 w-12 h-12 rounded-full bg-blue text-white flex items-center justify-center">
                   <Icon />
                 </span>
               </div>
-              <h3 className="text-sm md:text-base font-bold text-white mb-1">{title}</h3>
+              <h3 className="text-lg md:text-xl font-bold text-white mb-1">{title}</h3>
               <p className="text-xs text-white/60 leading-relaxed">{sub}</p>
             </div>
           ))}

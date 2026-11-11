@@ -14,11 +14,11 @@ import StrengthContactSection from "@/components/common/StrengthContactSection";
 export const metadata: Metadata = {
   title: "납품실적",
   description: "유진전원시스템이 금융기관, 공공기관, 산업현장, 데이터센터 등 다양한 분야에 공급한 UPS 납품 실적을 소개합니다.",
-  alternates: { canonical: "https://upscom.co.kr/projects" },
+  alternates: { canonical: "https://www.upscom.co.kr/projects" },
   openGraph: {
     title: "납품실적 | 유진전원시스템",
     description: "2,500여 대의 UPS 공급 실적, 다양한 분야의 납품 사례",
-    url: "https://upscom.co.kr/projects",
+    url: "https://www.upscom.co.kr/projects",
   },
 };
 
@@ -52,8 +52,8 @@ export default function ProjectsPage() {
                   <Image src={f.image} alt={f.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                 </div>
                 <div className="px-4 py-4 text-center">
-                  <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{f.label}</h3>
-                  <p className="text-xs text-muted leading-relaxed">{f.desc}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{f.label}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -78,8 +78,8 @@ export default function ProjectsPage() {
         <Container>
           <SectionTitle
             eyebrow="INSPECTION DOCUMENTS"
-            title="납품검수확인서"
-            description={`납품 완료 후 발급받은 검수확인서로 실제 공급 사실을 확인할 수 있습니다. 총 ${totalInspections}건 보유.`}
+            title="납품 검수 확인서"
+            description={`납품 완료 후 발급받은 검수확인서로 실제 공급 사실을 확인할 수 있습니다.`}
           />
           <DeliveryInspectionsList />
         </Container>

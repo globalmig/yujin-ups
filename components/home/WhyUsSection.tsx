@@ -47,7 +47,7 @@ export default function WhyUsSection() {
                 <Image src={f.image} alt={f.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
               <div className="text-center px-3 py-4">
-                <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{f.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{f.title}</h3>
                 <p className="text-xs text-muted leading-relaxed">{f.desc}</p>
               </div>
             </article>

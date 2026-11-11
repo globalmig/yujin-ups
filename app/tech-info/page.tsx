@@ -9,11 +9,11 @@ import StrengthContactSection from "@/components/common/StrengthContactSection";
 export const metadata: Metadata = {
   title: "기술정보",
   description: "1KVA부터 200KVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다.",
-  alternates: { canonical: "https://upscom.co.kr/tech-info" },
+  alternates: { canonical: "https://www.upscom.co.kr/tech-info" },
   openGraph: {
     title: "기술정보 | 유진전원시스템",
     description: "30년 UPS 제조 기술력, 1~200KVA 용량별 대응 범위 안내",
-    url: "https://upscom.co.kr/tech-info",
+    url: "https://www.upscom.co.kr/tech-info",
   },
 };
 
@@ -43,15 +43,15 @@ export default function TechInfoPage() {
             title="안정적인 전원 공급을 위한 UPS 기술력"
             description="1996년부터 축적해 온 제조 기술력과 현장 경험으로 완성한 유진전원시스템의 UPS입니다."
           />
-          <p className="max-w-2xl mx-auto text-sm md:text-base text-muted leading-relaxed text-center mb-14">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted leading-relaxed text-center mb-14">
             모든 주변장치 및 한전으로부터 발생할 수 있는 전기적 트러블과 노이즈, 누전, 서지, 과도전류, 송전사고 및 정전 등 예측할 수 없는 요인들에 완벽하게 대응합니다. 순간적·지속적인 전력 손실에 대해서도
             수많은 노하우와 풍부한 데이터를 바탕으로 가장 빠르고 짧은 시간 내에 문제를 해결하여 고객의 시스템을 안정적으로 운용할 수 있도록 돕습니다.
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {protections.map((p) => (
               <div key={p.title} className="bg-surface rounded-md p-5 md:p-6 text-center">
-                <h3 className="text-sm md:text-base font-bold text-navy mb-1.5">{p.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{p.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -68,8 +68,8 @@ export default function TechInfoPage() {
                 key={s.title}
                 className={`flex items-center justify-between px-5 md:px-8 py-4 md:py-5 ${i !== solutions.length - 1 ? "border-b border-line" : ""}`}
               >
-                <span className="text-sm md:text-base font-semibold text-ink">{s.title}</span>
-                <span className="text-sm md:text-base font-bold text-blue">{s.capacity}</span>
+                <span className="text-lg md:text-xl font-semibold text-ink">{s.title}</span>
+                <span className="text-lg md:text-xl font-bold text-blue">{s.capacity}</span>
               </div>
             ))}
           </div>
@@ -81,7 +81,7 @@ export default function TechInfoPage() {
         <Container className="text-center">
           <p className="text-xs text-blue tracking-widest uppercase mb-3">PRODUCT SPECIFICATIONS</p>
           <h2 className="text-xl md:text-[40px] font-bold text-navy mb-3">제품별 상세 사양이 궁금하신가요?</h2>
-          <p className="text-sm md:text-base text-muted mb-8">제품소개 페이지에서 모델별 상세 기술 사양을 확인하실 수 있습니다.</p>
+          <p className="text-lg md:text-xl text-muted mb-8">제품소개 페이지에서 모델별 상세 기술 사양을 확인하실 수 있습니다.</p>
           <Button href="/products" variant="primary">
             제품소개 바로가기
           </Button>
