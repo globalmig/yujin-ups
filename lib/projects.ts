@@ -21,7 +21,7 @@ export interface FieldSummary {
 }
 
 export const projectFields: FieldSummary[] = [
-  { label: "금융기관", desc: "은행·증권 등 중요시설용 중대형 UPS 공급", image: "/image/home/project-bank.jpg" },
+  { label: "금융기관", desc: "은행·증권 등 중요시설용 중대형 UPS 공급", image: "/image/home/project-university.png" },
   { label: "공공기관", desc: "관공서·대학교 등 정부기관 전산 설비 대응", image: "/image/home/project-public.png" },
   { label: "산업현장", desc: "공장·생산라인의 안정적인 전력 보호", image: "/image/home/project-factory.png" },
   { label: "데이터센터", desc: "대용량 전산실·IDC 무정전 전원 공급", image: "/image/home/project-datacenter.png" },

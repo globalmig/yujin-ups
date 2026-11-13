@@ -3,14 +3,16 @@ export default function SectionTitle({
   title,
   description,
   light = false,
+  align = "center",
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   light?: boolean;
+  align?: "center" | "left";
 }) {
   return (
-    <div className="text-center mb-10 md:mb-14">
+    <div className={`mb-10 md:mb-14 ${align === "left" ? "text-left" : "text-center"}`}>
       {eyebrow && (
         <p className={`text-xs font-bold tracking-[0.25em] uppercase mb-3 ${light ? "text-white/70" : "text-blue"}`}>
           {eyebrow}

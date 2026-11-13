@@ -24,15 +24,20 @@ const sliderSettings = {
   ],
 };
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ dark = false }: { dark?: boolean }) {
   return (
-    <section id="projects" className="py-16 md:py-30 bg-white scroll-mt-20">
+    <section id="projects" className={`py-16 md:py-30 scroll-mt-20 ${dark ? "bg-navy-dark" : "bg-white"}`}>
       <Container>
-        <SectionTitle eyebrow="DELIVERY RECORD" title="주요 납품 실적" description="유진전원시스템의 UPS는 다양한 분야에서 안정적으로 운용되고 있습니다." />
+        <SectionTitle
+          light={dark}
+          eyebrow="DELIVERY RECORD"
+          title="주요 납품 실적"
+          description="유진전원시스템의 UPS는 다양한 분야에서 안정적으로 운용되고 있습니다."
+        />
         <Slider {...sliderSettings}>
           {projects.map((p) => (
             <div key={p.name} className="px-2">
-              <article className="border border-line rounded-md overflow-hidden bg-white shadow-sm">
+              <article className={`rounded-md overflow-hidden bg-white shadow-sm ${dark ? "" : "border border-line"}`}>
                 <div className="relative w-full aspect-square bg-surface">
                   <Image src={p.image} alt={p.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
                 </div>

@@ -76,7 +76,7 @@ export default function SupportPage() {
   return (
     <>
       <PageHero
-        imageSrc="/image/common/bg-contact.jpg"
+        imageSrc="/image/contact/bg-hero.jpg"
         imageAlt="고객지원 배경"
         eyebrow="CUSTOMER SUPPORT"
         title="고객지원"

@@ -4,6 +4,8 @@ import ProductDetailHero from "@/components/products/ProductDetailHero";
 import ProductFeatureBar from "@/components/products/ProductFeatureBar";
 import ProductWhyUsSection from "@/components/products/ProductWhyUsSection";
 import ProductFeaturesSection from "@/components/products/ProductFeaturesSection";
+import DowntimeRiskSection from "@/components/products/DowntimeRiskSection";
+import ProductStrengthPointsSection from "@/components/products/ProductStrengthPointsSection";
 import ProductSpecsSection from "@/components/products/ProductSpecsSection";
 import ProductFieldsSection from "@/components/products/ProductFieldsSection";
 import ProductLineupSection from "@/components/products/ProductLineupSection";
@@ -59,6 +61,8 @@ export default async function CategoryPage({ params }: Props) {
       <ProductFeatureBar categoryId={categoryId} />
       <ProductWhyUsSection />
       <ProductFeaturesSection categoryId={categoryId} />
+      <DowntimeRiskSection />
+      <ProductStrengthPointsSection />
       <ProductSpecsSection categoryId={categoryId} />
       <ProductFieldsSection />
       <ProductLineupSection />

@@ -54,10 +54,10 @@ export default function StrengthContactSection() {
           </Button>
         </div>
         <div
-          className="hidden md:block absolute right-[3%] bottom-0 w-[32%] h-[95%]"
+          className="hidden md:block absolute right-0 top-0 w-[32%] h-full"
           style={{ maskImage: "linear-gradient(90deg, transparent, #000 20%)", WebkitMaskImage: "linear-gradient(90deg, transparent, #000 20%)" }}
         >
-          <Image src="/image/home/quote.png" alt="UPS 견적 문의" fill sizes="32vw" className="object-cover object-bottom" />
+          <Image src="/image/home/quote.png" alt="UPS 견적 문의" fill sizes="32vw" className="object-cover object-top" />
         </div>
       </div>
     </section>

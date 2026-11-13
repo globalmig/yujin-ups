@@ -6,7 +6,9 @@ import ContactCtaBar from "@/components/products/ContactCtaBar";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import FieldIcon from "@/components/common/FieldIcon";
 import { projects, projectFields } from "@/lib/projects";
+import ProjectsSection from "@/components/home/ProjectsSection";
 
 export const metadata: Metadata = {
   title: "제품소개",
@@ -18,37 +20,6 @@ export const metadata: Metadata = {
     url: "https://www.upscom.co.kr/products",
   },
 };
-
-const fieldIcons = {
-  금융기관: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-      <path d="M3 10 12 4l9 6" />
-      <path d="M5 10v9M9 10v9M15 10v9M19 10v9" />
-      <path d="M3 19h18" />
-    </svg>
-  ),
-  공공기관: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-      <path d="M4 21V9l8-5 8 5v12" />
-      <path d="M9 21v-6h6v6" />
-      <path d="M4 21h16" />
-    </svg>
-  ),
-  산업현장: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-      <path d="M3 21V12l5 3V9l5 3V6l5 3v12z" />
-      <path d="M3 21h18" />
-    </svg>
-  ),
-  데이터센터: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-      <rect x="4" y="3" width="16" height="7" rx="1" />
-      <rect x="4" y="14" width="16" height="7" rx="1" />
-      <circle cx="7.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
-      <circle cx="7.5" cy="17.5" r="0.8" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-} as const;
 
 const productLineup = [
   {
@@ -156,13 +127,62 @@ const heroHighlights = [
   { icon: HeadsetIcon, value: "신속한 A/S", label: "전국 서비스망" },
 ];
 
-const operationFeatures = [
-  "고효율 설계로 전력 손실 최소화",
-  "넓은 입력 전압 범위로 안정적인 운전",
-  "정현파 출력으로 모든 부하에 사용 가능",
-  "배터리 자동 관리 및 보호 기능",
-  "다양한 통신 및 원격 모니터링 지원",
-  "손쉬운 유지보수 및 관리",
+const keyFeatures = [
+  {
+    label: "고효율 설계로\n전력 손실 최소화",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 9" />
+      </svg>
+    ),
+  },
+  {
+    label: "넓은 입력 전압 범위로\n안정적인 운전",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="m12 14 4-4" />
+        <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+      </svg>
+    ),
+  },
+  {
+    label: "정현파 출력으로\n모든 부하에 사용 가능",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="M2 12c2-6 4-6 6 0s4 6 6 0 4-6 6 0" />
+      </svg>
+    ),
+  },
+  {
+    label: "배터리 자동 관리\n및 보호 기능",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1" />
+        <path d="M6 7H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1" />
+        <line x1="22" x2="22" y1="11" y2="13" />
+        <polyline points="11 6 7 12 13 12 9 18" />
+      </svg>
+    ),
+  },
+  {
+    label: "다양한 통신 및\n원격 모니터링 지원",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="M5 13a10 10 0 0 1 14 0" />
+        <path d="M8.5 16.5a5 5 0 0 1 7 0" />
+        <line x1="12" x2="12.01" y1="20" y2="20" />
+      </svg>
+    ),
+  },
+  {
+    label: "손쉬운 유지보수\n및 관리",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
+  },
 ];
 
 const installCases = projects.slice(0, 4);
@@ -170,19 +190,19 @@ const installCases = projects.slice(0, 4);
 function DiagramBox({ label, sub, highlight }: { label: string; sub: string; highlight?: boolean }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-0.5 w-20 h-16 md:w-24 md:h-18 rounded-md border px-1 text-center shrink-0 ${
+      className={`flex w-full min-w-0 aspect-4/3 flex-col items-center justify-center gap-0.5 rounded-md border px-1 text-center ${
         highlight ? "bg-blue text-white border-blue" : "bg-white text-navy border-line"
       }`}
     >
-      <span className="text-xs font-bold leading-tight">{label}</span>
-      <span className={`text-xs leading-tight ${highlight ? "text-white/70" : "text-muted"}`}>{sub}</span>
+      <span className="text-[10px] sm:text-xs md:text-sm font-bold leading-tight">{label}</span>
+      <span className={`text-[9px] sm:text-xs leading-tight ${highlight ? "text-white/70" : "text-muted"}`}>{sub}</span>
     </div>
   );
 }
 
 function Arrow() {
   return (
-    <span className="text-blue text-base md:text-lg shrink-0" aria-hidden="true">
+    <span className="text-blue text-sm md:text-xl shrink-0" aria-hidden="true">
       →
     </span>
   );
@@ -272,21 +292,23 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      {/* UPS 작동 방식 · 주요 특징 · 실제 설치 현장 · 납품 실적 */}
+      {/* UPS 작동 원리 */}
       <section className="py-16 md:py-30 bg-surface">
         <Container>
-          <SectionTitle
-            eyebrow="ABOUT UPS"
-            title="UPS 작동 방식과 유진전원시스템의 실적"
-            description="온라인 이중변환 방식으로 안정적이고 순수한 정현파 전원을 공급합니다."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {/* UPS 작동 방식 */}
-            <div className="bg-white border border-line rounded-lg p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-navy mb-1">UPS 작동 방식</h3>
-              <p className="text-xs text-blue font-semibold mb-5">온라인 이중변환 방식 (On-Line Double Conversion)</p>
-              <div className="rounded-md bg-surface p-5 md:p-6 mb-4">
-                <div className="flex items-center justify-center gap-1.5 md:gap-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div className="max-w-md">
+              <SectionTitle
+                align="left"
+                eyebrow="ABOUT UPS"
+                title="UPS 작동 원리"
+                description="온라인 이중변환 방식으로 상시 정류기와 인버터를 거쳐 전원을 변환함으로써, 입력 전원 상태와 관계없이 항상 순수하고 안정적인 정현파 전원을 공급합니다."
+              />
+            </div>
+
+            <div className="bg-white border border-line rounded-lg p-6 md:p-10">
+              <p className="text-xs text-blue font-semibold mb-6">온라인 이중변환 방식 (On-Line Double Conversion)</p>
+              <div className="rounded-md bg-surface p-4 sm:p-6 md:p-10">
+                <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-1 sm:gap-2 md:gap-3">
                   <DiagramBox label="AC 입력" sub="(상용전원)" />
                   <Arrow />
                   <DiagramBox label="정류기" sub="(AC/DC)" highlight />
@@ -295,68 +317,45 @@ export default function ProductsPage() {
                   <Arrow />
                   <DiagramBox label="부하" sub="(LOAD)" />
                 </div>
-                <div className="flex flex-col items-center mt-2">
-                  <span className="text-blue text-base leading-none mb-2" aria-hidden="true">
+                <div className="flex flex-col items-center mt-3">
+                  <span className="text-blue text-xl leading-none mb-3" aria-hidden="true">
                     ↑
                   </span>
-                  <DiagramBox label="배터리" sub="(DC)" />
+                  <div className="w-full max-w-28 sm:max-w-32 md:max-w-36">
+                    <DiagramBox label="배터리" sub="(DC)" />
+                  </div>
                 </div>
-              </div>
-              <p className="text-xs text-muted leading-relaxed">
-                유진전원시스템의 온라인 방식 UPS는 입력 전원을 항상 정류기와 인버터를 통해 변환하여 공급함으로써
-                순수하고 안정적인 정현파 전원을 제공합니다.
-              </p>
-            </div>
-
-            {/* 주요 특징 */}
-            <div className="bg-white border border-line rounded-lg p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-navy mb-5">주요 특징</h3>
-              <ul className="flex flex-col gap-4">
-                {operationFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full border border-blue/40 text-blue flex items-center justify-center text-xs shrink-0 mt-0.5">
-                      ✓
-                    </span>
-                    <span className="text-sm text-ink">{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* 실제 설치 현장 */}
-            <div className="bg-white border border-line rounded-lg p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-navy mb-5">실제 설치 현장</h3>
-              <div className="grid grid-cols-2 gap-3 mb-5">
-                {installCases.map((p) => (
-                  <div key={p.name} className="relative h-28 md:h-32 rounded overflow-hidden bg-surface">
-                    <Image src={p.image} alt={p.alt} fill sizes="(max-width: 640px) 50vw, 25vw" className="object-cover" />
-                  </div>
-                ))}
-              </div>
-              <Button href="/projects" variant="outline" className="w-full justify-center">
-                납품실적 전체보기 →
-              </Button>
-            </div>
-
-            {/* 유진전원시스템 납품 실적 */}
-            <div className="bg-white border border-line rounded-lg p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-navy mb-4">유진전원시스템 납품 실적</h3>
-              <p className="text-3xl font-bold text-blue leading-none mb-1.5">2,500여 대</p>
-              <p className="text-xs text-muted mb-6">중대형 UPS 납품 실적</p>
-              <div className="grid grid-cols-2 gap-3">
-                {projectFields.map((f) => (
-                  <div key={f.label} className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 md:w-17.5 md:h-17.5 rounded-full bg-blue/10 text-blue flex items-center justify-center p-1.5 md:p-4 shrink-0">
-                      {fieldIcons[f.label as keyof typeof fieldIcons]}
-                    </div>
-                    <span className="text-xs font-semibold text-ink">{f.label}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
         </Container>
       </section>
+
+      {/* 핵심 특징 */}
+      <section className="py-16 md:py-30 bg-navy">
+        <Container>
+          <SectionTitle
+            light
+            eyebrow="KEY FEATURES"
+            title="핵심 특징"
+            description="다양한 현장에 최적화된 유진전원시스템 UPS의 핵심 기능입니다."
+          />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6 text-center">
+            {keyFeatures.map(({ label, icon }) => (
+              <div key={label} className="flex flex-col items-center gap-4">
+                <span className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-blue/40 text-blue-light flex items-center justify-center p-4 md:p-5 shrink-0">
+                  {icon}
+                </span>
+                <span className="text-sm md:text-base font-semibold text-white leading-snug whitespace-pre-line">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <ProjectsSection dark />
 
       <ContactCtaBar />
     </>

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ContactCtaBar() {
   return (
     <section className="bg-surface">
-      <div className="w-full max-w-360 mx-auto flex flex-col md:flex-row md:pb-15">
+      <div className="w-full max-w-360 mx-auto flex flex-col md:flex-row md:py-15">
         <div className="flex items-center gap-4 bg-white px-6 py-6 md:px-10 md:py-12 md:w-full md:max-w-md shrink-0">
           <span className="w-11 h-11 rounded-full bg-white border border-line text-blue flex items-center justify-center shrink-0">
             <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

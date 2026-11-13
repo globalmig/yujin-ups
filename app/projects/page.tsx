@@ -4,11 +4,11 @@ import PageHero from "@/components/layout/PageHero";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import StatsBar from "@/components/common/StatsBar";
+import FieldIcon from "@/components/common/FieldIcon";
 import { projectFields } from "@/lib/projects";
 import DeliveryRecordsTable from "./_components/DeliveryRecordsTable";
 import DeliveryInspectionsList from "./_components/DeliveryInspectionsList";
 import { deliveryRecords } from "@/data/deliveries/delivery-records";
-import { deliveryInspections } from "@/data/deliveries/delivery-inspections";
 import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  const totalInspections = deliveryInspections.reduce((sum, g) => sum + g.documents.length, 0);
 
   return (
     <>
@@ -38,25 +37,37 @@ export default function ProjectsPage() {
       <StatsBar />
 
       {/* 공급 분야 */}
-      <section className="py-16 md:py-30 bg-white">
-        <Container>
-          <SectionTitle
-            eyebrow="SUPPLY FIELDS"
-            title="다양한 분야의 납품 경험"
-            description="금융기관, 공공기관, 기업, 산업현장, 데이터센터 등 다양한 분야에 UPS를 공급하고 있습니다."
-          />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {projectFields.map((f) => (
-              <div key={f.label} className="rounded-md overflow-hidden border border-line bg-white shadow-sm">
-                <div className="relative aspect-square">
-                  <Image src={f.image} alt={f.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
+      <section className="relative py-16 md:py-40 overflow-hidden bg-navy">
+        <Image
+          src="/image/Frame%202147239468.png"
+          alt="글로벌 네트워크 이미지"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <Container className="relative z-10">
+          <div className="max-w-xl">
+            <SectionTitle
+              light
+              align="left"
+              eyebrow="TRUSTED EVERYWHERE"
+              title="어디서든, 멈추지 않는 전원"
+              description="금융기관의 자산을 지키고, 공공기관의 서비스를 지속시키며, 산업현장의 생산라인을 보호하고, 데이터센터의 모든 순간을 지켜냅니다."
+            />
+          </div>
+          <div>
+            <p className="text-3xl md:text-4xl font-bold text-white leading-none mb-1.5">2,500여 대</p>
+            <p className="text-xs md:text-sm text-white/60 mb-6">중대형 UPS 납품 실적</p>
+            <div className="grid grid-cols-2 gap-5 lg:flex lg:flex-wrap">
+              {projectFields.map((f) => (
+                <div key={f.label} className="flex items-center gap-3">
+                  <div className="w-8 h-8 md:w-14 md:h-14 rounded-full bg-white/10 text-white flex items-center justify-center p-1.5 md:p-3 shrink-0">
+                    <FieldIcon label={f.label} />
+                  </div>
+                  <span className="text-base md:text-lg font-semibold text-white">{f.label}</span>
                 </div>
-                <div className="px-4 py-4 text-center">
-                  <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{f.label}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{f.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Container>
       </section>

@@ -30,8 +30,6 @@ export interface ProductContent {
   /** 제품 특징 섹션(사진 | 특징 목록)에서 사용하는 대표 제품 사진 */
   image: string;
   features: {
-    eyebrow: string;
-    title: string;
     description: string;
     items: ProductFeatureItem[];
   };
@@ -58,8 +56,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/spt-301k.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "SPT-301K Series의 제품 특징",
       description: "Pure On-Line 더블컨버전 방식과 다양한 보호 기능으로 서버·네트워크 환경에 최적화된 안정성을 제공합니다.",
       items: [
         { title: "Pure On-Line 더블컨버전", desc: "입력 전원을 항상 정류·인버터로 변환해 순수 정현파를 출력" },
@@ -92,8 +88,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/spt-3000.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "SPT-3000 Series의 제품 특징",
       description: "100% 디지털 제어와 고효율 설계로 중소형 전산실, 공장 설비에 최적화된 안정성을 제공합니다.",
       items: [
         { title: "100% 디지털 제어 방식", desc: "정밀한 전력 제어로 안정적인 운전을 보장" },
@@ -126,8 +120,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/spt-3300.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "SPT-3300의 제품 특징",
       description: "데이터센터, 병원 등 무중단이 필수인 환경을 위한 고효율·고신뢰 설계를 갖추고 있습니다.",
       items: [
         { title: "100% 디지털 제어 방식", desc: "정밀한 전력 제어로 대용량 부하에도 안정적 운전" },
@@ -160,8 +152,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/hp-900c.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "HP-900C Series의 제품 특징",
       description: "서버 다운, 의료 장비 정지 같은 치명적 손실을 막기 위한 4가지 핵심 기술을 갖추고 있습니다.",
       items: [
         { title: "Zero Transfer Time", desc: "정전 발생 시 0ms로 배터리 전환하고, UPS가 꺼진 상태에서도 자동 충전" },
@@ -192,8 +182,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/avr.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "단상 / 삼상 AVR의 제품 특징",
       description: "정밀한 전압 제어와 완벽한 절연으로 비교할 수 없는 안정성을 제공하는 차세대 전력 보호 솔루션입니다.",
       items: [
         { title: "RMS 컨버터 IC 채택", desc: "출력전압 검출회로에 적용해 안정도가 우수" },
@@ -226,8 +214,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/NFS-2000.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "NFS-2000 Series의 제품 특징",
       description: "정밀한 주파수 변환과 안정적인 출력으로 수출입 장비, 산업현장의 특수 설비를 지원합니다.",
       items: [
         { title: "높은 주파수 정확도 (±0.5Hz)", desc: "왜곡 없는 깨끗한 정현파로 부하 장비 안정성을 극대화" },
@@ -260,8 +246,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/es-series.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "ES Series의 제품 특징",
       description: "UPS 시스템, 통신, 예비전원 등 다양한 용도에 맞춰 완전 무누액 밀폐를 실현한 장수명 축전지입니다.",
       items: [
         { title: "완전 무누액 밀폐형", desc: "소용량(1.2AH)부터 대용량(220AH)까지 폭넓은 라인업" },
@@ -294,8 +278,6 @@ export const productContentMap: Record<string, ProductContent> = {
     ],
     image: "/image/products/rp.png",
     features: {
-      eyebrow: "PRODUCT FEATURES",
-      title: "RP Series의 제품 특징",
       description: "특수 기술로 감액 특성을 극대화한 고신뢰성 배터리입니다.",
       items: [
         { title: "고성능화", desc: "특수 미세격리판과 다이아몬드식 그리드로 내부 저항을 낮춰 Back-up 성능 향상" },
