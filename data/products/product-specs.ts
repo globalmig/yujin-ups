@@ -15,160 +15,254 @@ export interface ProductSpecGroup {
 }
 
 export type ProductSpecTable =
-  | { labelHeader: string; columns: string[]; rows: ProductSpecRow[] }
-  | { labelHeader: string; columns: string[]; groups: ProductSpecGroup[] };
+  | { labelHeader: string; labelHeaders?: [string, string]; columns: string[]; rows: ProductSpecRow[] }
+  | { labelHeader: string; labelHeaders?: [string, string]; columns: string[]; groups: ProductSpecGroup[] };
 
 export const productSpecsMap: Record<string, ProductSpecTable> = {
   "single-ups": {
-    labelHeader: "용량(KVA)",
-    columns: ["3", "5", "7.5", "10"],
+    labelHeader: "구분",
+    labelHeaders: ["구분", "항목"],
+    columns: ["SPT-301K", "SPT-501K", "SPT-701K", "SPT-100AK", "SPT-151AK"],
     groups: [
-      { rows: [{ label: "모델명", values: ["SPT-301K", "SPT-501K", "SPT-701K", "SPT-100AK"] }] },
+      { label: "정격", rows: [{ label: "용량", values: ["3 kVA", "5 kVA", "7.5 kVA", "10 kVA", "15 kVA"] }] },
       {
-        band: "전기적 특성",
         label: "입력",
         rows: [
-          { label: "정격전압(허용범위)", values: Array(4).fill("110VAC ±20%, 220VAC ±20%") },
-          { label: "정격주파수(허용범위)", values: Array(4).fill("50/60Hz ±5%") },
+          { label: "전압 범위", values: Array(5).fill("180-260 VAC 또는 90-130 VAC") },
+          { label: "주파수", values: Array(5).fill("50 / 60 Hz ±5%") },
+          { label: "상수", values: Array(5).fill("단상 + 접지 (GND)") },
+          { label: "최대 입력전류 (220V 기준)", values: ["14 A", "34 A", "45 A", "56 A", "84 A"] },
         ],
       },
       {
         label: "출력",
         rows: [
-          { label: "정격전압(허용범위)", values: Array(4).fill("110VAC ±1% 또는 220VAC ±1%") },
-          { label: "정격주파수(허용범위)", values: Array(4).fill("50/60Hz ±0.5%") },
-          { label: "파형왜율(THDi)", values: Array(4).fill("3% 이내") },
-          { label: "역률", values: Array(4).fill("0.8 LAG") },
-          { label: "과부하 내량", values: Array(4).fill("20초 후 바이패스 절체, 정상화 시 자동 복귀") },
+          { label: "출력전압", values: Array(5).fill("220 VAC ±1% 또는 110 VAC ±1%") },
+          { label: "주파수", values: Array(5).fill("50 / 60 Hz ±0.5%") },
+          { label: "상수", values: Array(5).fill("단상 + 접지 (GND)") },
+          { label: "전압 왜율 (THD)", values: Array(5).fill("3% 미만 (선형 부하)") },
+          { label: "역률", values: Array(5).fill("0.8") },
+          { label: "단락 보호", values: Array(5).fill("전류 제한 / 자동 정지 / 스위치 보호") },
+          { label: "과부하 내량", values: Array(5).fill("110-150% 과부하 시 20초 후 바이패스 전환, 부하 정상 복귀 시 자동 복귀") },
         ],
       },
       {
-        band: "성능",
-        label: "성능",
+        label: "배터리",
+        rows: [{ label: "충전전류", values: ["6 A", "4 A", "4 A", "4 A", "4 A"] }],
+      },
+      {
+        label: "표시부",
         rows: [
-          { label: "효율(%)", values: Array(4).fill("88% 이상") },
-          { label: "절체 시간", values: Array(4).fill("0ms") },
+          { label: "LCD", values: Array(5).fill("운전 모드, 입력 및 출력 전압 및 주파수, 배터리 전압, 부하율, UPS 내부 온도") },
+          { label: "LED", values: Array(5).fill("배터리 저전압 / 온라인 / 인버터 / 바이패스 / 이상") },
         ],
       },
       {
-        band: "기타",
-        label: "기타",
+        label: "효율",
+        rows: [{ label: "전체 효율", values: Array(5).fill("80% (원본 표기: 0.8)") }],
+      },
+      {
+        label: "통신",
+        rows: [{ label: "지원 기능", values: Array(5).fill("전원 상태 확인 / UPS 종료 / 상태 모니터링 / 자가 진단 / 파일 자동 저장") }],
+      },
+      {
+        label: "보호",
         rows: [
-          { label: "소음 [dB(A)]", values: Array(4).fill("1m에서 55dB 이하") },
-          { label: "보호등급/도장색상", values: Array(4).fill("IP20 / RAL7035 (Light Grey)") },
-          { label: "외부통신", values: Array(4).fill("RS-232C, 422, 485, SNMP (옵션)") },
+          { label: "서지 보호", values: Array(5).fill("IEEE527B (원본 표기)") },
+          { label: "노이즈", values: Array(5).fill("FCC.A (원본 표기)") },
         ],
       },
       {
-        label: "크기",
+        label: "소음",
+        rows: [{ label: "가청 소음", values: Array(5).fill("55 dB 미만 (거리 1 m)") }],
+      },
+      {
+        label: "사용 환경",
         rows: [
-          { label: "W (mm)", values: ["580", "580", "305", "305"] },
-          { label: "D (mm)", values: ["230", "230", "590", "590"] },
-          { label: "H (mm)", values: ["710", "710", "870", "870"] },
+          { label: "온도", values: Array(5).fill("0-40 °C") },
+          { label: "습도", values: Array(5).fill("0-95%") },
+        ],
+      },
+      {
+        label: "일반",
+        rows: [
+          { label: "본체 중량 (배터리 제외)", values: ["75 kg", "69 kg", "105 kg", "115 kg", "210 kg"] },
+          {
+            label: "규격 (W x D x H) 단위: mm",
+            values: ["230 x 580 x 710", "230 x 580 x 710", "310 x 590 x 870", "310 x 590 x 870", "400 x 700 x 950"],
+          },
         ],
       },
     ],
   },
 
   "three-single-ups": {
-    labelHeader: "용량(KVA)",
-    columns: ["10", "15", "20", "30"],
+    labelHeader: "모델",
+    columns: ["SPT-3100", "SPT-3115", "SPT-3120", "SPT-3125", "SPT-3130"],
     groups: [
+      { rows: [{ label: "용량", values: ["10 kVA", "15 kVA", "20 kVA", "25 kVA", "30 kVA"] }] },
+      { rows: [{ label: "정격 유효 전력", values: ["8 kW", "12 kW", "16 kW", "20 kW", "24 kW"] }] },
+      { rows: [{ label: "역률", values: Array(5).fill("0.8") }] },
       {
-        band: "전기적 특성",
         label: "입력",
         rows: [
-          { label: "상수", values: Array(4).fill("3상 + 접지(G)") },
-          { label: "정격전압(허용범위)", values: Array(4).fill("380V ±20%(3상) 또는 190V ±20%(3상)") },
-          { label: "정격주파수(허용범위)", values: Array(4).fill("50Hz ±5% 또는 60Hz ±5%") },
+          { label: "입력 전압", values: Array(5).fill("380 V ±20% 또는 190 V ±20%") },
+          { label: "입력 주파수", values: Array(5).fill("50 / 60 Hz ±5%") },
+          { label: "입력 방식", values: Array(5).fill("삼상 + 접지") },
+          { label: "최대 입력 전류", values: ["16 A", "24 A", "32 A", "40 A", "56 A"] },
         ],
       },
       {
         label: "출력",
         rows: [
-          { label: "상수", values: Array(4).fill("단상 + 접지(G)") },
-          { label: "정격전압(허용범위)", values: Array(4).fill("220V ±1% 또는 110VAC ±1%") },
-          { label: "정격주파수(허용범위)", values: Array(4).fill("50/60Hz ±0.5%") },
-          { label: "파형왜율(THDi)", values: Array(4).fill("3% 이내") },
-          { label: "역률", values: Array(4).fill("0.8 LAG") },
-          { label: "과부하 내량", values: Array(4).fill("110~150% 과부하 시 20초 후 바이패스, 정상 시 자동 복귀") },
+          { label: "출력 방식", values: Array(5).fill("단상 + 접지") },
+          { label: "출력 전압", values: Array(5).fill("220 V ±1% 또는 110 V AC ±1%") },
+          { label: "출력 주파수", values: Array(5).fill("50 / 60 Hz ±0.5%") },
+          { label: "출력 파형", values: Array(5).fill("정현파") },
+          { label: "과부하", values: Array(5).fill("110~150%, 20초 후 바이패스 전환 / 부하 정상 시 자동 복귀") },
+          { label: "파형 왜율", values: Array(5).fill("3% 미만 (선형 부하)") },
         ],
       },
       {
-        band: "성능",
-        label: "성능",
+        label: "배터리",
         rows: [
-          { label: "효율(%)", values: Array(4).fill("85% 이상") },
-          { label: "절체 시간", values: Array(4).fill("0ms") },
+          { label: "배터리 전압", values: ["192 V DC", "192 V DC", "192 V DC", "240 V DC", "240 V DC"] },
+          { label: "최대 충전 전류", values: ["4 A", "6 A", "6 A", "6 A", "6 A"] },
+        ],
+      },
+      { rows: [{ label: "효율", values: Array(5).fill("85% 초과") }] },
+      { rows: [{ label: "전환 시간", values: Array(5).fill("0 ms") }] },
+      {
+        label: "패널 표시",
+        rows: [
+          { label: "LCD 표시", values: Array(5).fill("입·출력 전압 및 주파수, 배터리 전압, 부하 용량") },
+          { label: "LED 표시", values: Array(5).fill("배터리 부족, 온라인, 인버터, 바이패스, 이상") },
         ],
       },
       {
-        band: "기타",
-        label: "기타",
+        label: "사용 환경",
         rows: [
-          { label: "소음 [dB(A)]", values: Array(4).fill("1m에서 58dB 이하") },
-          { label: "보호등급/도장색상", values: Array(4).fill("IP20 / RAL7035 (Light Grey)") },
-          { label: "외부통신", values: Array(4).fill("RS-232C, SNMP (옵션)") },
+          { label: "사용 온도", values: Array(5).fill("0~40 °C") },
+          { label: "사용 습도", values: Array(5).fill("0~95% (결로 없음)") },
+          { label: "소음", values: Array(5).fill("58 dB 미만 (1 m)") },
         ],
       },
       {
-        label: "크기",
+        label: "통신 / 관리",
         rows: [
-          { label: "W (mm)", values: ["310", "470", "470", "740"] },
-          { label: "D (mm)", values: ["560", "470", "470", "470"] },
-          { label: "H (mm)", values: ["870", "1080", "1080", "1180"] },
+          { label: "통신", values: Array(5).fill("RS232") },
+          { label: "관리 기능", values: Array(5).fill("전원 상태 확인, UPS 종료, 상태 감시, 자가 진단, 파일 자동 저장") },
+        ],
+      },
+      {
+        label: "외형 및 중량",
+        rows: [
+          { label: "외형 W×D×H (mm)", values: ["310×560×870", "740×470×1180", "740×470×1180", "740×470×1180", "740×470×1180"] },
+          { label: "포장 W×D×H (mm)", values: ["490×790×930", "950×675×1315", "950×675×1315", "950×675×1315", "950×675×1315"] },
+          { label: "중량 (배터리 제외)", values: ["155 kg", "262 kg", "297 kg", "326 kg", "326 kg"] },
         ],
       },
     ],
   },
 
   "three-three-ups": {
-    labelHeader: "용량(KVA)",
-    columns: ["10~20", "30~60", "80~120"],
+    labelHeader: "구분",
+    columns: ["10kVA", "15kVA", "20kVA", "30kVA", "40kVA", "60kVA", "80kVA", "100kVA", "120kVA"],
     groups: [
-      { rows: [{ label: "세부 용량(KVA)", values: ["10 / 15 / 20", "30 / 40 / 60", "80 / 100 / 120"] }] },
+      { rows: [{ label: "시리즈", values: Array(9).fill("SPT-3300 Series") }] },
+      { rows: [{ label: "정격 출력", values: ["8kW", "12kW", "16kW", "24kW", "32kW", "48kW", "64kW", "80kW", "96kW"] }] },
+      { rows: [{ label: "출력 역률", values: Array(9).fill("0.8") }] },
       {
-        band: "전기적 특성",
-        label: "입력",
+        band: "입력",
         rows: [
-          { label: "상수", values: Array(3).fill("삼상 3선식/4선식 + 접지(G)") },
-          { label: "정격전압(허용범위)", values: Array(3).fill("220/380/440VAC -18%~+20%") },
-          { label: "정격주파수(허용범위)", values: Array(3).fill("50/60Hz ±5%") },
+          { label: "상수", values: Array(9).fill("3상 4선식 + 접지") },
+          { label: "전압 범위", values: Array(9).fill("+/-20%") },
+          { label: "주파수 범위", values: Array(9).fill("45-65Hz") },
+          { label: "정류 방식", values: Array(9).fill("3상 6펄스") },
         ],
       },
       {
-        label: "출력",
+        band: "출력",
         rows: [
-          { label: "정격전압(허용범위)", values: Array(3).fill("220/380/440VAC ±2%") },
-          { label: "정격주파수(허용범위)", values: Array(3).fill("50/60Hz ±0.5%") },
-          { label: "파형왜율(THDi)", values: Array(3).fill("3% 이내") },
-          { label: "역률", values: Array(3).fill("0.8 LAG") },
-          { label: "과부하 내량", values: Array(3).fill("110~120%에서 10분간") },
+          { label: "상수", values: Array(9).fill("3상 4선식 + 접지") },
+          { label: "출력 파형", values: Array(9).fill("정현파") },
+          { label: "파고율", values: Array(9).fill("3:1") },
+          { label: "정격 전압", values: Array(9).fill("380/400/415V 선택 사양") },
+          { label: "상전압 설정", values: Array(9).fill("200 - 244VAC (조작 패널)") },
+          { label: "과도 응답", values: Array(9).fill("+/-5%, 10ms") },
+          { label: "주파수", values: Array(9).fill("50 / 60 Hz") },
+          { label: "주파수 안정도", values: Array(9).fill("+ / - 0.05%") },
+          { label: "위상 동기 범위", values: Array(9).fill("동기 운전 시: +/-0.05%, 비동기 운전 시: +/-2% (설정 가능, 조작 패널에서 +/-1% 선택 가능)") },
+          { label: "출력 전압 왜율", values: Array(9).fill("3% (선형 부하)") },
+          { label: "단락 전류", values: Array(9).fill("정격 전류의 0.1s (200% 전류)") },
+          { label: "과부하 내량", values: Array(9).fill("110% /125% /150% 정격 전류에서 300분 /10분 /1분") },
         ],
       },
       {
-        band: "성능",
-        label: "성능",
+        band: "배터리",
         rows: [
-          { label: "효율(%)", values: ["92% 이하", "93% 이상", "93% 이상"] },
-          { label: "절체 시간", values: Array(3).fill("0ms") },
+          { label: "배터리 종류", values: Array(9).fill("무보수형 납축전지") },
+          { label: "직류 전압", values: Array(9).fill("384VDC") },
         ],
       },
       {
-        band: "기타",
-        label: "기타",
+        label: "바이패스",
         rows: [
-          { label: "소음 [dB(A)]", values: Array(3).fill("1m에서 60dB 이하") },
-          { label: "보호등급/도장색상", values: Array(3).fill("IP20 / RAL7035 (Light Grey)") },
-          { label: "외부통신", values: Array(3).fill("RS-232C, 422, 485, SNMP (옵션)") },
+          { label: "방식", values: Array(9).fill("정지형 바이패스 + 유지보수용 수동 바이패스") },
+          { label: "입력 상수", values: Array(9).fill("3상 4선식 + 접지") },
+          { label: "입력 전압 범위", values: Array(9).fill("15% - 25% (전면 조작 패널에서 선택 가능)") },
+          { label: "입력 주파수 범위", values: Array(9).fill("+/-1% ~ +/-5% (전면 조작 패널에서 선택 가능)") },
         ],
       },
       {
-        label: "크기",
         rows: [
-          { label: "W (mm)", values: ["650", "950", "1070"] },
-          { label: "D (mm)", values: ["850", "890", "740"] },
-          { label: "H (mm)", values: ["1340", "1620", "1400"] },
+          {
+            label: "절체 시간",
+            values: Array(9).fill("인버터/바이패스 절체 스위치 시간(Overload): 인버터/바이패스 절체 - 과부하 시 0ms, 인버터 고장 시 1ms"),
+          },
+        ],
+      },
+      { rows: [{ label: "과부하 내량 (10분)", values: ["170%", "180%", "170%", "170%", "170%", "140%", "130%", "125%", "125%"] }] },
+      {
+        band: "시스템",
+        rows: [
+          { label: "원격 제어", values: Array(9).fill("비상 정지(EPO) 및 바이패스") },
+          { label: "통신 인터페이스", values: Array(9).fill("RS232 (SNMP, 모뎀 선택 사양)") },
+          { label: "운전 온도", values: Array(9).fill("0~40°C") },
+          { label: "상대 습도", values: Array(9).fill("95% 미만 (결로 없음)") },
+          { label: "설치 고도", values: Array(9).fill("정격 출력: 1000m / 100m 상승 시 출력 1% 감소, 최대 4000m") },
+          { label: "소음 (1m)", values: Array(9).fill("60dB 미만") },
+          { label: "인버터 효율", values: ["92%", "92%", "92%", "92%", "93%", "93%", "93%", "93%", "93%"] },
+          { label: "보호 등급", values: Array(9).fill("IP20") },
+          { label: "적용 규격", values: Array(9).fill("EN50091-1-EMC, EN50091-2liv.A") },
+        ],
+      },
+      {
+        label: "선택 사양",
+        rows: [
+          { label: "", values: Array(9).fill("절연 변압기") },
+          { label: "", values: Array(9).fill("고조파 억제 필터") },
+          { label: "", values: Array(9).fill("최대 6대 병렬 운전") },
+        ],
+      },
+      { rows: [{ label: "순중량 (kg)", values: ["210", "230", "230", "282", "330", "450", "555", "650", "750"] }] },
+      { rows: [{ label: "총중량 (kg)", values: ["260", "280", "280", "332", "380", "505", "600", "700", "800"] }] },
+      {
+        rows: [
+          {
+            label: "포장 치수 (W x D x H)",
+            values: [
+              "W555×D720×H1200",
+              "W555×D720×H1200",
+              "W555×D720×H1200",
+              "W555×D720×H1200",
+              "W800×D745×H1400",
+              "W800×D745×H1400",
+              "W800×D745×H1400",
+              "1070×740×1400",
+              "1070×740×1400",
+            ],
+          },
         ],
       },
     ],
