@@ -269,51 +269,312 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
   },
 
   "server-ups": {
-    labelHeader: "모델명",
-    columns: ["HP910C (1KVA)", "HP920C (2KVA)", "HP930C (3KVA)", "HP960C (6KVA)", "HP9100C (10KVA)"],
+    // 출처: docs/제품 카다로그/PC 서버용 UPS.pdf 3p "SPECIFICATION" 표 중 타워형(비RM) 열만 발췌, PDF 원문 그대로(라벨/값 포함)
+    labelHeader: "모델",
+    columns: ["HP910", "HP920", "HP930", "HP960", "HP9100", "HP9120"],
     groups: [
+      {
+        rows: [{ label: "용량", values: ["1kVA / 700W", "2kVA / 1400W", "3kVA / 2100W", "6kVA / 4.2kW", "10kVA / 7kW", "12kVA / 8.4kW"] }],
+      },
       {
         band: "전기적 특성",
         label: "입력",
         rows: [
-          { label: "상수", values: Array(5).fill("단상(1-Phase, L/N/G)") },
-          { label: "정격전압", values: Array(5).fill("110~300VAC") },
-          { label: "정격주파수", values: Array(5).fill("56~64Hz") },
+          {
+            label: "전압범위",
+            values: [
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "176±5VAC~276±5VAC",
+              "176±5VAC~276±5VAC",
+              "176±5VAC~276±5VAC",
+            ],
+          },
+          { label: "주파수", values: Array(6).fill("46~554Hz 또는 56~64Hz (자동인식)") },
+          { label: "상", values: Array(6).fill("단상") },
+          { label: "역률", values: ["≥0.97", "≥0.97", "≥0.97", "≥0.98", "≥0.98", "≥0.98"] },
         ],
       },
       {
         label: "출력",
         rows: [
-          { label: "정격전압", values: Array(5).fill("220/230/240V (±1%)") },
-          { label: "정격주파수", values: Array(5).fill("56~64Hz") },
-          { label: "파형왜율(THDi)", values: Array(5).fill("3% 이내") },
-          { label: "역률", values: Array(5).fill("0.98 LAG") },
-          { label: "과부하 내량", values: Array(5).fill("110% 이상 30초 후 바이패스, 150% 초과 시 300ms 후 바이패스") },
+          { label: "전압", values: Array(6).fill("220VAC ±2%") },
+          { label: "주파수", values: Array(6).fill("50 / 60Hz ±2%") },
+          { label: "THD(직선형부하)", values: ["<3%", "<3%", "<3%", "<2%", "<2%", "<2%"] },
+          { label: "THD(비직선형부하)", values: Array(6).fill("<6%") },
+          {
+            label: "과부하시 용량",
+            values: [
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+            ],
+          },
+          { label: "파고율", values: Array(6).fill("3:10 (최대)") },
+          {
+            label: "단락보호",
+            values: Array(6).fill(
+              "5사이클 후 인버터 정지, 바이패스로의 비 전환, 경보음 (AC모드) / 6사이클 후 인버터 정지, 경보음 (배터리모드) / 입력 휴즈가 타거나 또는 차단기 작동 (바이패스모드)"
+            ),
+          },
+          { label: "파형", values: Array(6).fill("싸인파형") },
+          { label: "절체시간", values: Array(6).fill("0ms") },
         ],
       },
       {
         band: "성능",
         label: "성능",
         rows: [
-          { label: "효율(%)", values: ["83%", "85%", "85%", "88%", "88%"] },
-          { label: "절체 시간", values: Array(5).fill("0ms") },
+          { label: "효율", values: ["≥83%", "≥83%", "≥85%", "≥85%", "≥88%", "≥88%"] },
+          { label: "전환 (AC 바이패스)", values: Array(6).fill("0ms") },
+        ],
+      },
+      {
+        band: "배터리",
+        label: "배터리",
+        rows: [
+          { label: "타입", values: Array(6).fill("12V 납 축전지") },
+          { label: "DC전압", values: ["36VDC", "96VDC", "96VDC", "240VDC", "240VDC", "240VDC"] },
+          { label: "사양", values: ["3×12V/7AH", "8×12V/7AH", "8×12V/7AH", "20×12V/7AH", "20×12V/7AH", "20×12V/7AH"] },
+          { label: "백업타임", values: ["12min", "19min", "16min", "20min", "13min", "10min"] },
+          { label: "백업타임", values: ["5ms", "8ms", "5ms", "7min", "5min", "3min"] },
+          { label: "충전전류", values: ["0.7A", "0.7A", "0.7A", "1A", "1A", "1A"] },
+          { label: "충전전류", values: ["7.5A", "7.5A", "7.5A", "5A", "5A", "5A"] },
+          { label: "충전시간", values: Array(6).fill("8시간 후 약 90%") },
         ],
       },
       {
         band: "기타",
         label: "기타",
         rows: [
-          { label: "소음 [dB(A)]", values: Array(5).fill("1m에서 60dB 이하") },
-          { label: "보호등급/도장색상", values: Array(5).fill("IP20 / RAL7035 (Light Grey)") },
-          { label: "외부통신", values: Array(5).fill("RS-232, SNMP (옵션)") },
+          { label: "통신", values: Array(6).fill("RS-232, SNMP(옵션)") },
+          {
+            label: "LCD",
+            values: Array(6).fill(
+              '1. 입력, 전압/주파수, 배터리 전압, 출력전압/주파수, 부하의 와트/VA 및 퍼센트, 인버터 온도  2. "ON라인", "ON배터리", 또는 "ON 바이패스" 같은 작동 모드'
+            ),
+          },
+          { label: "LED", values: Array(6).fill("1. 초록색 → 정상 작동  2. 노란색 → 경보  3. 빨간색 → 비정상 작동") },
+          { label: "소음", values: ["<45dB", "<45dB", "<45dB", "<55dB", "<55dB", "<55dB"] },
+          {
+            label: "병렬포트",
+            values: ["병렬 기능 없음", "병렬 기능 없음", "병렬 기능 없음", "3대까지 설치 가능한 병렬기능", "3대까지 설치 가능한 병렬기능", "3대까지 설치 가능한 병렬기능"],
+          },
         ],
       },
       {
-        label: "크기",
+        band: "주위",
+        label: "주위",
         rows: [
-          { label: "W (mm)", values: ["470", "470", "470", "688", "688"] },
-          { label: "D (mm)", values: ["440", "440", "440", "440", "440"] },
-          { label: "H (mm)", values: ["88", "88", "88", "175", "175"] },
+          { label: "온도", values: Array(6).fill("0~40℃") },
+          { label: "습도", values: Array(6).fill("0~95%") },
+          // PDF 원문에는 '고도' 행에 아래 온도값이, '저장온도' 행에 '<1500m'이 표기되어 있음(원본 라벨-값 그대로 반영)
+          { label: "고도", values: ["-25~55℃", "-25~55℃", "-25~55℃", "-0~40℃", "-0~40℃", "-0~40℃"] },
+          { label: "저장온도", values: Array(6).fill("<1500m") },
+        ],
+      },
+      {
+        label: "기타",
+        rows: [
+          { label: "표준/총중량(kg)", values: ["14/16", "33/35", "34/36", "89/104", "92/107", "92/107"] },
+          { label: "장시간/총중량(kg)", values: ["7.5/9", "14/16", "15/17", "34/43", "36/46", "36/46"] },
+          {
+            label: "크기(W×D×H)mm",
+            values: ["144×419×215", "191×478×339", "191×478×339", "270×570×720", "270×570×720", "270×570×720"],
+          },
+          {
+            label: "포장크기(W×D×H)mm",
+            values: ["258×524×334", "332×603×482", "332×603×482", "370×670×940", "370×670×940", "370×670×940"],
+          },
+        ],
+      },
+    ],
+  },
+
+  "server-ups-rm": {
+    // 출처: docs/제품 카다로그/PC 서버용 UPS.pdf 3p "HP900C-RM (RACK MOUNT-TYPE) SPECIFICATION" 표 중 RM(랙마운트) 열만 발췌, PDF 원문 그대로(라벨/값 포함)
+    labelHeader: "모델",
+    columns: ["HP910-RM", "HP920-RM", "HP930-RM", "HP960-RM", "HP9100-RM", "HP9120-RM"],
+    groups: [
+      {
+        rows: [{ label: "용량", values: ["1kVA / 700W", "2kVA / 1400W", "3kVA / 2100W", "6kVA / 4.2kW", "10kVA / 7kW", "12kVA / 8.4kW"] }],
+      },
+      {
+        band: "전기적 특성",
+        label: "입력",
+        rows: [
+          {
+            label: "전압범위",
+            values: [
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "부하가 70% 미만일 때: 115±5VAC~295±5VAC / 70% 이상일 때: 160±5VAC~295±5VAC",
+              "176±5VAC~276±5VAC",
+              "176±5VAC~276±5VAC",
+              "176±5VAC~276±5VAC",
+            ],
+          },
+          { label: "주파수", values: Array(6).fill("46~554Hz 또는 56~64Hz (자동인식)") },
+          { label: "상", values: Array(6).fill("단상") },
+          { label: "역률", values: ["≥0.97", "≥0.97", "≥0.97", "≥0.98", "≥0.98", "≥0.98"] },
+        ],
+      },
+      {
+        label: "출력",
+        rows: [
+          { label: "전압", values: Array(6).fill("220VAC ±2%") },
+          { label: "주파수", values: Array(6).fill("50 / 60Hz ±2%") },
+          { label: "THD(직선형부하)", values: ["<3%", "<3%", "<3%", "<2%", "<2%", "<2%"] },
+          { label: "THD(비직선형부하)", values: Array(6).fill("<6%") },
+          {
+            label: "과부하시 용량",
+            values: [
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">110%: 바이패스모드로의 전환시간이 30s / >150%: 바이패스모드로의 전환시간이 30ms",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+              ">106~130%: 바이패스모드로의 전환시간이 10ms / >130%: 바이패스모드로의 전환시간이 1s",
+            ],
+          },
+          { label: "파고율", values: Array(6).fill("3:10 (최대)") },
+          {
+            label: "단락보호",
+            values: Array(6).fill(
+              "5사이클 후 인버터 정지, 바이패스로의 비 전환, 경보음 (AC모드) / 6사이클 후 인버터 정지, 경보음 (배터리모드) / 입력 휴즈가 타거나 또는 차단기 작동 (바이패스모드)"
+            ),
+          },
+          { label: "파형", values: Array(6).fill("싸인파형") },
+          { label: "절체시간", values: Array(6).fill("0ms") },
+        ],
+      },
+      {
+        band: "성능",
+        label: "성능",
+        rows: [
+          { label: "효율", values: ["≥83%", "≥83%", "≥85%", "≥85%", "≥88%", "≥88%"] },
+          { label: "전환 (AC 바이패스)", values: Array(6).fill("0ms") },
+        ],
+      },
+      {
+        band: "배터리",
+        label: "배터리",
+        rows: [
+          { label: "타입", values: Array(6).fill("12V 납 축전지") },
+          { label: "DC전압", values: ["36VDC", "96VDC", "96VDC", "240VDC", "240VDC", "240VDC"] },
+          { label: "사양", values: ["3×12V/7AH", "8×12V/7AH", "8×12V/7AH", "20×12V/7AH", "20×12V/7AH", "20×12V/7AH"] },
+          { label: "백업타임", values: ["12min", "19min", "16min", "N/A", "N/A", "10min"] },
+          { label: "백업타임", values: ["5ms", "8ms", "5ms", "N/A", "N/A", "3min"] },
+          { label: "충전전류", values: ["0.7A", "0.7A", "0.7A", "1A", "1A", "1A"] },
+          { label: "충전전류", values: ["7.5A", "7.5A", "7.5A", "5A", "5A", "5A"] },
+          { label: "충전시간", values: Array(6).fill("8시간 후 약 90%") },
+        ],
+      },
+      {
+        band: "기타",
+        label: "기타",
+        rows: [
+          { label: "통신", values: Array(6).fill("RS-232, SNMP(옵션)") },
+          {
+            label: "LCD",
+            values: Array(6).fill(
+              '1. 입력, 전압/주파수, 배터리 전압, 출력전압/주파수, 부하의 와트/VA 및 퍼센트, 인버터 온도  2. "ON라인", "ON배터리", 또는 "ON 바이패스" 같은 작동 모드'
+            ),
+          },
+          { label: "LED", values: Array(6).fill("1. 초록색 → 정상 작동  2. 노란색 → 경보  3. 빨간색 → 비정상 작동") },
+          { label: "소음", values: ["<45dB", "<45dB", "<45dB", "<55dB", "<55dB", "<55dB"] },
+          {
+            label: "병렬포트",
+            values: ["병렬 기능 없음", "병렬 기능 없음", "병렬 기능 없음", "3대까지 설치 가능한 병렬기능", "3대까지 설치 가능한 병렬기능", "3대까지 설치 가능한 병렬기능"],
+          },
+        ],
+      },
+      {
+        band: "주위",
+        label: "주위",
+        rows: [
+          { label: "온도", values: Array(6).fill("0~40℃") },
+          { label: "습도", values: Array(6).fill("0~95%") },
+          // PDF 원문에는 '고도' 행에 아래 온도값이, '저장온도' 행에 '<1500m'이 표기되어 있음(원본 라벨-값 그대로 반영)
+          { label: "고도", values: ["-25~55℃", "-25~55℃", "-25~55℃", "-0~40℃", "-0~40℃", "-0~40℃"] },
+          { label: "저장온도", values: Array(6).fill("<1500m") },
+        ],
+      },
+      {
+        label: "기타",
+        rows: [
+          { label: "표준/총중량(kg)", values: ["14/16", "34/36", "35/37", "N/A", "N/A", "N/A"] },
+          { label: "장시간/총중량(kg)", values: ["8/10", "19/21", "20/22", "22/25", "22/25", "22/25"] },
+          {
+            label: "크기(W×D×H)mm",
+            values: ["483×440×90", "483×440×90", "483×440×90", "440×650×176", "440×650×176", "440×650×176"],
+          },
+          {
+            label: "포장크기(W×D×H)mm",
+            values: ["587×550×254", "592×665×292", "592×665×292", "580×790×336", "580×790×336", "580×790×336"],
+          },
+        ],
+      },
+    ],
+  },
+
+  "server-ups-hp3900c": {
+    // 출처: docs/제품 카다로그/PC 서버용 UPS.pdf 4p "HP3900C (TOWER-TYPE) SPECIFICATION" 표, PDF 원문 그대로(라벨/값 포함)
+    labelHeader: "모델",
+    columns: ["HP3910", "HP3915", "HP3920"],
+    groups: [
+      { rows: [{ label: "용량", values: ["10kVA / 7kW", "15kVA / 10.5kW", "20kVA / 14kW"] }] },
+      {
+        label: "입력",
+        rows: [
+          { label: "전압범위", values: Array(3).fill("304VAC ±5VAC ~ 478VAC ±5VAC") },
+          { label: "주파수", values: Array(3).fill("46~54Hz 또는 56~64Hz ±0.5Hz (자동인식)") },
+          { label: "상", values: Array(3).fill("3상") },
+          { label: "역률", values: Array(3).fill("≥0.95") },
+        ],
+      },
+      {
+        label: "출력",
+        rows: [
+          { label: "전압범위", values: Array(3).fill("220Vac ±1%") },
+          { label: "상", values: Array(3).fill("1상") },
+          { label: "주파수", values: Array(3).fill("50 / 60Hz ±0.2%(배터리모드)") },
+          { label: "THD(선형부하)", values: Array(3).fill("<2%") },
+          { label: "THD(비선형부하)", values: Array(3).fill("<6%") },
+          {
+            label: "과부하 내량",
+            values: Array(3).fill("105~130%: 바이패스모드로의 전환시간이 10min / >130%: 바이패스모드로의 전환시간 1s"),
+          },
+          { label: "파고율", values: Array(3).fill("3:1 (최대)") },
+          { label: "파형", values: Array(3).fill("싸인파형") },
+          { label: "절체시간", values: Array(3).fill("0ms") },
+          { label: "전환시간", values: Array(3).fill("0ms") },
+          { label: "효율", values: Array(3).fill("≥88%") },
+          { label: "통신", values: Array(3).fill("RS-232, SNMP(옵션)") },
+          { label: "병렬포트", values: Array(3).fill("3대까지 설치 가능한 병렬기능") },
+        ],
+      },
+      {
+        label: "환경",
+        rows: [
+          { label: "소음", values: Array(3).fill("<55dB") },
+          { label: "온도", values: Array(3).fill("0 - 40℃") },
+          { label: "습도", values: Array(3).fill("0 - 90%") },
+          { label: "고도", values: Array(3).fill("<1500m") },
+          { label: "저장온도", values: Array(3).fill("0 - 40℃") },
+        ],
+      },
+      {
+        label: "기타",
+        rows: [
+          { label: "표준/총중량(kg)", values: ["92 / 107", "92 / 107", "N/A"] },
+          { label: "장기간/총중량(kg)", values: ["36 / 107", "36 / 107", "56 / 65"] },
+          { label: "크기(W×D×H)mm", values: Array(3).fill("270×570×720") },
+          { label: "포장크기(W×D×H)mm", values: Array(3).fill("370×670×940") },
         ],
       },
     ],

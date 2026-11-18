@@ -6,6 +6,7 @@ export interface Solution {
 }
 
 export const solutions: Solution[] = [
+  { title: "PC 서버용 UPS", capacity: "1~10KVA", image: "/image/products/fields/server-rack.jpg", href: "/products/server-ups" },
   { title: "가정 / 소규모 사무실", capacity: "3~15KVA", image: "/image/products/fields/office.jpg", href: "/products/single-ups" },
   { title: "서버 / 전산실", capacity: "10~30KVA", image: "/image/products/fields/server-room.jpg", href: "/products/three-single-ups" },
   { title: "산업현장 / 공장", capacity: "10~100KVA", image: "/image/home/use-industrial.jpg", href: "/products/three-three-ups" },

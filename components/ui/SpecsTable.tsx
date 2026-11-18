@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { ProductSpecTable } from "@/data/products/product-specs";
 
-const headerCellClass = "px-4 md:px-5 py-3 text-xs font-semibold text-white uppercase tracking-wide text-center whitespace-nowrap border-x border-white/20";
+const headerCellClass = "px-4 md:px-5 py-3 text-xs font-semibold text-white uppercase tracking-wide text-center whitespace-nowrap lg:whitespace-normal border-x border-white/20";
 const bandCellClass = "px-4 md:px-5 py-2.5 text-xs font-bold text-navy uppercase tracking-widest text-center bg-surface border-x border-white/20";
 const groupLabelClass = "px-4 md:px-5 py-3 text-sm font-bold text-navy text-center bg-surface border-x border-line align-middle";
 const itemLabelClass = "px-4 md:px-5 py-3 text-sm text-ink text-center bg-surface border-x border-line align-middle";
@@ -21,9 +21,19 @@ export default function SpecsTable({ table }: { table: ProductSpecTable }) {
   const { labelHeader, labelHeaders, columns } = table;
   const colCount = columns.length;
 
+  const labelColWidth = 24 / 2;
+  const dataColWidth = (100 - 24) / colCount;
+
   return (
-    <div className="overflow-x-auto rounded-md border border-line">
-      <table className="w-full border-collapse min-w-160">
+    <div className="overflow-x-auto lg:overflow-visible rounded-md border border-line">
+      <table className="w-full border-collapse min-w-160 lg:min-w-0 lg:table-fixed">
+        <colgroup>
+          <col style={{ width: `${labelColWidth}%` }} />
+          <col style={{ width: `${labelColWidth}%` }} />
+          {columns.map((col) => (
+            <col key={col} style={{ width: `${dataColWidth}%` }} />
+          ))}
+        </colgroup>
         <thead>
           <tr className="bg-navy border-b border-white/20">
             {labelHeaders ? (

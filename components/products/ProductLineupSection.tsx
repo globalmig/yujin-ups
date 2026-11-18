@@ -6,25 +6,25 @@ import Button from "@/components/ui/Button";
 
 const lineup = [
   {
-    title: "SPT 시리즈",
+    title: "단상 UPS",
     range: "1 ~ 30kVA",
     desc: "온라인 방식, 범용형 UPS",
-    image: "/image/products/spt-301k.png",
+    image: "/image/products/single-ups-feature.png",
     href: "/products/single-ups",
   },
   {
-    title: "3상 온라인 UPS",
-    range: "10 ~ 600kVA",
-    desc: "데이터센터, 대형 설비용",
-    image: "/image/products/spt-3300.png",
-    href: "/products/three-three-ups",
-  },
-  {
-    title: "모듈형 UPS",
+    title: "삼상 / 단상 UPS",
     range: "20 ~ 600kVA",
     desc: "확장성, 이중화 지원",
     image: "/image/products/spt-3000.png",
     href: "/products/three-single-ups",
+  },
+  {
+    title: "삼상 / 삼상 UPS",
+    range: "10 ~ 600kVA",
+    desc: "데이터센터, 대형 설비용",
+    image: "/image/products/three-three-ups-feature.png",
+    href: "/products/three-three-ups",
   },
   {
     title: "산업용 / 특수 UPS",

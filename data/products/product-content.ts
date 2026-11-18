@@ -39,7 +39,7 @@ export const productContentMap: Record<string, ProductContent> = {
   "single-ups": {
     hero: {
       eyebrow: "On-Line UPS · 1:1 Phase",
-      title: "SPT-301K~151AK Series",
+      title: "SPT-301K Series",
       description:
         "서버, 스토리지, 워크스테이션, 네트워크 장비를 위한 Pure On-Line 더블컨버전 UPS로, 순수 정현파 출력과 무순단(0ms) 절체로 안정적인 전원을 공급합니다.",
       highlights: [
@@ -54,7 +54,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "server", title: "서버·네트워크 장비 보호", desc: "서버, 스토리지, 워크스테이션, 네트워크 장비 전용 설계" },
       { icon: "activity", title: "서지·노이즈 보호", desc: "서지, 회로보호, 과부하 보호 및 EMI·RFI 노이즈 필터링" },
     ],
-    image: "/image/products/spt-301k.png",
+    image: "/image/products/single-ups-feature.png",
     features: {
       description: "Pure On-Line 더블컨버전 방식과 다양한 보호 기능으로 서버·네트워크 환경에 최적화된 안정성을 제공합니다.",
       items: [
@@ -121,7 +121,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "server", title: "병렬 확장으로 용량 증설", desc: "최대 6대 병렬 운전으로 대용량 부하에도 대응" },
       { icon: "clock", title: "자가 진단 & 스마트 팬 제어", desc: "축전지 자가 진단과 온도별 스마트 팬 제어로 무중단 운영" },
     ],
-    image: "/image/products/spt-3300.png",
+    image: "/image/products/three-three-ups-feature.png",
     features: {
       description: "3상 입력 · 3상 출력 구조의 온라인 UPS로, 이중화 설계와 다양한 관리 기능으로 고신뢰 운영을 지원합니다.",
       items: [
@@ -155,7 +155,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "server", title: "컴팩트 타워형 설계", desc: "좁은 공간에도 효율적으로 설치 가능" },
       { icon: "shield", title: "순수 정현파 출력", desc: "부하 장비 수명 연장과 안정적인 구동을 보장" },
     ],
-    image: "/image/products/hp-900c.png",
+    image: "/image/products/hp900c-rm.png",
     features: {
       description: "서버 다운, 의료 장비 정지 같은 치명적 손실을 막기 위한 4가지 핵심 기술을 갖추고 있습니다.",
       items: [

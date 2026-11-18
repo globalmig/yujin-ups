@@ -25,7 +25,7 @@ const productLineup = [
   {
     range: "단상 UPS",
     title: "SPT 시리즈 · 1~30KVA",
-    image: "/image/products/spt-301k.png",
+    image: "/image/products/single-ups-feature.png",
     features: ["가정, 소규모 사무실, PC, 통신장비", "온라인 방식 (On-Line)", "정현파 출력, 고효율 설계", "LCD 디스플레이"],
     href: "/products/single-ups",
   },
@@ -39,14 +39,14 @@ const productLineup = [
   {
     range: "삼상 / 삼상 UPS",
     title: "3상 온라인 UPS · 10~600KVA",
-    image: "/image/products/spt-3300.png",
+    image: "/image/products/three-three-ups-feature.png",
     features: ["산업현장, 데이터센터, 병원", "고효율 온라인 방식", "병렬 확장으로 용량 증설 가능", "SNMP, MODBUS 지원"],
     href: "/products/three-three-ups",
   },
   {
     range: "PC서버용 UPS",
     title: "HP-900C 시리즈 · 5~10KVA",
-    image: "/image/products/hp-900c.png",
+    image: "/image/products/hp900c-rm.png",
     features: ["서버, 네트워크 장비, 의료장비", "온라인 이중변환 방식", "높은 입력 역률 및 효율", "확장 배터리 지원"],
     href: "/products/server-ups",
   },

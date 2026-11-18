@@ -35,13 +35,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return categories.flatMap((cat) => {
-    if (cat.children) {
-      const childParams = cat.children.filter((c) => !c.href).map((c) => ({ categoryId: c.id }));
-      return cat.selfPage ? [{ categoryId: cat.id }, ...childParams] : childParams;
-    }
-    return [{ categoryId: cat.id }];
-  });
+  // server-ups는 app/products/server-ups 하위 정적 라우트(목록 + 모델별 상세)에서 전담합니다.
+  return categories
+    .filter((cat) => cat.id !== "server-ups")
+    .flatMap((cat) => {
+      if (cat.children) {
+        const childParams = cat.children.filter((c) => !c.href).map((c) => ({ categoryId: c.id }));
+        return cat.selfPage ? [{ categoryId: cat.id }, ...childParams] : childParams;
+      }
+      return [{ categoryId: cat.id }];
+    });
 }
 
 export default async function CategoryPage({ params }: Props) {
