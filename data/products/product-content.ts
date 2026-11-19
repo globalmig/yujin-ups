@@ -29,6 +29,8 @@ export interface ProductContent {
   featureBar: ProductFeatureBarItem[];
   /** 제품 특징 섹션(사진 | 특징 목록)에서 사용하는 대표 제품 사진 */
   image: string;
+  /** 제품 특징 섹션에서 대표 사진 바로 아래에 추가로 보여줄 사진(예: 후면 사진) */
+  secondaryImage?: string;
   features: {
     description: string;
     items: ProductFeatureItem[];
@@ -55,6 +57,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "activity", title: "서지·노이즈 보호", desc: "서지, 회로보호, 과부하 보호 및 EMI·RFI 노이즈 필터링" },
     ],
     image: "/image/products/single-ups-feature.png",
+    secondaryImage: "/image/products/single-ups-rear.png",
     features: {
       description: "Pure On-Line 더블컨버전 방식과 다양한 보호 기능으로 서버·네트워크 환경에 최적화된 안정성을 제공합니다.",
       items: [
@@ -106,7 +109,7 @@ export const productContentMap: Record<string, ProductContent> = {
   "three-three-ups": {
     hero: {
       eyebrow: "On-Line UPS · 삼상/삼상",
-      title: "SPT-3300",
+      title: "SPT-3300 Series",
       description:
         "산업현장, 데이터센터, 병원 등 대용량 설비를 위한 3상 온라인 UPS로, 고효율 ECO MODE와 병렬 확장으로 자유로운 용량 증설이 가능합니다.",
       highlights: [

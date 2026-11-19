@@ -2,11 +2,17 @@
 // 해당 카탈로그가 있는 카테고리만 정의하며, 없는 카테고리는 섹션 자체가 렌더링되지 않습니다.
 // 조회 키는 기본적으로 categoryId이며, 같은 카테고리에 모델이 여러 개인 경우(server-ups-hp3900c 등) towerKey로 구분합니다.
 
+export interface ProductTowerTypeGroup {
+  /** 항목을 묶는 소제목(굵은 네이비 색상으로 강조) */
+  label: string;
+  items: string[];
+}
+
 export interface ProductTowerType {
   badge: string;
   title: string;
   image: string;
-  items: string[];
+  groups: ProductTowerTypeGroup[];
 }
 
 export const productTowerTypeMap: Partial<Record<string, ProductTowerType>> = {
@@ -14,16 +20,23 @@ export const productTowerTypeMap: Partial<Record<string, ProductTowerType>> = {
     badge: "HP900C (TOWER-TYPE)",
     title: "HP900C Series의 제품 특징",
     image: "/image/products/hp900c-tower.png",
-    items: [
-      "고 주파수 및 이중전환의 온라인 기술",
-      "디지털 마이크로 프로세서 컨트롤",
-      "배터리 없이도 UPS 시동 가능",
-      "워밍업이 필요없는 시동",
-      "모니터링 소프트웨어의 RS-232 통신",
-      "입력전원의 넓은 범위",
-      "EMI/RFI 노이즈 필터",
-      "옵션의 SNMP카드 슬롯",
-      "부하분담 병렬운전 가능",
+    groups: [
+      {
+        label: "온라인 기술",
+        items: ["고 주파수 및 이중전환의 온라인 기술", "디지털 마이크로 프로세서 컨트롤"],
+      },
+      {
+        label: "시동 · 운전",
+        items: ["배터리 없이도 UPS 시동 가능", "워밍업이 필요없는 시동", "부하분담 병렬운전 가능"],
+      },
+      {
+        label: "입력 · 보호",
+        items: ["입력전원의 넓은 범위", "EMI/RFI 노이즈 필터"],
+      },
+      {
+        label: "모니터링 · 확장",
+        items: ["모니터링 소프트웨어의 RS-232 통신", "옵션의 SNMP카드 슬롯"],
+      },
     ],
   },
 
@@ -31,40 +44,63 @@ export const productTowerTypeMap: Partial<Record<string, ProductTowerType>> = {
     badge: "HP900C-RM (RACK MOUNT-TYPE)",
     title: "HP900C-RM Series의 제품 특징",
     image: "/image/products/hp900c-rm.png",
-    items: [
-      "고주파수 및 이중전환의 온라인 기술",
-      "디지털 마이크로 프로세서 컨트롤",
-      "입력전원의 넓은 범위",
-      "배터리 없이도 UPS 시동가능",
-      "워밍업이 필요없는 시동",
-      "더욱 향상된 배터리 관리",
-      "UPS 정지 시에도 배터리 자동 충전",
-      "피뢰 및 써지로부터의 보호기능",
-      "부하량에 따른 팬 스피드의 자동 조절",
-      "네트워크, 팩스, 모뎀의 써지 보호기능",
-      "옵션의 배터리사용 연장 팩",
-      "배터리 전압 디스플레이",
-      "부하 용량 디스플레이",
-      "EM/RFI 노이즈 필터",
-      "모니터링 소프트웨어 RS-232통신",
-      "옵션의 SNMP 카드 슬롯",
-      "EPS 기능(옵션)",
-      "부하 분담 병렬 운전가능(6 KVA이상)",
+    groups: [
+      {
+        label: "온라인 기술",
+        items: ["고주파수 및 이중전환의 온라인 기술", "디지털 마이크로 프로세서 컨트롤", "입력전원의 넓은 범위"],
+      },
+      {
+        label: "배터리 관리",
+        items: [
+          "배터리 없이도 UPS 시동가능",
+          "워밍업이 필요없는 시동",
+          "더욱 향상된 배터리 관리",
+          "UPS 정지 시에도 배터리 자동 충전",
+          "옵션의 배터리사용 연장 팩",
+          "배터리 전압 디스플레이",
+        ],
+      },
+      {
+        label: "보호 기능",
+        items: ["피뢰 및 써지로부터의 보호기능", "네트워크, 팩스, 모뎀의 써지 보호기능", "EM/RFI 노이즈 필터"],
+      },
+      {
+        label: "운전 · 디스플레이",
+        items: [
+          "부하량에 따른 팬 스피드의 자동 조절",
+          "부하 용량 디스플레이",
+          "부하 분담 병렬 운전가능(6 KVA이상)",
+          "EPS 기능(옵션)",
+        ],
+      },
+      {
+        label: "모니터링 · 확장",
+        items: ["모니터링 소프트웨어 RS-232통신", "옵션의 SNMP 카드 슬롯"],
+      },
     ],
   },
 
   "server-ups-hp3900c": {
     badge: "HP3900C (TOWER-TYPE)",
     title: "HP3900C Series의 제품 특징",
-    image: "/image/products/hp3900c-tower.png",
-    items: [
-      "더욱 향상된 배터리 관리",
-      "UPS 정지 시에도 배터리 자동 충전",
-      "피뢰 및 써지로부터의 보호기능",
-      "부하량에 따른 팬스피드의 자동 조절",
-      "네트워크, 팩스, 모뎀의 써지 보호기능",
-      "모니터링 소프트웨어 RS-232통신",
-      "부하 분담 병렬 운전가능",
+    image: "/image/products/hp3900c.png",
+    groups: [
+      {
+        label: "배터리 관리",
+        items: ["더욱 향상된 배터리 관리", "UPS 정지 시에도 배터리 자동 충전"],
+      },
+      {
+        label: "보호 기능",
+        items: ["피뢰 및 써지로부터의 보호기능", "네트워크, 팩스, 모뎀의 써지 보호기능"],
+      },
+      {
+        label: "운전",
+        items: ["부하량에 따른 팬스피드의 자동 조절", "부하 분담 병렬 운전가능"],
+      },
+      {
+        label: "모니터링",
+        items: ["모니터링 소프트웨어 RS-232통신"],
+      },
     ],
   },
 };

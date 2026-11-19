@@ -3,7 +3,7 @@ import Container from "@/components/layout/Container";
 import { productContentMap } from "@/data/products/product-content";
 
 export default function ProductFeaturesSection({ categoryId }: { categoryId: string }) {
-  const { hero, features, image } = productContentMap[categoryId];
+  const { hero, features, image, secondaryImage } = productContentMap[categoryId];
   const { description, items } = features;
   const eyebrow = "PRODUCT FEATURES";
   const title = `${hero.title}의 제품 특징`;
@@ -18,14 +18,27 @@ export default function ProductFeaturesSection({ categoryId }: { categoryId: str
         className="object-cover"
       />
       <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div className="relative w-full aspect-4/3 rounded-lg overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-contain p-8"
-          />
+        <div className="flex flex-col gap-4">
+          <div className="relative w-full aspect-4/3 rounded-lg overflow-hidden">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain p-8"
+            />
+          </div>
+          {secondaryImage && (
+            <div className="relative w-full aspect-4/3 rounded-lg overflow-hidden">
+              <Image
+                src={secondaryImage}
+                alt={`${title} - 후면`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain p-8"
+              />
+            </div>
+          )}
         </div>
 
         <div>

@@ -169,7 +169,6 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
     labelHeader: "구분",
     columns: ["10kVA", "15kVA", "20kVA", "30kVA", "40kVA", "60kVA", "80kVA", "100kVA", "120kVA"],
     groups: [
-      { rows: [{ label: "시리즈", values: Array(9).fill("SPT-3300 Series") }] },
       { rows: [{ label: "정격 출력", values: ["8kW", "12kW", "16kW", "24kW", "32kW", "48kW", "64kW", "80kW", "96kW"] }] },
       { rows: [{ label: "출력 역률", values: Array(9).fill("0.8") }] },
       {
@@ -239,11 +238,7 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
       },
       {
         label: "선택 사양",
-        rows: [
-          { label: "", values: Array(9).fill("절연 변압기") },
-          { label: "", values: Array(9).fill("고조파 억제 필터") },
-          { label: "", values: Array(9).fill("최대 6대 병렬 운전") },
-        ],
+        rows: [{ label: "", values: Array(9).fill("절연 변압기 / 고조파 억제 필터 / 최대 6대 병렬 운전") }],
       },
       { rows: [{ label: "순중량 (kg)", values: ["210", "230", "230", "282", "330", "450", "555", "650", "750"] }] },
       { rows: [{ label: "총중량 (kg)", values: ["260", "280", "280", "332", "380", "505", "600", "700", "800"] }] },
@@ -323,19 +318,12 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
           },
           { label: "파형", values: Array(6).fill("싸인파형") },
           { label: "절체시간", values: Array(6).fill("0ms") },
-        ],
-      },
-      {
-        band: "성능",
-        label: "성능",
-        rows: [
           { label: "효율", values: ["≥83%", "≥83%", "≥85%", "≥85%", "≥88%", "≥88%"] },
           { label: "전환 (AC 바이패스)", values: Array(6).fill("0ms") },
         ],
       },
       {
         band: "배터리",
-        label: "배터리",
         rows: [
           { label: "타입", values: Array(6).fill("12V 납 축전지") },
           { label: "DC전압", values: ["36VDC", "96VDC", "96VDC", "240VDC", "240VDC", "240VDC"] },
@@ -348,8 +336,7 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
         ],
       },
       {
-        band: "기타",
-        label: "기타",
+        band: "통신",
         rows: [
           { label: "통신", values: Array(6).fill("RS-232, SNMP(옵션)") },
           {
@@ -398,7 +385,7 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
   "server-ups-rm": {
     // 출처: docs/제품 카다로그/PC 서버용 UPS.pdf 3p "HP900C-RM (RACK MOUNT-TYPE) SPECIFICATION" 표 중 RM(랙마운트) 열만 발췌, PDF 원문 그대로(라벨/값 포함)
     labelHeader: "모델",
-    columns: ["HP910-RM", "HP920-RM", "HP930-RM", "HP960-RM", "HP9100-RM", "HP9120-RM"],
+    columns: ["HP910 | HP910-RM", "HP920 | HP920-RM", "HP930 | HP930-RM", "HP960 | HP960-RM", "HP9100 | HP9100-RM", "HP9120 | HP9120-RM"],
     groups: [
       {
         rows: [{ label: "용량", values: ["1kVA / 700W", "2kVA / 1400W", "3kVA / 2100W", "6kVA / 4.2kW", "10kVA / 7kW", "12kVA / 8.4kW"] }],

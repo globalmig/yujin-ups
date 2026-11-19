@@ -27,7 +27,7 @@ export const serverUpsModels: ServerUpsModel[] = [
   {
     id: "hp900c-rm",
     badge: "HP900C-RM (RACK MOUNT-TYPE)",
-    title: "HP900C-RM Series · 1~12KVA",
+    title: "HP900C-RM Series · 10~20KVA",
     image: "/image/products/hp900c-rm.png",
     features: [
       "서버랙 설치에 최적화된 랙마운트 디자인",
@@ -41,7 +41,7 @@ export const serverUpsModels: ServerUpsModel[] = [
     id: "hp3900c",
     badge: "HP3900C (TOWER-TYPE)",
     title: "HP3900C Series · 10~20KVA",
-    image: "/image/products/hp3900c-tower.png",
+    image: "/image/products/hp3900c.png",
     features: [
       "더욱 향상된 배터리 관리",
       "UPS 정지 시에도 배터리 자동 충전",
