@@ -66,8 +66,8 @@ export default async function CategoryPage({ params }: Props) {
       <ProductWhyUsSection />
       <ProductFeaturesSection categoryId={categoryId} />
       <ProductRearConfigSection categoryId={categoryId} />
-      <DowntimeRiskSection />
-      <ProductStrengthPointsSection />
+      <DowntimeRiskSection categoryId={categoryId} />
+      <ProductStrengthPointsSection categoryId={categoryId} />
       <ProductSpecsSection categoryId={categoryId} />
       <ProductFieldsSection categoryId={categoryId} />
       <ProductLineupSection />

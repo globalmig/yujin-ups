@@ -29,8 +29,8 @@ export default function ServerUpsHp900cRmPage() {
       />
       <ProductWhyUsSection />
       <ProductTowerTypeSection categoryId="server-ups" towerKey="server-ups-rm" />
-      <DowntimeRiskSection />
-      <ProductStrengthPointsSection />
+      <DowntimeRiskSection categoryId="server-ups" imageKey="server-ups-rm" />
+      <ProductStrengthPointsSection categoryId="server-ups" imageKey="server-ups-rm" />
       <ProductSpecsSection
         categoryId="server-ups"
         specKey="server-ups-rm"

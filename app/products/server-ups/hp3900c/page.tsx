@@ -28,8 +28,8 @@ export default function ServerUpsHp3900cPage() {
       />
       <ProductWhyUsSection />
       <ProductTowerTypeSection categoryId="server-ups" towerKey="server-ups-hp3900c" />
-      <DowntimeRiskSection />
-      <ProductStrengthPointsSection />
+      <DowntimeRiskSection categoryId="server-ups" imageKey="server-ups-hp3900c" />
+      <ProductStrengthPointsSection categoryId="server-ups" imageKey="server-ups-hp3900c" />
       <ProductSpecsSection categoryId="server-ups" specKey="server-ups-hp3900c" titleOverride="HP3900C (TOWER-TYPE) 제품 사양" />
       <ProductFieldsSection categoryId="server-ups" />
       <ProductLineupSection />

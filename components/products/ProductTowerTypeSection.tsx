@@ -17,7 +17,7 @@ export default function ProductTowerTypeSection({ categoryId, towerKey }: Produc
   return (
     <section className="relative py-16 md:py-30 overflow-hidden bg-white">
       <Image
-        src="/image/제품%20특징%20배경.jpg"
+        src="/image/products/feature-section-bg.jpg"
         alt=""
         fill
         sizes="100vw"

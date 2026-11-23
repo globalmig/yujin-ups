@@ -67,7 +67,7 @@ export default function HeroSection() {
           <p className="text-base md:text-lg mb-7">대한민국의 핵심 인프라가 24시간 멈추지 않고 가동될 수 있도록 뒤에서 <br/>묵묵히 전력을 지탱합니다.
           </p>
           <div className="mb-8 md:mb-14">
-            <p className="text-navy font-bold text-2xl mb-1">1KVA부터 200KVA까지</p>
+            <p className="text-navy font-bold text-2xl mb-1">1KVA이상 소용량부터 200KVA 대용량까지</p>
             <p className="text-sm font-semibold">산업현장 · 금융기관 · 데이터센터 · 공공기관 · 기업 · 개인용 UPS</p>
           </div>
 

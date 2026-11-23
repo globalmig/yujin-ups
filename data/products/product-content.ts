@@ -91,7 +91,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "server", title: "병렬 운전 최대 6대", desc: "용량 증설이 자유로운 모듈형 설계" },
       { icon: "clock", title: "자가 진단 & 스마트 팬 제어", desc: "축전지 자가 진단 테스트와 온도별 스마트 팬 제어" },
     ],
-    image: "/image/products/spt-3000.png",
+    image: "/image/products/UPS-3상380V-단상220V(50KVA).png",
     features: {
       description: "삼상 입력 · 단상 출력 구조의 On-Line 이중변환 UPS로, 순수 정현파 출력과 배터리·통신 관리 기능을 폭넓게 지원합니다.",
       items: [
@@ -124,7 +124,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { icon: "server", title: "병렬 확장으로 용량 증설", desc: "최대 6대 병렬 운전으로 대용량 부하에도 대응" },
       { icon: "clock", title: "자가 진단 & 스마트 팬 제어", desc: "축전지 자가 진단과 온도별 스마트 팬 제어로 무중단 운영" },
     ],
-    image: "/image/products/three-three-ups-feature.png",
+    image: "/image/products/UPS-200KVA(KTX-천안아산역-전산실).png",
     features: {
       description: "3상 입력 · 3상 출력 구조의 온라인 UPS로, 이중화 설계와 다양한 관리 기능으로 고신뢰 운영을 지원합니다.",
       items: [

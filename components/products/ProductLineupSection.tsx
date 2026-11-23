@@ -7,23 +7,23 @@ import Button from "@/components/ui/Button";
 const lineup = [
   {
     title: "단상 UPS",
-    range: "1 ~ 30kVA",
+    range: "1 ~ 15kVA",
     desc: "온라인 방식, 범용형 UPS",
     image: "/image/products/single-ups-feature.png",
     href: "/products/single-ups",
   },
   {
     title: "삼상 / 단상 UPS",
-    range: "20 ~ 600kVA",
+    range: "10 ~ 30kVA",
     desc: "확장성, 이중화 지원",
     image: "/image/products/spt-3000.png",
     href: "/products/three-single-ups",
   },
   {
     title: "삼상 / 삼상 UPS",
-    range: "10 ~ 600kVA",
+    range: "10 ~ 200kVA",
     desc: "데이터센터, 대형 설비용",
-    image: "/image/products/three-three-ups-feature.png",
+    image: "/image/products/UPS-3상-3상(2대)-1.png",
     href: "/products/three-three-ups",
   },
   {

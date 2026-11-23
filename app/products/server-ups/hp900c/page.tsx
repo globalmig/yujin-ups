@@ -26,8 +26,8 @@ export default function ServerUpsHp900cPage() {
       <ProductWhyUsSection />
       <ProductTowerTypeSection categoryId="server-ups" />
       <ProductDisplayRearSection categoryId="server-ups" />
-      <DowntimeRiskSection />
-      <ProductStrengthPointsSection />
+      <DowntimeRiskSection categoryId="server-ups" />
+      <ProductStrengthPointsSection categoryId="server-ups" />
       <ProductSpecsSection categoryId="server-ups" />
       <ProductFieldsSection categoryId="server-ups" />
       <ProductLineupSection />

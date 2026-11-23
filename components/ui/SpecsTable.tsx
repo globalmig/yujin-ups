@@ -25,7 +25,7 @@ export default function SpecsTable({ table }: { table: ProductSpecTable }) {
   const dataColWidth = (100 - 24) / colCount;
 
   return (
-    <div className="overflow-x-auto lg:overflow-visible rounded-md border border-line">
+    <div className="overflow-x-auto lg:overflow-visible lg:max-w-[1000px] lg:mx-auto rounded-md border border-line">
       <table className="w-full border-collapse min-w-160 lg:min-w-0 lg:table-fixed">
         <colgroup>
           <col style={{ width: `${labelColWidth}%` }} />

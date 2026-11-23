@@ -1,30 +1,46 @@
 import Image from "next/image";
 import Container from "@/components/layout/Container";
+import { productDowntimeImagesMap } from "@/data/products/product-downtime-images";
 
-const risks = [
+const defaultRisks = [
   {
     title: "전산실 서버 다운",
     desc: "거래로그 유실, 복구 비용 폭증",
-    image: "/image/다운손실%20사례01.png",
+    image: "/image/products/downtime/default-server-room.png",
   },
   {
     title: "수술 장비 정지",
     desc: "수술 중단, 환자 안전 리스크",
-    image: "/image/다운손실%20사례02.png",
+    image: "/image/products/downtime/default-surgery.png",
   },
   {
     title: "IT 인프라 장애",
     desc: "복구 작업 장기화, 업무 마비",
-    image: "/image/다운손실%20사례03.png",
+    image: "/image/products/downtime/default-infra.png",
   },
   {
     title: "의료 영상 장비 정지",
     desc: "진단 지연, 응급 대응 차질",
-    image: "/image/다운손실%20사례04.png",
+    image: "/image/products/downtime/default-medical.png",
   },
 ];
 
-export default function DowntimeRiskSection() {
+interface DowntimeRiskSectionProps {
+  categoryId?: string;
+  imageKey?: string;
+}
+
+export default function DowntimeRiskSection({ categoryId, imageKey }: DowntimeRiskSectionProps) {
+  const overrideImages = categoryId ? productDowntimeImagesMap[imageKey ?? categoryId] : undefined;
+  const risks = overrideImages
+    ? [
+        { ...defaultRisks[0], image: overrideImages.serverRoom },
+        { ...defaultRisks[1], image: overrideImages.surgery },
+        { ...defaultRisks[2], image: overrideImages.infra },
+        { ...defaultRisks[3], image: overrideImages.medical },
+      ]
+    : defaultRisks;
+
   return (
     <section className="py-16 md:py-30 bg-[#ECEFF1]">
       <Container>

@@ -1,37 +1,53 @@
 import Image from "next/image";
 import Container from "@/components/layout/Container";
+import { productStrengthImagesMap } from "@/data/products/product-strength-images";
 
-const points = [
+const defaultPoints = [
   {
     label: "POINT 01",
     title: "Zero Transfer Time",
     desc: "정전이 발생하면 0ms로 배터리 전원으로 전환되며, UPS가 꺼진 상태에서도 배터리를 자동으로 충전합니다.",
-    image: "/image/제품강점01.png",
+    image: "/image/products/strength/default-zero-transfer.png",
   },
   {
     label: "POINT 02",
     title: "지능형 제어",
     desc: "전원을 켤 때마다 내부 회로와 배터리 상태를 자가 점검하며, 16비트 MCU가 전력을 최적으로 관리합니다.",
-    image: "/image/제품강점02.png",
+    image: "/image/products/strength/default-intelligent-control.png",
   },
   {
     label: "POINT 03",
     title: "컴팩트 타워형",
     desc: "좁은 공간에도 효율적으로 설치할 수 있는 컴팩트한 타워형 디자인을 적용했습니다.",
-    image: "/image/제품강점03.png",
+    image: "/image/products/strength/default-compact.png",
   },
   {
     label: "POINT 04",
     title: "순수 정현파 출력",
     desc: "순수 정현파 출력으로 부하 장비의 수명을 연장하고 안정적으로 구동하여 최상의 안정성을 유지합니다.",
-    image: "/image/제품강점04.png",
+    image: "/image/products/strength/default-sine-wave.png",
   },
 ];
 
-export default function ProductStrengthPointsSection() {
+interface ProductStrengthPointsSectionProps {
+  categoryId?: string;
+  imageKey?: string;
+}
+
+export default function ProductStrengthPointsSection({ categoryId, imageKey }: ProductStrengthPointsSectionProps) {
+  const overrideImages = categoryId ? productStrengthImagesMap[imageKey ?? categoryId] : undefined;
+  const points = overrideImages
+    ? [
+        { ...defaultPoints[0], image: overrideImages.zeroTransfer },
+        { ...defaultPoints[1], image: overrideImages.intelligentControl },
+        { ...defaultPoints[2], image: overrideImages.compact },
+        { ...defaultPoints[3], image: overrideImages.sineWave },
+      ]
+    : defaultPoints;
+
   return (
     <section className="relative py-16 md:py-30 overflow-hidden bg-navy-dark">
-      <Image src="/image/제품강점%20배경.png" alt="" fill sizes="100vw" className="object-cover" />
+      <Image src="/image/products/strength/section-bg.png" alt="" fill sizes="100vw" className="object-cover" />
 
       <Container className="relative z-10">
         <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">

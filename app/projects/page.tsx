@@ -39,7 +39,7 @@ export default function ProjectsPage() {
       {/* 공급 분야 */}
       <section className="relative py-16 md:py-40 overflow-hidden bg-navy">
         <Image
-          src="/image/Frame%202147239468.png"
+          src="/image/common/global-network-bg.png"
           alt="글로벌 네트워크 이미지"
           fill
           sizes="100vw"
