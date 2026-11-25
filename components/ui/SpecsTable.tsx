@@ -1,4 +1,6 @@
-import { Fragment } from "react";
+"use client";
+
+import { Fragment, useState } from "react";
 import type { ProductSpecTable } from "@/data/products/product-specs";
 
 const headerCellClass = "px-4 md:px-5 py-3 text-xs font-semibold text-white uppercase tracking-wide text-center whitespace-nowrap lg:whitespace-normal border-x border-white/20";
@@ -17,16 +19,76 @@ function groupRuns(values: string[]) {
   return runs;
 }
 
+function MobileSpecCard({ table, selected }: { table: ProductSpecTable; selected: number }) {
+  if ("rows" in table) {
+    return (
+      <div className="rounded-md border border-line overflow-hidden divide-y divide-line">
+        {table.rows.map((row, ri) => (
+          <div key={ri} className="flex">
+            <div className="w-28 shrink-0 bg-surface px-3 py-2.5 text-xs font-semibold text-navy">{row.label}</div>
+            <div className="flex-1 px-3 py-2.5 text-xs text-ink">{row.values[selected]}</div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      {table.groups.map((group, gi) => {
+        const heading = [group.band, group.label].filter(Boolean).join(" · ");
+        return (
+          <div key={gi} className="rounded-md border border-line overflow-hidden">
+            {heading && (
+              <div className="bg-navy px-3 py-2 text-xs font-bold uppercase tracking-wide text-white">{heading}</div>
+            )}
+            <div className="divide-y divide-line">
+              {group.rows.map((row, ri) => (
+                <div key={ri} className="flex">
+                  <div className="w-28 shrink-0 bg-surface px-3 py-2.5 text-xs font-semibold text-navy">{row.label}</div>
+                  <div className="flex-1 px-3 py-2.5 text-xs text-ink">{row.values[selected]}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function SpecsTable({ table }: { table: ProductSpecTable }) {
   const { labelHeader, labelHeaders, columns } = table;
   const colCount = columns.length;
+  const [selected, setSelected] = useState(0);
 
   const labelColWidth = 24 / 2;
   const dataColWidth = (100 - 24) / colCount;
 
   return (
-    <div className="overflow-x-auto lg:overflow-visible lg:max-w-[1000px] lg:mx-auto rounded-md border border-line">
-      <table className="w-full border-collapse min-w-160 lg:min-w-0 lg:table-fixed">
+    <>
+      {/* 모바일: 모델 선택 후 해당 모델의 제원만 카드형으로 표시 */}
+      <div className="lg:hidden">
+        <div className="flex gap-2 overflow-x-auto pb-3 -mx-6 px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {columns.map((col, i) => (
+            <button
+              key={col}
+              type="button"
+              onClick={() => setSelected(i)}
+              className={`shrink-0 rounded-full border px-4 py-2 text-xs font-bold transition-colors ${
+                i === selected ? "border-navy bg-navy text-white" : "border-line bg-white text-ink"
+              }`}
+            >
+              {col}
+            </button>
+          ))}
+        </div>
+        <MobileSpecCard table={table} selected={selected} />
+      </div>
+
+      {/* 데스크톱: 전체 제원표 */}
+      <div className="hidden lg:block lg:max-w-250 lg:mx-auto rounded-md border border-line">
+      <table className="w-full border-collapse lg:table-fixed">
         <colgroup>
           <col style={{ width: `${labelColWidth}%` }} />
           <col style={{ width: `${labelColWidth}%` }} />
@@ -100,6 +162,7 @@ export default function SpecsTable({ table }: { table: ProductSpecTable }) {
               ))}
         </tbody>
       </table>
-    </div>
+      </div>
+    </>
   );
 }

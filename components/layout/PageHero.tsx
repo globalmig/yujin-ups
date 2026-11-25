@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import Container from "@/components/layout/Container";
 
 interface PageHeroProps {
@@ -7,6 +8,7 @@ interface PageHeroProps {
   eyebrow: string;
   title: string;
   description: string;
+  actions?: ReactNode;
 }
 
 export default function PageHero({
@@ -15,6 +17,7 @@ export default function PageHero({
   eyebrow,
   title,
   description,
+  actions,
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-navy-dark">
@@ -37,6 +40,7 @@ export default function PageHero({
             {title}
           </h1>
           <p className="text-base md:text-lg text-white/70">{description}</p>
+          {actions && <div className="flex flex-wrap gap-3 mt-6">{actions}</div>}
         </div>
       </Container>
     </section>

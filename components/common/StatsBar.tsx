@@ -55,7 +55,7 @@ export default function StatsBar() {
           >
             <Icon />
             <p className="flex flex-col leading-tight">
-              <b className="text-lg md:text-2xl font-bold md:mb-2">{value}</b>
+              <b className="text-lg md:text-2xl font-bold md:mb-2 whitespace-nowrap">{value}</b>
               <span className="text-xs text-white/70">{label}</span>
             </p>
           </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
@@ -10,7 +11,27 @@ const strengths = [
   "빠른 대응과 신속한 유지보수",
 ];
 
-export default function StrengthContactSection() {
+interface StrengthContactSectionProps {
+  contactEyebrow?: string;
+  contactTitle?: string;
+  contactDescription?: ReactNode;
+  contactButtonHref?: string;
+  contactButtonLabel?: string;
+}
+
+export default function StrengthContactSection({
+  contactEyebrow = "YOUR POWER, OUR RESPONSIBILITY",
+  contactTitle = "UPS 견적이 필요하신가요?",
+  contactDescription = (
+    <>
+      용량을 모르셔도, 제품을 모르셔도 괜찮습니다.
+      <br />
+      전문가가 친절하게 상담해 드리겠습니다.
+    </>
+  ),
+  contactButtonHref = "mailto:ups8057@naver.com?subject=UPS%20견적%20문의",
+  contactButtonLabel = "견적 문의하기",
+}: StrengthContactSectionProps) {
   return (
     <section id="service" className="grid grid-cols-1 lg:grid-cols-2 scroll-mt-20">
       {/* 강점 */}
@@ -36,21 +57,17 @@ export default function StrengthContactSection() {
       {/* 문의 */}
       <div id="contact" className="relative overflow-hidden bg-linear-to-br from-blue to-blue-dark text-white scroll-mt-20">
         <div className="relative z-10 px-6 py-10 md:px-14 md:py-12 max-w-lg">
-          <p className="text-xs font-bold tracking-[0.2em] text-white/70 mb-2">YOUR POWER, OUR RESPONSIBILITY</p>
-          <h2 className="text-xl md:text-[40px] font-bold mb-2">UPS 견적이 필요하신가요?</h2>
-          <p className="text-sm text-white/85 leading-relaxed mb-4">
-            용량을 모르셔도, 제품을 모르셔도 괜찮습니다.
-            <br />
-            전문가가 친절하게 상담해 드리겠습니다.
-          </p>
+          <p className="text-xs font-bold tracking-[0.2em] text-white/70 mb-2">{contactEyebrow}</p>
+          <h2 className="text-xl md:text-[40px] font-bold mb-2">{contactTitle}</h2>
+          <p className="text-sm text-white/85 leading-relaxed mb-4">{contactDescription}</p>
           <Link href="tel:02-894-8057" className="block text-2xl font-bold mb-1">
             ☎ 02-894-8057
           </Link>
           <Link href="mailto:ups8057@naver.com" className="block text-sm text-white/85 mb-5">
             ✉ ups8057@naver.com
           </Link>
-          <Button href="mailto:ups8057@naver.com?subject=UPS%20견적%20문의" variant="white">
-            견적 문의하기
+          <Button href={contactButtonHref} variant="white">
+            {contactButtonLabel}
           </Button>
         </div>
         <div

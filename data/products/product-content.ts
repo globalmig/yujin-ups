@@ -25,6 +25,14 @@ export interface ProductContent {
     title: string;
     description: string;
     highlights: ProductHighlight[];
+    /** 입출력 방식 (예: "단상 입력 · 단상 출력"). 지정 시 제품 사진 중심의 상세 Hero 레이아웃을 사용 */
+    ioType?: string;
+    /** 용량 라인업 범위 (예: "3~15kVA") */
+    capacityRange?: string;
+    /** Hero에 노출할 실제 제품 컷아웃 사진 (흰 배경 누끼컷 권장) */
+    heroImage?: string;
+    /** 카탈로그 PDF 경로 (public/catalogs). 없으면 버튼 미노출 */
+    catalogHref?: string;
   };
   featureBar: ProductFeatureBarItem[];
   /** 제품 특징 섹션(사진 | 특징 목록)에서 사용하는 대표 제품 사진 */
@@ -49,6 +57,10 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "0ms", label: "무순단 절체 시간" },
         { value: "Pure On-Line", label: "더블 컨버전 방식" },
       ],
+      ioType: "단상 입력 · 단상 출력",
+      capacityRange: "3~15kVA",
+      heroImage: "/image/products/single-ups-feature.png",
+      catalogHref: "/catalogs/spt-301k-catalog.pdf",
     },
     featureBar: [
       { icon: "shield", title: "Pure On-Line 더블컨버전", desc: "IGBT 인버터 기반 순수 온라인 방식으로 안정적인 정현파 출력" },
@@ -84,6 +96,10 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "6대", label: "병렬 운전 지원" },
         { value: "7인치", label: "컬러 터치스크린 LCD" },
       ],
+      ioType: "삼상 입력 · 단상 출력",
+      capacityRange: "10~30kVA",
+      heroImage: "/image/products/spt-3000.png",
+      catalogHref: "/catalogs/spt-3000-catalog.pdf",
     },
     featureBar: [
       { icon: "shield", title: "3-Level 온라인 더블컨버전", desc: "VFI-SS-111 방식으로 안정적인 전원 품질 유지" },
@@ -117,6 +133,10 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "6대", label: "병렬 운전 지원" },
         { value: "SNMP/MODBUS", label: "통신 옵션 지원" },
       ],
+      ioType: "삼상 입력 · 삼상 출력",
+      capacityRange: "10~120kVA",
+      heroImage: "/image/products/three-three-ups-feature.png",
+      catalogHref: "/catalogs/spt-3300-catalog.pdf",
     },
     featureBar: [
       { icon: "shield", title: "3-Level 온라인 더블컨버전", desc: "VFI-SS-111 방식으로 산업현장에 걸맞은 전원 품질 유지" },
@@ -151,6 +171,10 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "16비트 MCU", label: "지능형 전력 관리" },
         { value: "타워형", label: "컴팩트 설계" },
       ],
+      ioType: "PC/서버용 · 단상 입력/출력",
+      capacityRange: "1~12kVA",
+      heroImage: "/image/products/hp900c-tower.png",
+      catalogHref: "/catalogs/hp900c-catalog.pdf",
     },
     featureBar: [
       { icon: "clock", title: "Zero Transfer Time", desc: "정전 발생 시 0ms로 배터리 전환, Off 상태에서도 자동 충전" },
@@ -181,6 +205,7 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "반영구적", label: "수명" },
         { value: "완벽 보호", label: "서지·과전압·저전압" },
       ],
+      heroImage: "/image/products/avr.png",
     },
     featureBar: [
       { icon: "shield", title: "RMS 컨버터 IC 채택", desc: "정밀한 전압 검출로 우수한 안정도를 실현" },
@@ -213,6 +238,7 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "99%", label: "고효율 ECO MODE" },
         { value: "왜곡 없는", label: "정현파 출력" },
       ],
+      heroImage: "/image/products/NFS-2000.png",
     },
     featureBar: [
       { icon: "activity", title: "높은 주파수 정확도", desc: "±0.5Hz의 정밀한 주파수 변환 성능" },
@@ -245,6 +271,7 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "완전 무누액", label: "밀폐형 설계" },
         { value: "최대 1000Cycles", label: "장수명 설계" },
       ],
+      heroImage: "/image/products/es-series.png",
     },
     featureBar: [
       { icon: "shield", title: "완전 무누액 밀폐형", desc: "AGM 시스템과 가스재결합 매커니즘으로 안전하게 밀폐" },
@@ -277,6 +304,7 @@ export const productContentMap: Record<string, ProductContent> = {
         { value: "RP35~RP150", label: "다양한 용량 라인업" },
         { value: "획기적", label: "수명 증대" },
       ],
+      heroImage: "/image/products/rp.png",
     },
     featureBar: [
       { icon: "shield", title: "특수 Full-Ca 합금 채용", desc: "감액 특성을 향상시켜 무보수 실현" },

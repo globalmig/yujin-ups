@@ -2,6 +2,7 @@ import Image from "next/image";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { productFieldsMap, type ProductFieldIcon } from "@/data/products/product-fields";
+import { productContentMap } from "@/data/products/product-content";
 
 function DatacenterIcon() {
   return (
@@ -101,10 +102,17 @@ export default function ProductFieldsSection({ categoryId }: { categoryId: strin
     : defaultFields.map(({ icon: Icon, title, sub, image }) => ({ Icon, title, sub, image }));
   const gridColsClass = items.length === 3 ? "lg:grid-cols-3" : items.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-5";
 
+  const modelTitle = productContentMap[categoryId]?.hero.title;
+
   return (
     <section className="py-16 md:py-30 bg-navy-dark">
       <Container>
-        <SectionTitle light eyebrow="APPLICATION FIELDS" title="UPS가 필수인 분야" description="다양한 산업에서 UPS는 선택이 아닌 필수입니다." />
+        <SectionTitle
+          light
+          eyebrow="APPLICATION CASES"
+          title={modelTitle ? `${modelTitle} 적용 사례` : "UPS가 필수인 분야"}
+          description="다양한 산업 현장에서 UPS는 선택이 아닌 필수입니다. 실제 설치 사진이 아닌 참고 이미지가 포함되어 있습니다."
+        />
         <div className={`grid grid-cols-2 sm:grid-cols-3 ${gridColsClass} gap-4 md:gap-5`}>
           {items.map(({ Icon, title, sub, image }) => (
             <div key={title}>
@@ -112,6 +120,9 @@ export default function ProductFieldsSection({ categoryId }: { categoryId: strin
                 <Image src={image} alt={title} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
                 <span className="absolute left-3 bottom-3 w-12 h-12 rounded-full bg-blue text-white flex items-center justify-center">
                   <Icon />
+                </span>
+                <span className="absolute right-2 top-2 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-semibold text-white/90">
+                  참고 이미지
                 </span>
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white mb-1">{title}</h3>

@@ -4,7 +4,6 @@ import ProductFeatureBar from "@/components/products/ProductFeatureBar";
 import ProductWhyUsSection from "@/components/products/ProductWhyUsSection";
 import ProductTowerTypeSection from "@/components/products/ProductTowerTypeSection";
 import ProductDisplayRearSection from "@/components/products/ProductDisplayRearSection";
-import DowntimeRiskSection from "@/components/products/DowntimeRiskSection";
 import ProductStrengthPointsSection from "@/components/products/ProductStrengthPointsSection";
 import ProductSpecsSection from "@/components/products/ProductSpecsSection";
 import ProductFieldsSection from "@/components/products/ProductFieldsSection";
@@ -26,7 +25,6 @@ export default function ServerUpsHp900cPage() {
       <ProductWhyUsSection />
       <ProductTowerTypeSection categoryId="server-ups" />
       <ProductDisplayRearSection categoryId="server-ups" />
-      <DowntimeRiskSection categoryId="server-ups" />
       <ProductStrengthPointsSection categoryId="server-ups" />
       <ProductSpecsSection categoryId="server-ups" />
       <ProductFieldsSection categoryId="server-ups" />

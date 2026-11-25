@@ -29,7 +29,7 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       aria-label="맨 위로 이동"
       className={`fixed right-8 z-50 w-11 h-11 flex items-center justify-center rounded-full bg-blue text-white shadow-lg hover:bg-blue-dark transition-colors ${
-        quickInquiryBarVisible ? "bottom-38 sm:bottom-24" : "bottom-8"
+        quickInquiryBarVisible ? "bottom-25 sm:bottom-15" : "bottom-8"
       }`}
     >
       <svg

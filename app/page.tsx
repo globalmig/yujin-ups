@@ -1,8 +1,9 @@
 import HeroSection from "@/components/home/HeroSection";
 import StatsBar from "@/components/common/StatsBar";
-import WhyUsSection from "@/components/home/WhyUsSection";
-import SolutionsSection from "@/components/home/SolutionsSection";
+import CapacityLineupSection from "@/components/home/CapacityLineupSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
+import SolutionsSection from "@/components/home/SolutionsSection";
+import WhyUsSection from "@/components/home/WhyUsSection";
 import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export default function Home() {
@@ -10,9 +11,10 @@ export default function Home() {
     <>
       <HeroSection />
       <StatsBar />
-      <WhyUsSection />
-      <SolutionsSection />
+      <CapacityLineupSection />
       <ProjectsSection />
+      <SolutionsSection />
+      <WhyUsSection />
       <StrengthContactSection />
     </>
   );

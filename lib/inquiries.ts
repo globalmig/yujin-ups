@@ -4,10 +4,10 @@ import { supabasePublic } from './supabase-public';
 export interface InquirySubmission {
   id: string;
   created_at: string;
-  company: string;
-  manager: string;
+  company: string | null;
+  name: string;
   tel: string;
-  email: string;
+  email: string | null;
   message: string;
 }
 

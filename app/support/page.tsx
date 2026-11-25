@@ -3,17 +3,16 @@ import Link from "next/link";
 import PageHero from "@/components/layout/PageHero";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Button from "@/components/ui/Button";
 import FaqAccordion from "./_components/FaqAccordion";
 import InquiryForm from "./_components/InquiryForm";
 
 export const metadata: Metadata = {
   title: "고객지원",
-  description: "유진전원시스템 고객지원 안내. 연락처, 납품실적·유지보수·기술정보 바로가기, 자주 묻는 질문을 확인하세요.",
+  description: "유진전원시스템 고객지원 안내를 드립니다.",
   alternates: { canonical: "https://www.upscom.co.kr/support" },
   openGraph: {
     title: "고객지원 | 유진전원시스템",
-    description: "연락처 안내와 자주 묻는 질문, 유진전원시스템 고객지원",
+    description: "유진전원시스템 고객지원",
     url: "https://www.upscom.co.kr/support",
   },
 };
@@ -80,7 +79,7 @@ export default function SupportPage() {
         imageAlt="고객지원 배경"
         eyebrow="CUSTOMER SUPPORT"
         title="고객지원"
-        description="연락처 안내와 자주 묻는 질문 등 유진전원시스템 고객지원 정보를 확인하세요."
+        description="유진전원시스템 고객지원 정보를 확인하세요."
       />
 
   {/* 일반 문의 */}
@@ -92,12 +91,12 @@ export default function SupportPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-30 bg-surface">
+      {/* <section className="py-16 md:py-30 bg-surface">
         <Container className="max-w-220">
           <SectionTitle eyebrow="FAQ" title="자주 묻는 질문" />
           <FaqAccordion />
         </Container>
-      </section>
+      </section> */}
 
 
       {/* 바로가기 */}
@@ -125,7 +124,7 @@ export default function SupportPage() {
       </section> */}
 
        {/* 연락처 */}
-      <section className="py-16 md:py-30 bg-white">
+      {/* <section className="py-16 md:py-30 bg-white">
         <Container>
           <SectionTitle eyebrow="CONTACT INFO" title="연락처 안내" description="궁금하신 사항이나 필요한 자료가 있으시면 언제든지 문의해 주세요." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
@@ -149,7 +148,7 @@ export default function SupportPage() {
             })}
           </div>
         </Container>
-      </section>
+      </section> */}
     </>
   );
 }

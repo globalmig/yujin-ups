@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import StrengthContactSection from "@/components/common/StrengthContactSection";
+import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "유지보수",
@@ -29,6 +30,13 @@ const process = [
   { step: "04", title: "사후 관리", desc: "조치 완료 후에도 지속적인 모니터링과 사후관리를 제공합니다." },
 ];
 
+const checklist = [
+  "제조사 · 모델명",
+  "설치 지역",
+  "알람 또는 증상",
+  "제품 명판 사진",
+];
+
 export default function MaintenancePage() {
   return (
     <>
@@ -38,6 +46,16 @@ export default function MaintenancePage() {
         eyebrow="MAINTENANCE SERVICE"
         title="유지보수"
         description="국산·수입을 가리지 않는 UPS 전문 유지보수. 정기 점검부터 신속한 출동, 부품 교체까지 책임집니다."
+        actions={
+          <>
+            <Button href="tel:02-894-8057" variant="white">
+              ☎ UPS 고장·점검 문의 02-894-8057
+            </Button>
+            <Button href="#contact" variant="outline" className="border-white/40 text-white hover:bg-white/10">
+              고장·점검 문의하기
+            </Button>
+          </>
+        }
       />
 
       {/* 소개 */}
@@ -52,6 +70,18 @@ export default function MaintenancePage() {
             1996년부터 축적해 온 UPS 제조 기술력과 현장 경험을 바탕으로, 노이즈·서지·순간정전 등 전기적 트러블로 발생할 수 있는 문제를 가장 빠르고 안정적으로 해결합니다. 성실과 신뢰를 생명으로 철저한
             사후관리와 신속한 유지보수로 고객의 전원 시스템을 책임집니다.
           </p>
+
+          <div className="max-w-2xl mx-auto mt-10 bg-surface border border-line rounded-md p-6 md:p-8">
+            <p className="font-bold text-navy mb-3">전화 접수 시 아래 정보를 알려주시면 상담이 더 빨라집니다.</p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-muted">
+              {checklist.map((c) => (
+                <li key={c} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue shrink-0" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </section>
 
@@ -92,7 +122,19 @@ export default function MaintenancePage() {
         </Container>
       </section>
 
-      <StrengthContactSection />
+      <StrengthContactSection
+        contactEyebrow="UPS 고장 · 점검 문의"
+        contactTitle="UPS가 고장났거나 점검이 필요하신가요?"
+        contactDescription={
+          <>
+            지금 바로 전화 주시면 빠르게 상담드립니다.
+            <br />
+            제조사·모델명, 증상을 알려주시면 더 정확한 안내가 가능합니다.
+          </>
+        }
+        contactButtonHref="tel:02-894-8057"
+        contactButtonLabel="전화 상담하기"
+      />
     </>
   );
 }

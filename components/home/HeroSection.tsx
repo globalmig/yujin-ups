@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/layout/Container";
+import Button from "@/components/ui/Button";
 
 function WrenchIcon() {
   return (
@@ -54,18 +55,20 @@ export default function HeroSection() {
           sizes="100vw"
           className="object-cover object-[center_48%]"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-white via-white/95 to-white/10 md:from-white md:via-white/85 md:to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-white via-white/95 to-white/10 md:from-white md:via-white/70 md:via-35% md:to-transparent md:to-58%" />
       </div>
 
-      <Container className="relative z-10 h-150 md:h-160">
+      <Container className="relative z-10 min-h-150 md:min-h-160">
         <div className="max-w-200 py-14 md:py-24">
           <p className="text-xs font-bold tracking-[0.25em] text-blue-dark/80 mb-4">POWERING YOUR BUSINESS SINCE 1996</p>
           <h1 className="text-3xl md:text-5xl font-bold text-ink leading-[1.2] tracking-tight mb-5">
             <span className="text-blue">대한민국 산업 현장을 지켜온 UPS</span>
             <br />
           </h1>
-          <p className="text-base md:text-lg mb-7">대한민국의 핵심 인프라가 24시간 멈추지 않고 가동될 수 있도록 뒤에서 <br/>묵묵히 전력을 지탱합니다.
+          <p className="text-base md:text-lg mb-5">대한민국의 핵심 인프라가 24시간 멈추지 않고 가동될 수 있도록 뒤에서 <br/>묵묵히 전력을 지탱합니다.
           </p>
+          <p className="text-sm font-bold text-navy mb-7">1996년부터 UPS 한 분야에 집중해 온 30년 이상의 외길 노하우</p>
+
           <div className="mb-8 md:mb-14">
             <p className="text-navy font-bold text-2xl mb-1">1KVA이상 소용량부터 200KVA 대용량까지</p>
             <p className="text-sm font-semibold">산업현장 · 금융기관 · 데이터센터 · 공공기관 · 기업 · 개인용 UPS</p>
@@ -79,6 +82,12 @@ export default function HeroSection() {
               </span>
             ))}
           </div>
+
+          <div className="flex flex-wrap gap-3  mt-10 md:mt-20">
+            <Button href="/contact" variant="primary" className="bg-navy">UPS 견적 요청하기 →</Button>
+            <Button href="/products" variant="outline" className="text-navy">제품 라인업 보기</Button>
+          </div>
+          <p className="text-xs text-muted mt-3 md:mt-5">필요한 용량을 모르셔도 상담 가능합니다.</p>
         </div>
       </Container>
     </section>

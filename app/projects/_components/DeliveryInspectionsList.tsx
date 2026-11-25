@@ -17,12 +17,27 @@ const categories: InspectionCategory[] = [
 
 const PAGE_SIZE = 12;
 
+/** 분야별로 번갈아 섞어서, 특정 분야가 앞쪽에 몰리지 않고 고르게 노출되도록 함 */
+function interleaveByCategory(groups: typeof deliveryInspections): typeof deliveryInspections {
+  const buckets = categories.map((category) => groups.filter((g) => g.category === category));
+  const result: typeof deliveryInspections = [];
+  const maxLength = Math.max(...buckets.map((b) => b.length));
+  for (let i = 0; i < maxLength; i++) {
+    for (const bucket of buckets) {
+      if (bucket[i]) result.push(bucket[i]);
+    }
+  }
+  return result;
+}
+
+const interleavedInspections = interleaveByCategory(deliveryInspections);
+
 export default function DeliveryInspectionsList() {
   const [active, setActive] = useState<InspectionCategory | "전체">("전체");
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<DeliveryInspection | null>(null);
 
-  const filtered = active === "전체" ? deliveryInspections : deliveryInspections.filter((g) => g.category === active);
+  const filtered = active === "전체" ? interleavedInspections : deliveryInspections.filter((g) => g.category === active);
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const groups = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
@@ -70,18 +85,22 @@ export default function DeliveryInspectionsList() {
               key={`${g.category}-${g.client}`}
               type="button"
               onClick={() => setSelected(g)}
-              className="text-left bg-white border border-line rounded-md p-5 hover:border-blue hover:shadow-md transition-all cursor-pointer"
+              className="flex flex-col h-full text-left bg-white border border-line rounded-md p-5 hover:border-blue hover:shadow-md transition-all cursor-pointer"
             >
               <div className="mb-2">
                 <h3 className="text-sm md:text-base font-bold text-navy">{g.client}</h3>
               </div>
               {sites.length > 0 && (
-                <ul className="text-xs text-muted leading-relaxed space-y-0.5">
+                <ul className="text-xs text-muted leading-relaxed space-y-0.5 mb-3">
                   {sites.map((site) => (
                     <li key={site}>· {site}</li>
                   ))}
                 </ul>
               )}
+              <p className="mt-auto pt-3 text-xs font-semibold text-blue flex items-center gap-1">
+                확인서 보기
+                <span aria-hidden>→</span>
+              </p>
             </button>
           );
         })}

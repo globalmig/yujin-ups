@@ -3,12 +3,15 @@ import Image from "next/image";
 import PageHero from "@/components/layout/PageHero";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 import StatsBar from "@/components/common/StatsBar";
 import FieldIcon from "@/components/common/FieldIcon";
 import { projectFields } from "@/lib/projects";
 import DeliveryRecordsTable from "./_components/DeliveryRecordsTable";
 import DeliveryInspectionsList from "./_components/DeliveryInspectionsList";
 import { deliveryRecords } from "@/data/deliveries/delivery-records";
+import { deliveryInspections } from "@/data/deliveries/delivery-inspections";
+import { deliveryInspectionImages } from "@/data/deliveries/delivery-inspection-images";
 import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
@@ -32,12 +35,20 @@ export default function ProjectsPage() {
         eyebrow="DELIVERY RECORD"
         title="납품실적"
         description="금융기관, 공공기관, 산업현장, 데이터센터 등 다양한 분야의 UPS 납품 실적을 소개합니다."
+        actions={
+          <>
+            <Button href="#cases" variant="white">주요 납품 사례 보기</Button>
+            <Button href="#inspections" variant="outline" className="bg-transparent! text-white! border-white/50! hover:bg-white/10!">
+              납품 검수 확인서 보기
+            </Button>
+          </>
+        }
       />
 
       <StatsBar />
 
       {/* 공급 분야 */}
-      <section className="relative py-16 md:py-40 overflow-hidden bg-navy">
+      <section className="relative py-14 md:py-20 overflow-hidden bg-navy">
         <Image
           src="/image/common/global-network-bg.png"
           alt="글로벌 네트워크 이미지"
@@ -73,24 +84,24 @@ export default function ProjectsPage() {
       </section>
 
       {/* 주요 납품 사례 */}
-      <section className="py-16 md:py-30 bg-surface">
+      <section id="cases" className="py-16 md:py-30 bg-surface scroll-mt-20">
         <Container>
           <SectionTitle
             eyebrow="CASE STUDIES"
             title="주요 납품 사례"
-            description={`교육·산업·공공·의료 등 4개 분야, 총 ${deliveryRecords.length}건의 UPS 납품 실적입니다.`}
+            description={`교육·산업·공공·의료 등 4개 분야, 품목 기준 총 ${deliveryRecords.length}건의 UPS 납품 실적입니다.`}
           />
           <DeliveryRecordsTable />
         </Container>
       </section>
 
       {/* 납품검수확인서 */}
-      <section className="py-16 md:py-30 bg-white">
+      <section id="inspections" className="py-16 md:py-30 bg-white scroll-mt-20">
         <Container>
           <SectionTitle
             eyebrow="INSPECTION DOCUMENTS"
             title="납품 검수 확인서"
-            description={`납품 완료 후 발급받은 검수확인서로 실제 공급 사실을 확인할 수 있습니다.`}
+            description={`납품 완료 후 발급받은 검수확인서로 실제 공급 사실을 확인할 수 있습니다. 거래처·현장 기준 총 ${deliveryInspections.length}건, 확인서 ${Object.keys(deliveryInspectionImages).length}장이 등록되어 있습니다.`}
           />
           <DeliveryInspectionsList />
         </Container>

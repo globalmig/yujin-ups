@@ -7,11 +7,26 @@ import { deliveryRecords, type DeliveryField } from "@/data/deliveries/delivery-
 const fields: DeliveryField[] = ["교육", "산업·기업", "공공·연구", "의료"];
 const PAGE_SIZE = 10;
 
+/** 분야별로 번갈아 섞어서, 특정 분야(예: 교육)가 앞쪽에 몰리지 않고 고르게 노출되도록 함 */
+function interleaveByField(records: typeof deliveryRecords): typeof deliveryRecords {
+  const buckets = fields.map((field) => records.filter((r) => r.field === field));
+  const result: typeof deliveryRecords = [];
+  const maxLength = Math.max(...buckets.map((b) => b.length));
+  for (let i = 0; i < maxLength; i++) {
+    for (const bucket of buckets) {
+      if (bucket[i]) result.push(bucket[i]);
+    }
+  }
+  return result;
+}
+
+const interleavedRecords = interleaveByField(deliveryRecords);
+
 export default function DeliveryRecordsTable() {
   const [active, setActive] = useState<DeliveryField | "전체">("전체");
   const [page, setPage] = useState(1);
 
-  const filtered = active === "전체" ? deliveryRecords : deliveryRecords.filter((r) => r.field === active);
+  const filtered = active === "전체" ? interleavedRecords : deliveryRecords.filter((r) => r.field === active);
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const rows = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 

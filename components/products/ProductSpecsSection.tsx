@@ -19,7 +19,7 @@ export default function ProductSpecsSection({ categoryId, specKey, titleOverride
   const table = productSpecsMap[specKey ?? categoryId];
 
   return (
-    <section className="py-16 md:py-30 bg-white">
+    <section id="specs" className="py-16 md:py-30 bg-white scroll-mt-20">
       <Container>
         <SectionTitle eyebrow="SPECIFICATIONS" title={titleOverride ?? `${title} 제품 사양`} description="모델별 상세 사양을 확인하세요." />
         {beforeTable}

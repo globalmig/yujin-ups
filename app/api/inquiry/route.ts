@@ -17,6 +17,10 @@ function isValidEmail(local: unknown, domain: unknown): boolean {
   return /^[^\s@]+$/.test(local) && /^[^\s@]+\.[^\s@]+$/.test(domain);
 }
 
+function isOptionalString(value: unknown, maxLength = 200): value is string | undefined {
+  return value === undefined || value === '' || isNonEmptyString(value, maxLength);
+}
+
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
   if (!rateLimit(`inquiry:${ip}`, 5, 10 * 60 * 1000)) {
@@ -35,13 +39,15 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
 
+  const hasEmail = isNonEmptyString(body.email1) || isNonEmptyString(body.email2);
+
   if (
-    !isNonEmptyString(body.company) ||
-    !isNonEmptyString(body.manager) ||
+    !isNonEmptyString(body.name) ||
+    !isOptionalString(body.company) ||
     !isNumericTel(body.tel1) ||
     !isNumericTel(body.tel2) ||
     !isNumericTel(body.tel3) ||
-    !isValidEmail(body.email1, body.email2) ||
+    (hasEmail && !isValidEmail(body.email1, body.email2)) ||
     !isNonEmptyString(body.message, 2000)
   ) {
     return Response.json({ error: 'Invalid input' }, { status: 400 });
@@ -49,10 +55,10 @@ export async function POST(request: NextRequest) {
 
   try {
     await saveInquiry({
-      company: body.company,
-      manager: body.manager,
+      company: isNonEmptyString(body.company) ? body.company : null,
+      name: body.name,
       tel: `${body.tel1}-${body.tel2}-${body.tel3}`,
-      email: `${body.email1}@${body.email2}`,
+      email: hasEmail ? `${body.email1}@${body.email2}` : null,
       message: body.message,
     });
 

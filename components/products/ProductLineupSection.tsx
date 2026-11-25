@@ -45,13 +45,20 @@ export default function ProductLineupSection() {
             <Link
               key={item.title}
               href={item.href}
-              className="group block bg-white rounded-lg border border-line overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              className="group flex flex-col rounded-lg border border-line overflow-hidden bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative w-full aspect-square bg-white">
-                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-6" />
+              <div className="flex items-center justify-end px-4 pt-4">
+                <span className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-navy group-hover:bg-blue group-hover:text-white transition-colors">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 6 15 12 9 18" />
+                  </svg>
+                </span>
               </div>
-              <div className="px-4 pb-5 pt-1">
-                <h3 className="text-lg md:text-xl font-bold mb-1">{item.title}</h3>
+              <div className="relative w-full aspect-4/3">
+                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-4" />
+              </div>
+              <div className="px-4 pb-5 pt-1 text-center">
+                <h3 className="text-lg md:text-xl font-bold text-navy mb-1">{item.title}</h3>
                 <p className="text-xs md:text-sm font-semibold text-blue mb-3 md:mb-4">{item.range}</p>
                 <p className="text-xs text-muted">{item.desc}</p>
               </div>

@@ -262,8 +262,8 @@ export default function AdminPage() {
                     )}
                     {item.kind === "general" && (
                       <>
-                        <span className="font-semibold text-gray-800">{item.data.company}</span>
-                        <span className="text-sm text-gray-600">{item.data.manager}</span>
+                        <span className="font-semibold text-gray-800">{item.data.name}</span>
+                        {item.data.company && <span className="text-sm text-gray-600">{item.data.company}</span>}
                       </>
                     )}
                     {item.kind === "quick" && (
@@ -312,10 +312,10 @@ export default function AdminPage() {
                     )}
                     {item.kind === "general" && (
                       <>
-                        <Row label="상호" value={item.data.company} />
-                        <Row label="담당자" value={item.data.manager} />
+                        <Row label="이름" value={item.data.name} />
                         <Row label="전화번호" value={item.data.tel} />
-                        <Row label="이메일" value={item.data.email} />
+                        {item.data.company && <Row label="상호" value={item.data.company} />}
+                        {item.data.email && <Row label="이메일" value={item.data.email} />}
                         <div className="md:col-span-2">
                           <span className="font-medium text-gray-600 mr-2">문의내용</span>
                           <span className="whitespace-pre-wrap">{item.data.message}</span>

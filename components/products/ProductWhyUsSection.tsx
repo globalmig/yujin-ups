@@ -40,7 +40,7 @@ function CheckShieldIcon() {
 
 const stats = [
   { icon: TrophyIcon, value: "30+", label: "30년 이상의 UPS 전문 기술력" },
-  { icon: UsersIcon, value: "10,000+", label: "누적 납품 및 설치 실적" },
+  { icon: UsersIcon, value: "2,500여 대", label: "중대형 UPS 납품 실적" },
   { icon: HeadsetIcon, value: "24/7", label: "365일 24시간 기술지원" },
   { icon: CheckShieldIcon, value: "100%", label: "국내 설계 · 제작 · 검수" },
 ];
