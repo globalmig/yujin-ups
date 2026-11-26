@@ -1,7 +1,7 @@
-// 출처: public/image/products/strength/ (제품 강점 포인트 사진) + public/image/ (기존 기본 이미지 제품강점01~04)
+// 출처: public/image/products/strength/ (제품 강점 포인트 사진)
 // 조회 키는 기본적으로 categoryId이며, 같은 카테고리에 모델이 여러 개인 경우(server-ups-hp3900c 등) imageKey로 구분합니다.
-// 카테고리마다 하나의 세트(0~3)를 고정 배정해 같은 페이지 안에서는 통일감을 주고,
-// 서로 다른 카테고리끼리는 겹치지 않도록 분산했습니다. 정의되지 않은 카테고리는 ProductStrengthPointsSection의 기본 이미지로 대체됩니다.
+// 카테고리마다 하나의 세트(1~3)를 고정 배정해 같은 페이지 안에서는 통일감을 주고,
+// 서로 다른 카테고리끼리는 겹치지 않도록 분산했습니다. 정의되지 않은 카테고리는 ProductStrengthPointsSection의 기본(default-*) 이미지로 대체됩니다.
 
 export interface ProductStrengthImages {
   zeroTransfer: string;
@@ -9,14 +9,6 @@ export interface ProductStrengthImages {
   compact: string;
   sineWave: string;
 }
-
-// Set 0: 기존에 사용하던 기본(제품강점01~04) 이미지
-const set0: ProductStrengthImages = {
-  zeroTransfer: "/image/제품강점01.png",
-  intelligentControl: "/image/제품강점02.png",
-  compact: "/image/제품강점03.png",
-  sineWave: "/image/제품강점04.png",
-};
 
 const set1: ProductStrengthImages = {
   zeroTransfer: "/image/products/strength/zero-transfer-1.jpg",
@@ -43,13 +35,6 @@ export const productStrengthImagesMap: Partial<Record<string, ProductStrengthIma
   "single-ups": set1,
   "three-single-ups": set2,
   "three-three-ups": set3,
-  // PC용 서버 UPS 계열은 기존 기본(제품강점01~04) 이미지를 공통으로 사용
-  "server-ups": set0,
-  "server-ups-hp3900c": set0,
-  "server-ups-rm": set0,
-  // 나머지 메뉴는 우선 임시로 PC용 서버 UPS와 동일하게 유지
-  avr: set0,
-  frequency: set0,
-  "battery-es": set0,
-  "battery-rp": set0,
+  // server-ups 계열, AVR, 주파수 변환기, 배터리는 아직 전용 사진이 없어
+  // ProductStrengthPointsSection의 기본(default-*) 이미지를 그대로 사용합니다.
 };
