@@ -18,7 +18,7 @@ const features = [
   {
     image: "/image/home/feature-product.png",
     alt: "UPS 제품",
-    title: "1KVA ~ 200KVA",
+    title: "1kVA ~ 200kVA",
     desc: "소형 UPS부터 대용량 UPS까지 고객 환경에 맞는 제품 제공",
   },
   {

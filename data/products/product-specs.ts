@@ -571,7 +571,7 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
     labelHeader: "항목",
     columns: ["단상 (Single-Phase)", "삼상 (Three-Phase)"],
     groups: [
-      { rows: [{ label: "용량 범위", values: ["1~100KVA", "3~200KVA"] }] },
+      { rows: [{ label: "용량 범위", values: ["1~100kVA", "3~200kVA"] }] },
       {
         band: "전기적 특성",
         label: "입력",
@@ -606,7 +606,7 @@ export const productSpecsMap: Record<string, ProductSpecTable> = {
   },
 
   frequency: {
-    labelHeader: "용량(KVA)",
+    labelHeader: "용량(kVA)",
     columns: ["2~5", "7.5~10", "15~20", "30", "50~60", "75~100"],
     groups: [
       {

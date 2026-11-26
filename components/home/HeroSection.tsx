@@ -70,7 +70,7 @@ export default function HeroSection() {
           <p className="text-sm font-bold text-navy mb-7">1996년부터 UPS 한 분야에 집중해 온 30년 이상의 외길 노하우</p>
 
           <div className="mb-8 md:mb-14">
-            <p className="text-navy font-bold text-2xl mb-1">1KVA이상 소용량부터 200KVA 대용량까지</p>
+            <p className="text-navy font-bold text-2xl mb-1">1kVA 이상 소용량부터 200kVA 대용량까지</p>
             <p className="text-sm font-semibold">산업현장 · 금융기관 · 데이터센터 · 공공기관 · 기업 · 개인용 UPS</p>
           </div>
 

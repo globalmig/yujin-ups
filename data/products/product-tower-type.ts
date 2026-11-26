@@ -69,7 +69,7 @@ export const productTowerTypeMap: Partial<Record<string, ProductTowerType>> = {
         items: [
           "부하량에 따른 팬 스피드의 자동 조절",
           "부하 용량 디스플레이",
-          "부하 분담 병렬 운전가능(6 KVA이상)",
+          "부하 분담 병렬 운전가능(6kVA 이상)",
           "EPS 기능(옵션)",
         ],
       },

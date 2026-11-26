@@ -8,11 +8,11 @@ import StrengthContactSection from "@/components/common/StrengthContactSection";
 
 export const metadata: Metadata = {
   title: "기술정보",
-  description: "1KVA부터 200KVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다.",
+  description: "1kVA부터 200kVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다.",
   alternates: { canonical: "https://www.upscom.co.kr/tech-info" },
   openGraph: {
     title: "기술정보 | 유진전원시스템",
-    description: "30년 UPS 제조 기술력, 1~200KVA 용량별 대응 범위 안내",
+    description: "30년 UPS 제조 기술력, 1~200kVA 용량별 대응 범위 안내",
     url: "https://www.upscom.co.kr/tech-info",
   },
 };
@@ -32,7 +32,7 @@ export default function TechInfoPage() {
         imageAlt="유진전원시스템 UPS 제품"
         eyebrow="TECHNICAL INFORMATION"
         title="기술정보"
-        description="1KVA부터 200KVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다."
+        description="1kVA부터 200kVA까지, 유진전원시스템의 UPS 기술력과 용량별 대응 범위를 소개합니다."
       />
 
       {/* 기술 개요 */}
@@ -61,7 +61,7 @@ export default function TechInfoPage() {
       {/* 용량별 대응 범위 */}
       <section className="py-16 md:py-30 bg-surface">
         <Container>
-          <SectionTitle eyebrow="CAPACITY RANGE" title="1KVA부터 200KVA까지" description="사용 환경과 용도에 맞는 최적의 용량으로 대응합니다." />
+          <SectionTitle eyebrow="CAPACITY RANGE" title="1kVA부터 200kVA까지" description="사용 환경과 용도에 맞는 최적의 용량으로 대응합니다." />
           <div className="bg-white rounded-md border border-line overflow-hidden">
             {solutions.map((s, i) => (
               <div

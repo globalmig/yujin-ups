@@ -7,11 +7,11 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  { image: "/image/home/project-bank.jpg", alt: "금융기관 UPS 납품 현장", name: "하나HSBC생명보험(주)", spec: "60KVA", field: "금융기관" },
-  { image: "/image/home/project-datacenter.png", alt: "데이터센터 UPS 납품 현장", name: "다음커뮤니케이션", spec: "100KVA", field: "데이터센터" },
-  { image: "/image/home/project-university.png", alt: "대학교 UPS 납품 현장", name: "중앙대학교", spec: "50KVA", field: "공공기관" },
-  { image: "/image/home/project-factory.png", alt: "공장 UPS 납품 현장", name: "LG디스플레이 제2공장", spec: "80KVA", field: "산업현장" },
-  { image: "/image/home/project-public.png", alt: "공공기관 UPS 납품 현장", name: "화성시청", spec: "30KVA", field: "공공기관" },
+  { image: "/image/home/project-bank.jpg", alt: "금융기관 UPS 납품 현장", name: "하나HSBC생명보험(주)", spec: "60kVA", field: "금융기관" },
+  { image: "/image/home/project-datacenter.png", alt: "데이터센터 UPS 납품 현장", name: "다음커뮤니케이션", spec: "100kVA", field: "데이터센터" },
+  { image: "/image/home/project-university.png", alt: "대학교 UPS 납품 현장", name: "중앙대학교", spec: "50kVA", field: "공공기관" },
+  { image: "/image/home/project-factory.png", alt: "공장 UPS 납품 현장", name: "LG디스플레이 제2공장", spec: "80kVA", field: "산업현장" },
+  { image: "/image/home/project-public.png", alt: "공공기관 UPS 납품 현장", name: "화성시청", spec: "30kVA", field: "공공기관" },
 ];
 
 export interface FieldSummary {

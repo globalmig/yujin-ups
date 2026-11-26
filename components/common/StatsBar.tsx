@@ -39,7 +39,7 @@ const stats = [
   { icon: CalendarIcon, value: "1996", label: "UPS 사업 시작" },
   { icon: AwardIcon, value: "30년 이상", label: "UPS 전문 경험" },
   { icon: CaseIcon, value: "2,500여 대", label: "중대형 UPS 공급 실적" },
-  { icon: BoltIcon, value: "1~200KVA", label: "다양한 용량 대응" },
+  { icon: BoltIcon, value: "1~200kVA", label: "다양한 용량 대응" },
 ];
 
 export default function StatsBar() {

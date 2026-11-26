@@ -12,7 +12,7 @@ import ProjectsSection from "@/components/home/ProjectsSection";
 
 export const metadata: Metadata = {
   title: "제품소개",
-  description: "1KVA부터 200KVA까지, 유진전원시스템의 UPS·AVR·주파수 변환기·배터리 제품 라인업을 소개합니다.",
+  description: "1kVA부터 200kVA까지, 유진전원시스템의 UPS·AVR·주파수 변환기·배터리 제품 라인업을 소개합니다.",
   alternates: { canonical: "https://www.upscom.co.kr/products" },
   openGraph: {
     title: "제품소개 | 유진전원시스템",
@@ -24,28 +24,28 @@ export const metadata: Metadata = {
 const productLineup = [
   {
     range: "단상 UPS",
-    title: "SPT 시리즈 · 1~30KVA",
+    title: "SPT-301K 시리즈 · 3~15kVA",
     image: "/image/products/single-ups-feature.png",
     features: ["가정, 소규모 사무실, PC, 통신장비", "온라인 방식 (On-Line)", "정현파 출력, 고효율 설계", "LCD 디스플레이"],
     href: "/products/single-ups",
   },
   {
     range: "삼상 / 단상 UPS",
-    title: "모듈형 UPS · 20~600KVA",
+    title: "SPT-3000 시리즈 · 10~30kVA",
     image: "/image/products/spt-3000.png",
     features: ["중소형 전산실, 공장 설비", "온라인 이중변환 방식", "병렬 운전 지원", "다양한 통신 옵션"],
     href: "/products/three-single-ups",
   },
   {
     range: "삼상 / 삼상 UPS",
-    title: "3상 온라인 UPS · 10~600KVA",
+    title: "SPT-3300 시리즈 · 10~120kVA",
     image: "/image/products/three-three-ups-feature.png",
     features: ["산업현장, 데이터센터, 병원", "고효율 온라인 방식", "병렬 확장으로 용량 증설 가능", "SNMP, MODBUS 지원"],
     href: "/products/three-three-ups",
   },
   {
     range: "PC서버용 UPS",
-    title: "HP-900C 시리즈 · 5~10KVA",
+    title: "HP-900C 시리즈 · 1~12kVA",
     image: "/image/products/hp900c-rm.png",
     features: ["서버, 네트워크 장비, 의료장비", "온라인 이중변환 방식", "높은 입력 역률 및 효율", "확장 배터리 지원"],
     href: "/products/server-ups",
@@ -224,7 +224,7 @@ export default function ProductsPage() {
 
         <Container className="relative z-10">
           <div className="max-w-xl pt-16 pb-10 md:pt-24 md:pb-16">
-            <p className="text-sm font-bold text-blue-light mb-3">1KVA부터 200KVA까지</p>
+            <p className="text-sm font-bold text-blue-light mb-3">1kVA부터 200kVA까지</p>
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-[1.2] tracking-tight mb-4">
               다양한 용량의 UPS 라인업
             </h1>

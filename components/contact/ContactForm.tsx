@@ -237,24 +237,24 @@ export default function ContactForm() {
           <div className="flex-1 px-4 py-2 flex items-center">
             <select name="capacity" value={form.capacity} onChange={handleChange} className="w-full md:w-auto border border-line px-2 py-1 rounded outline-none focus:border-blue focus-visible:ring-2 focus-visible:ring-blue/20 bg-white">
               <option value="">전격용량을 선택하세요.</option>
-              <option value="1kva">1KVA</option>
-              <option value="2kva">2KVA</option>
-              <option value="3kva">3KVA</option>
-              <option value="5kva">5KVA</option>
-              <option value="6kva">6KVA</option>
-              <option value="7.5kva">7.5KVA</option>
-              <option value="10kva">10KVA</option>
-              <option value="15kva">15KVA</option>
-              <option value="20kva">20KVA</option>
-              <option value="30kva">30KVA</option>
-              <option value="40kva">40KVA</option>
-              <option value="50kva">50KVA</option>
-              <option value="60kva">60KVA</option>
-              <option value="80kva">80KVA</option>
-              <option value="100kva">100KVA</option>
-              <option value="120kva">120KVA</option>
-              <option value="160kva">160KVA</option>
-              <option value="200kva">200KVA</option>
+              <option value="1kva">1kVA</option>
+              <option value="2kva">2kVA</option>
+              <option value="3kva">3kVA</option>
+              <option value="5kva">5kVA</option>
+              <option value="6kva">6kVA</option>
+              <option value="7.5kva">7.5kVA</option>
+              <option value="10kva">10kVA</option>
+              <option value="15kva">15kVA</option>
+              <option value="20kva">20kVA</option>
+              <option value="30kva">30kVA</option>
+              <option value="40kva">40kVA</option>
+              <option value="50kva">50kVA</option>
+              <option value="60kva">60kVA</option>
+              <option value="80kva">80kVA</option>
+              <option value="100kva">100kVA</option>
+              <option value="120kva">120kVA</option>
+              <option value="160kva">160kVA</option>
+              <option value="200kva">200kVA</option>
               <option value="etc">기타</option>
             </select>
           </div>

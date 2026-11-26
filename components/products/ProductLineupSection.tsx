@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 const lineup = [
   {
     title: "단상 UPS",
-    range: "1 ~ 15kVA",
+    range: "3 ~ 15kVA",
     desc: "온라인 방식, 범용형 UPS",
     image: "/image/products/single-ups-feature.png",
     href: "/products/single-ups",
@@ -21,7 +21,7 @@ const lineup = [
   },
   {
     title: "삼상 / 삼상 UPS",
-    range: "10 ~ 200kVA",
+    range: "10 ~ 120kVA",
     desc: "데이터센터, 대형 설비용",
     image: "/image/products/UPS-3상-3상(2대)-1.png",
     href: "/products/three-three-ups",
