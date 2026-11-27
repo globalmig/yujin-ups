@@ -5,7 +5,7 @@ import { productContentMap } from "@/data/products/product-content";
 
 function ClockIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="9" />
       <polyline points="12 7 12 12 15.5 14" />
     </svg>
@@ -14,7 +14,7 @@ function ClockIcon() {
 
 function ActivityIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="22 12 18 12 15 20 9 4 6 12 2 12" />
     </svg>
   );
@@ -22,7 +22,7 @@ function ActivityIcon() {
 
 function ShieldIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   );
@@ -57,17 +57,17 @@ export default function ProductDetailHero({ categoryId }: { categoryId: string }
             <p className="text-base md:text-lg text-white/70 leading-relaxed">{description}</p>
           </div>
 
-          <div className="flex flex-wrap gap-x-8 gap-y-6 pb-16 md:pb-24">
+          <div className="flex flex-wrap gap-x-4 gap-y-4 pb-16 md:gap-x-8 md:gap-y-6 md:pb-24">
             {highlights.map(({ value, label }, i) => {
               const Icon = icons[iconKeys[i]];
               return (
-                <div key={label} className="flex items-center gap-4">
+                <div key={label} className="flex items-center gap-2 md:gap-4">
                   <span className="text-white shrink-0">
                     <Icon />
                   </span>
                   <p className="flex flex-col leading-tight">
-                    <b className="text-xl font-bold text-white">{value}</b>
-                    <span className="text-xs text-white/60">{label}</span>
+                    <b className="text-sm md:text-xl font-bold text-white">{value}</b>
+                    <span className="text-[11px] md:text-xs text-white/60">{label}</span>
                   </p>
                 </div>
               );
@@ -103,17 +103,17 @@ export default function ProductDetailHero({ categoryId }: { categoryId: string }
 
             <p className="text-base md:text-lg text-white/70 leading-relaxed mb-8">{description}</p>
 
-            <div className="flex flex-wrap gap-3 mb-10">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2.5 sm:gap-3 mb-10">
               <Link
                 href={`/contact?model=${encodeURIComponent(title)}`}
-                className="inline-flex items-center justify-center gap-1.5 bg-white text-navy px-6 py-3 rounded-full text-sm font-bold hover:bg-white/90 transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 bg-white text-navy px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:bg-white/90 transition-colors"
               >
                 이 모델로 견적 문의
                 <span aria-hidden="true">›</span>
               </Link>
               <Link
                 href="#specs"
-                className="inline-flex items-center justify-center gap-1.5 border border-white/30 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-white/10 transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 border border-white/30 text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:bg-white/10 transition-colors"
               >
                 제원표 보기
               </Link>
@@ -122,24 +122,24 @@ export default function ProductDetailHero({ categoryId }: { categoryId: string }
                   href={catalogHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 border border-white/30 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-white/10 transition-colors"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 border border-white/30 text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:bg-white/10 transition-colors"
                 >
                   카탈로그 PDF
                 </Link>
               )}
             </div>
 
-            <div className="flex flex-wrap gap-x-8 gap-y-6">
+            <div className="flex flex-wrap gap-x-4 gap-y-4 md:gap-x-8 md:gap-y-6">
               {highlights.map(({ value, label }, i) => {
                 const Icon = icons[iconKeys[i]];
                 return (
-                  <div key={label} className="flex items-center gap-4">
+                  <div key={label} className="flex items-center gap-2 md:gap-4">
                     <span className="text-white shrink-0">
                       <Icon />
                     </span>
                     <p className="flex flex-col leading-tight">
-                      <b className="text-xl font-bold text-white">{value}</b>
-                      <span className="text-xs text-white/60">{label}</span>
+                      <b className="text-sm md:text-xl font-bold text-white">{value}</b>
+                      <span className="text-[11px] md:text-xs text-white/60">{label}</span>
                     </p>
                   </div>
                 );
@@ -154,7 +154,7 @@ export default function ProductDetailHero({ categoryId }: { categoryId: string }
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain p-8 md:p-12"
+              className="object-contain p-2 md:p-4"
             />
           </div>
         </div>

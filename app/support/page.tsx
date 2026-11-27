@@ -133,7 +133,7 @@ export default function SupportPage() {
                 <div className="h-full bg-surface rounded-md p-5 md:p-6 text-center flex flex-col items-center gap-3">
                   <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue/10 text-blue">{c.icon}</span>
                   <div>
-                    <p className="text-xs text-muted font-semibold tracking-widest uppercase mb-1">{c.label}</p>
+                    <p className="text-xs text-muted font-bold tracking-widest uppercase mb-1">{c.label}</p>
                     <p className="text-sm md:text-base font-bold text-ink break-all">{c.value}</p>
                   </div>
                 </div>

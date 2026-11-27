@@ -14,17 +14,19 @@ export default function ProjectsSection() {
           title="주요 납품 실적"
           description="유진전원시스템의 UPS는 다양한 분야에서 안정적으로 운용되고 있습니다."
         />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="flex flex-wrap justify-center -mx-1.5 md:-mx-2">
           {projects.map((p) => (
-            <article key={p.name} className="rounded-md overflow-hidden bg-white shadow-sm">
-              <div className="relative w-full aspect-square bg-surface">
-                <Image src={p.image} alt={p.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
-              <div className="text-center px-3 py-4">
-                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{p.name}</h3>
-                <p className="text-xs text-muted leading-relaxed">{p.spec}</p>
-              </div>
-            </article>
+            <div key={p.name} className="w-1/2 sm:w-1/3 lg:w-1/5 px-1.5 md:px-2 mb-3 md:mb-4">
+              <article className="rounded-md overflow-hidden bg-white shadow-sm">
+                <div className="relative w-full aspect-square bg-surface">
+                  <Image src={p.image} alt={p.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
+                </div>
+                <div className="text-center px-3 py-4">
+                  <h3 className="min-h-12 md:min-h-14 flex items-center justify-center text-lg md:text-xl font-bold text-navy mb-1.5">{p.name}</h3>
+                  <p className="text-xs text-muted leading-relaxed">{p.spec}</p>
+                </div>
+              </article>
+            </div>
           ))}
         </div>
 

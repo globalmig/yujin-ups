@@ -16,7 +16,7 @@ export default function ContactSection() {
       <div className="absolute -top-7.5 -right-7.5 w-60 h-60 rounded-full border border-white/10" />
 
       <div className="relative z-10 max-w-300 mx-auto px-6 text-center">
-        <p className="text-white/60 text-xs tracking-widest uppercase mb-4">CUSTOMER CENTER</p>
+        <p className="text-white/60 text-xs font-bold tracking-widest uppercase mb-4">CUSTOMER CENTER</p>
         <h2 className="text-white text-xl md:text-[40px] font-bold leading-relaxed mb-3">궁금하신 사항이나 필요한 자료가 있으시다면</h2>
         <p className="text-white text-xl md:text-2xl font-bold mb-10">언제든지 문의해주세요.</p>
 

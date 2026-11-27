@@ -24,7 +24,7 @@ export default function ProductSpecsSection({ categoryId, specKey, titleOverride
         <SectionTitle eyebrow="SPECIFICATIONS" title={titleOverride ?? `${title} 제품 사양`} description="모델별 상세 사양을 확인하세요." />
         {beforeTable}
         <SpecsTable table={table} />
-        <p className="text-xs text-muted text-right mt-4">※ 상기 제품 사양은 성능 향상을 위해 예고 없이 변경될 수 있습니다.</p>
+        <p className="text-xs text-muted text-right mt-4">※ 상기 제품 사양은 성능 향상을 위해 <br className="lg:hidden"/>예고 없이 변경될 수 있습니다.</p>
       </Container>
     </section>
   );

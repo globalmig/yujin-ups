@@ -111,7 +111,7 @@ export default function QuickInquiryBar() {
       >
         <form onSubmit={handleSubmit} className="px-4 pt-4 pb-6">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-lg font-bold text-white">간편문의</span>
+            <span className="text-lg font-bold text-white">간편 문의</span>
             <button
               type="button"
               onClick={() => setMobileFormOpen(false)}
@@ -139,14 +139,14 @@ export default function QuickInquiryBar() {
             onClick={() => setMobileFormOpen(true)}
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-10 bg-blue text-white rounded text-sm font-bold"
           >
-            견적 문의
+            간편 문의
           </button>
         </div>
 
         {/* PC/태블릿: 이름·연락처 입력 후 바로 접수 */}
         <form onSubmit={handleSubmit} className="hidden sm:block">
           <div className="max-w-300 mx-auto px-4 py-5 flex items-center gap-3">
-            <span className="text-xl font-bold text-white shrink-0 whitespace-nowrap">간편문의</span>
+            <span className="text-xl font-bold text-white shrink-0 whitespace-nowrap">간편 문의</span>
             {formFields}
           </div>
         </form>

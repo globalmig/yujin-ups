@@ -33,7 +33,7 @@ export default function CompanyPage() {
             {/* 오른쪽: 본문 */}
             <div className="flex-1 flex flex-col gap-10">
               <div>
-                <p className="text-xs text-blue tracking-widest uppercase mb-3">ABOUT US</p>
+                <p className="text-xs font-bold text-blue tracking-widest uppercase mb-3">ABOUT US</p>
                 <h2 className="text-2xl md:text-[40px] font-bold leading-snug mb-5 text-navy">
                   유진전원시스템(주)
                   <br />

@@ -131,14 +131,25 @@ export default function Header() {
             if (item.href === "/products") {
               return (
                 <div key={item.href} className="w-full border-b border-line">
-                  <button
-                    onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                    className={`w-full text-center py-4 text-lg font-medium flex items-center justify-center gap-2 transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} ${pathname.startsWith(item.href) ? "text-blue font-bold" : "text-ink"}`}
+                  <div
+                    className={`w-full flex items-center justify-center transition-all duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                     style={{ transitionDelay: menuOpen ? `${i * 50}ms` : "0ms" }}
                   >
-                    {item.name}
-                    <span className={`text-sm transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`}>▼</span>
-                  </button>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`py-4 text-lg font-medium ${pathname.startsWith(item.href) ? "text-blue font-bold" : "text-ink"}`}
+                    >
+                      {item.name}
+                    </Link>
+                    <button
+                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                      aria-label="제품소개 하위 메뉴 펼치기"
+                      className="px-3 py-4"
+                    >
+                      <span className={`text-sm transition-transform duration-200 inline-block ${mobileProductsOpen ? "rotate-180" : ""}`}>▼</span>
+                    </button>
+                  </div>
                   <div className={`overflow-hidden transition-all duration-300 ${mobileProductsOpen ? "max-h-screen" : "max-h-0"}`}>
                     {categories.map((cat) => (
                       <Link

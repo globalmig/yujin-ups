@@ -51,7 +51,7 @@ export default function MaintenancePage() {
             <Button href="tel:02-894-8057" variant="white">
               ☎ UPS 고장·점검 문의 02-894-8057
             </Button>
-            <Button href="#contact" variant="outline" className="border-white/40 text-white hover:bg-white/10">
+            <Button href="#contact" variant="outline" className="bg-transparent! text-white! border-white/50! hover:bg-white/10!">
               고장·점검 문의하기
             </Button>
           </>

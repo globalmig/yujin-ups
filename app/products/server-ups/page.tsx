@@ -4,7 +4,6 @@ import Link from "next/link";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ProductDetailHero from "@/components/products/ProductDetailHero";
-import ProductFeaturesSection from "@/components/products/ProductFeaturesSection";
 import { serverUpsModels } from "@/data/products/server-ups-models";
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export default function ServerUpsPage() {
   return (
     <>
       <ProductDetailHero categoryId="server-ups" />
-      <ProductFeaturesSection categoryId="server-ups" />
 
       <section className="py-16 md:py-30 bg-white">
         <Container>

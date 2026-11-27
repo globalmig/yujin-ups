@@ -40,17 +40,19 @@ export default function WhyUsSection() {
     <section id="about" className="py-16 md:py-30 bg-white scroll-mt-20">
       <Container>
         <SectionTitle eyebrow="WHY US" title="왜 유진전원시스템인가?" description="30년의 경험과 검증된 기술로 고객의 소중한 전원을 책임집니다." />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="flex flex-wrap justify-center -mx-1.5 md:-mx-2">
           {features.map((f) => (
-            <article key={f.title} className="border border-line rounded-md overflow-hidden bg-white shadow-sm">
-              <div className="relative w-full aspect-square bg-surface">
-                <Image src={f.image} alt={f.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
-              <div className="text-center px-3 py-4">
-                <h3 className="text-lg md:text-xl font-bold text-navy mb-1.5">{f.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{f.desc}</p>
-              </div>
-            </article>
+            <div key={f.title} className="w-1/2 sm:w-1/3 lg:w-1/5 px-1.5 md:px-2 mb-3 md:mb-4">
+              <article className="border border-line rounded-md overflow-hidden bg-white shadow-sm">
+                <div className="relative w-full aspect-square bg-surface">
+                  <Image src={f.image} alt={f.alt} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
+                </div>
+                <div className="text-center px-3 py-4">
+                  <h3 className="min-h-12 md:min-h-14 flex items-center justify-center text-lg md:text-xl font-bold text-navy mb-1.5">{f.title}</h3>
+                  <p className="text-xs text-muted leading-relaxed">{f.desc}</p>
+                </div>
+              </article>
+            </div>
           ))}
         </div>
       </Container>

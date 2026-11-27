@@ -29,7 +29,7 @@ export default function StrengthContactSection({
       전문가가 친절하게 상담해 드리겠습니다.
     </>
   ),
-  contactButtonHref = "mailto:ups8057@naver.com?subject=UPS%20견적%20문의",
+  contactButtonHref = "/contact",
   contactButtonLabel = "견적 문의하기",
 }: StrengthContactSectionProps) {
   return (

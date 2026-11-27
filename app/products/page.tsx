@@ -82,7 +82,7 @@ const productLineup = [
 
 function ShieldIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   );
@@ -90,7 +90,7 @@ function ShieldIcon() {
 
 function BuildingIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 10 12 4l9 6" />
       <path d="M5 10v9M9 10v9M15 10v9M19 10v9" />
       <path d="M3 19h18" />
@@ -100,7 +100,7 @@ function BuildingIcon() {
 
 function WrenchIcon() {
   return (
-    <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
     </svg>
   );
@@ -109,11 +109,11 @@ function WrenchIcon() {
 function HeadsetIcon() {
   return (
     <span className="relative inline-flex">
-      <svg className="w-17.5 h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-9 h-9 md:w-17.5 md:h-17.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
         <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
       </svg>
-      <span className="absolute top-2 left-2 w-7 h-7 rounded-full bg-white text-blue text-xs font-bold flex items-center justify-center">
+      <span className="absolute top-1 left-1 w-4 h-4 text-[9px] md:top-2 md:left-2 md:w-7 md:h-7 md:text-xs rounded-full bg-white text-blue font-bold flex items-center justify-center">
         24
       </span>
     </span>
@@ -217,9 +217,9 @@ export default function ProductsPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-right"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-navy-dark via-navy/95 to-navy/10 md:from-navy-dark md:via-navy/85 md:to-transparent" />
+          <div className="absolute inset-0 bg-linear-45 from-navy-dark via-navy/95 to-navy/10 md:bg-linear-to-r md:from-navy-dark md:via-navy/85 md:to-transparent" />
         </div>
 
         <Container className="relative z-10">
@@ -233,15 +233,15 @@ export default function ProductsPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-x-8 gap-y-8 pb-16 md:gap-x-12 md:pb-24">
+          <div className="flex flex-wrap gap-x-4 gap-y-4 pb-16 md:gap-x-12 md:gap-y-8 md:pb-24">
             {heroHighlights.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-4">
+              <div key={label} className="flex items-center gap-2 md:gap-4">
                 <span className="text-white shrink-0">
                   <Icon />
                 </span>
                 <p className="flex flex-col leading-tight">
-                  <b className="text-base md:text-xl font-bold text-white md:mb-1">{value}</b>
-                  <span className="text-xs text-white/60">{label}</span>
+                  <b className="text-sm md:text-xl font-bold text-white md:mb-1">{value}</b>
+                  <span className="text-[11px] md:text-xs text-white/60">{label}</span>
                 </p>
               </div>
             ))}
@@ -339,7 +339,7 @@ export default function ProductsPage() {
       </section>
 
       {/* 핵심 특징 */}
-      <section className="py-16 md:py-30 bg-navy">
+      <section className="py-16 md:py-30 bg-navy-dark">
         <Container>
           <SectionTitle
             light

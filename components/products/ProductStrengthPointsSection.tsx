@@ -67,9 +67,9 @@ export default function ProductStrengthPointsSection({ categoryId, imageKey }: P
           {points.map(({ label, title, desc, image }) => (
             <div
               key={label}
-              className="flex flex-col sm:flex-row items-stretch rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm border border-white/15"
+              className="flex flex-row items-stretch rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm border border-white/15"
             >
-              <div className="relative w-full sm:w-2/5 aspect-4/3 sm:aspect-3/4 shrink-0">
+              <div className="relative w-2/5 aspect-3/4 shrink-0">
                 <Image src={image} alt={title} fill sizes="(max-width: 640px) 100vw, 20vw" className="object-cover" />
               </div>
               <div className="p-6 md:p-8 flex flex-col justify-center">

@@ -25,7 +25,7 @@ export default function ProductFeaturesSection({ categoryId }: { categoryId: str
               alt={title}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain p-8"
+              className="object-contain p-2 md:p-4"
             />
           </div>
           {secondaryImage && (
@@ -35,7 +35,7 @@ export default function ProductFeaturesSection({ categoryId }: { categoryId: str
                 alt={`${title} - 후면`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-contain p-8"
+                className="object-contain p-2 md:p-4"
               />
             </div>
           )}

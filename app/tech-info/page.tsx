@@ -79,7 +79,7 @@ export default function TechInfoPage() {
       {/* 제품별 상세 사양 CTA */}
       <section className="py-16 md:py-20 bg-white">
         <Container className="text-center">
-          <p className="text-xs text-blue tracking-widest uppercase mb-3">PRODUCT SPECIFICATIONS</p>
+          <p className="text-xs text-blue font-bold tracking-widest uppercase mb-3">PRODUCT SPECIFICATIONS</p>
           <h2 className="text-xl md:text-[40px] font-bold text-navy mb-3">제품별 상세 사양이 궁금하신가요?</h2>
           <p className="text-lg md:text-xl text-muted mb-8">제품소개 페이지에서 모델별 상세 기술 사양을 확인하실 수 있습니다.</p>
           <Button href="/products" variant="primary">
